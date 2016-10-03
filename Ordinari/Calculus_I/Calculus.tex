@@ -41,11 +41,96 @@
 \usepackage{url}
 \newcommand*{\defeq}{\stackrel{\text{def}}{=}}
 \author{Jacopo Tissino}
-\title{}
+\title{Notes on Calculus I}
 
 \begin{document}
 
 \maketitle
+
+\chapter{Naïve set theory}
+
+\section{Basic sets}
+
+\begin{equation}
+\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}, \qquad 0 \not \in \mathbb{N}
+\end{equation}
+
+\begin{equation}
+\mathbb{R}^+ := \lbrace x \in \mathbb{R} : x>0 \rbrace
+\end{equation}
+
+\paragraph{Remarks}
+
+\begin{itemize}
+\item ``$\in$'' is for elements belonging to sets, ``$\subseteq$'' is for subsets
+\item $\lbrace x \rbrace \neq x$: the first is a set with $x$ as its only element, and is called a ``singlet''
+\item $\subsetneq$  means ``is a subset of, but not equal to''
+\item the elements of $\mathcal{P}(A)$ are precisely all the subsets of $A$
+\item $\sharp A$ is the cardinality of $A$
+\item $\sharp \mathcal{P} (A) = 2^{\sharp A}$
+\end{itemize}
+
+The naïve definitions of $A \cup B$, $A \cap B$, $A \smallsetminus B$ are given.
+
+\paragraph{Properties}
+
+\begin{itemize}
+\item $A = (A \cap B ) \cup (A \smallsetminus B)$
+\item $(A \cap B) \cap (A \smallsetminus B) = \emptyset$
+\item $C \cap (A \cup B) = (C \cap A) \cup (C \cap B)$
+\item $C \cup (A \cap B) = (C \cup A) \cap (C \cup B)$
+\end{itemize}
+
+\paragraph{Complement}
+
+\begin{definition}
+With respect to a ``universe'' set $U$, we define the complement of $A$ as $U \smallsetminus A$, denoted $A^C$.
+\end{definition}
+
+The following hold:
+
+\begin{itemize}
+\item $(A \cup B)^C = A^C \cap B^C$
+\item $(A \cap B)^C = A^C \cup B^C$
+\end{itemize}
+
+\paragraph{Cartesian product}
+
+\begin{definition}
+An \emph{ordered pair} is a set of the form $\lbrace \lbrace x \rbrace , \lbrace x, y \rbrace \rbrace$, denoted $(x, y)$ (where order matters).
+\end{definition}
+
+\begin{definition}
+We define the \emph{cartesian product} $A\times B$ of two sets $A$ and $B$ as:
+
+\begin{equation}
+A\times B := \left\lbrace (a, b) : a \in A, b \in B \right\rbrace
+\end{equation}
+\end{definition}
+
+\section{Propositional logic}
+
+\paragraph{Implication}
+\begin{definition}
+\begin{equation}
+p\implies q \iff (\neg p ) \vee q
+\end{equation}
+\end{definition}
+
+\paragraph{Double implication}
+\begin{definition}
+\begin{equation}
+(p \iff q) \iff (p \implies q \wedge q \implies p )
+\end{equation}
+\end{definition}
+
+\paragraph{Quantifiers}
+
+$P(x)$ is a \emph{predicate}. We say that $\forall x : P(x)$ if $P(x)$ is true independently of $x$, and that
+
+\begin{equation}
+\exists x : P(x) \iff \neg ( \forall x : \neg P(x) )
+\end{equation}
 
 \tableofcontents
 
