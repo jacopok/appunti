@@ -1,0 +1,7 @@
+\contentsline {chapter}{\numberline {1}Vectors}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Euclidean space}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Segments}{1}{section.1.2}
+\contentsline {paragraph}{Addition}{1}{section*.1}
+\contentsline {paragraph}{Multiplication by a scalar}{2}{section*.2}
+\contentsline {paragraph}{Properties of vector operations}{2}{section*.3}
+\contentsline {section}{\numberline {1.3}Reference frames}{2}{section.1.3}

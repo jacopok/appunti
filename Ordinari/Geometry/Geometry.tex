@@ -47,6 +47,98 @@
 
 \maketitle
 
+\chapter{Vectors}
+
+\section{Euclidean space}
+
+We will use the Euclidean $n$-dimentional space as a model for the physical space.
+Space is a set, whose elements are points, and whose subsets are lines, planes and hyperplanes, which we will treat algebraically. 
+We will need notions of parallelism, measure and orthogonality.
+
+\section{Segments}
+
+An oriented segment (or ``applied vector'') is a subset of a space $S_n$ characterized by an ordered pair of points. It is denoted as such: $P_1 P_2$ is the segment $(P_1, P_2 )$, where $\forall k \in \mathbb{N}: P_k \in S_n$.
+
+There exist ``trivial'' segments $P_1 P_1$.
+
+We define an equivalence relation on $S_n \times S_n$: $\sim$, where $P_1 P_2 \sim Q_1 Q_2 \iff P_1 P_2 Q_2 Q_1$ is a parallelogram.\footnote{It is easy enough to check the three conditions.} Notably, we do not need a notion of distance for this.
+
+We denote the representative as such: $[ ( P_1, P_2 ) ] := \overrightarrow{P_1 P_2} = \mathbf{v}$. These are ``free vectors'', or ``geometrical vectors''.
+
+We have the following operations between them:
+
+\begin{itemize}
+\item addition: $\mathbf{a} + \mathbf{b}$
+\item multiplication by a scalar: $\alpha \mathbf{a},\quad \alpha\in \mathbb{R}$
+\end{itemize}
+
+\paragraph{Addition} If we want to add together two vectors $\overrightarrow{AB}$ and $\overrightarrow{CD}$, first we must represent both as starting from the same point: so we change $\overrightarrow{CD}$ to $\overrightarrow{AE} = \overrightarrow{CD}$. Then, there exists a $K$ such that $\overrightarrow{EK} = \overrightarrow{AB}$, and
+
+\begin{equation}
+\overrightarrow{AK} := \overrightarrow{AB} + \overrightarrow{CD}
+\end{equation}
+
+\paragraph{Multiplication by a scalar} We use a real number as a scalar because of the continuum hypothesis.\footnote{CH states that there is no set whose cardinality is between that of the integers and that of the reals.}
+
+For any $\alpha \in \mathbb{R}$ and any vector , we define $\alpha \overrightarrow{AB}$ as a vector $\overrightarrow{AC}$ such that $\abs{\overrightarrow{AC}} = \abs{\alpha} \abs{\overrightarrow{AB}}$ and $C$ is on the same side of $A$ as $B$ if $\alpha > 0$ and on the opposite side if $\alpha < 0$.
+
+Defining the zero vector $\mathbf{0} = \overrightarrow{AA}$ we immediately see that:
+
+\begin{itemize}
+\item $0 \mathbf{v} = \mathbf{0}$
+\item $\alpha \mathbf{0} = \mathbf{0}$
+\end{itemize}
+
+\paragraph{Properties of vector operations} The following hold:
+
+\begin{enumerate}
+\item addition is commutative: $\mathbf{a} + \mathbf{b} = \mathbf{b} + \mathbf{a}$
+\item addition is associative: $\mathbf{a} + (\mathbf{b} + \mathbf{c}) = (\mathbf{a} + \mathbf{b}) + \mathbf{c}$, since they define a parallelepiped
+\item there exists a zero vector: $\exists \mathbf{0} : \mathbf{a} + \mathbf{0} = \mathbf{a}$
+\item there exists an opposite for every vector: $\exists (-\mathbf{a}) : \mathbf{a} + (\mathbf{-a}) = \mathbf{0}$, also, we notice that $(-\mathbf{a}) = -1 \mathbf{a}$
+\item scalar multiplication is distributive: $\alpha (\mathbf{a} + \mathbf{b}) = \alpha \mathbf{a} + \alpha\mathbf{b}$
+\item scalar addition distributes as vector addition over scalar multiplication: $(\alpha + \beta) \mathbf{a} = \alpha \mathbf{a} + \beta \mathbf{b}$
+\item scalar multiplication is associative: $(\alpha \beta ) \mathbf{a} = \alpha (\beta \mathbf{a})$
+\item $1 \mathbf{a} = \mathbf{a}$
+\item $0 \mathbf{a} = \mathbf{0}$
+\end{enumerate}
+
+\section{Reference frames}
+
+For an $n$-dimensional reference frame we need $n$ vectors (the ``basis vectors'') which are neither parallel to one another nor lying in the same (hyper)plane, so that we can express any vector we want through a linear combination of them; they, however, need not be orthogonal.
+We will call our three-dimensional basis vectors $\hat{x}$, $\hat{y}$ and $\hat{z}$. Any vector $\mathbf{p}$ can then be seen as:
+
+\begin{equation}
+\mathbf{p} = \alpha \hat{x} + \beta \hat{y} + \gamma \hat{z} = \begin{pmatrix}
+\alpha \\ \beta \\ \gamma
+\end{pmatrix}
+\end{equation}
+
+We can verify through the identities that, as long as we work in a consistent reference system, we can express vector addition and scalar mutiplication through the coordinates as follows:
+
+\begin{equation}
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
++
+\begin{pmatrix}
+y_1 \\ y_2 \\ y_3
+\end{pmatrix}
+=
+\begin{pmatrix}
+x_1 + y_1 \\ x_2 + y_2 \\ x_3 + y_3
+\end{pmatrix},
+\qquad
+c
+\begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix}
+=
+\begin{pmatrix}
+c x_1 \\ c x_2 \\ c x_3
+\end{pmatrix}
+\end{equation}
+
 \tableofcontents
 
 \end{document}
