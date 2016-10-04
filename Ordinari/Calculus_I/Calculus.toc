@@ -8,3 +8,11 @@
 \contentsline {paragraph}{Implication}{2}{section*.5}
 \contentsline {paragraph}{Double implication}{2}{section*.6}
 \contentsline {paragraph}{Quantifiers}{2}{section*.7}
+\contentsline {chapter}{\numberline {2}Number sets}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}The set $\mathbb {N}$}{3}{section.2.1}
+\contentsline {paragraph}{The Peano axioms}{3}{section*.8}
+\contentsline {section}{\numberline {2.2}Induction}{3}{section.2.2}
+\contentsline {paragraph}{Examples}{3}{section*.9}
+\contentsline {section}{\numberline {2.3}Groups}{5}{section.2.3}
+\contentsline {paragraph}{Roots}{5}{section*.10}
+\contentsline {section}{\numberline {2.4}The set $\mathbb {R}$}{6}{section.2.4}

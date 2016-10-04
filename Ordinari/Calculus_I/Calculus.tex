@@ -132,6 +132,210 @@ $P(x)$ is a \emph{predicate}. We say that $\forall x : P(x)$ if $P(x)$ is true i
 \exists x : P(x) \iff \neg ( \forall x : \neg P(x) )
 \end{equation}
 
+\chapter{Number sets}
+
+\section{The set $\mathbb{N}$}
+
+\paragraph{The Peano axioms}
+
+\begin{enumerate}
+\item $1 \in \mathbb{N}$
+\item $\forall n \in \mathbb{N}:  \exists S (n) : \mathbb{N} \rightarrow \mathbb{N}$
+\item $\forall n \in \mathbb{N}: S(n) \neq 1$
+\item $\forall m, n \in \mathbb{N}: m \neq n \implies S(n) \neq S(m)$ or $S(n) = S(m) \implies n = m$
+\item $(A \subseteq \mathbb{N} )\wedge (1 \in A )\wedge (n  \in A \implies S(n) \in A ) \implies A = \mathbb{N}$
+\end{enumerate}
+
+Any set that verifies these axioms is isomorphic to $\mathbb{N}$. $\mathbb{R}^{+}$, for example only satisfies the first 4.
+
+\section{Induction}
+
+If $P(n)$ is a proposition, $P(1)$ and $P(n) \implies P(n+1)$\footnote{We introduce the notation $n+1$ to signify $S(n)$.} (the \emph{inductive hypothesis}); then $\forall n \in \mathbb{N}, P(n)$.
+
+\begin{proof}
+Define $A := \lbrace n \in \mathbb{N}: P(n) \rbrace$. By axiom 5, $A = \mathbb{N}$.
+\end{proof}
+
+If a property $a': P(k)$ holds for some $k \in \mathbb{N}$ and $b': P(n) \implies P(n+1)$, then $\forall n \geq k : P(n)$.
+
+\paragraph{Examples}
+
+Example: we can show by induction that
+
+\begin{equation}
+\sum_{i=1}^n = \frac{n (n+1)}{2}
+\end{equation}
+
+Example 2: we can show by induction that $P(\sharp A):\sharp \mathcal{P}(A) = 2^{\sharp A}$. 
+
+\begin{proof}
+$P(1)$ is true. 
+We see that for any $A$ we can take an element such that $A = \lbrace a \rbrace \cup B$. Then for any subset $I$, either $a \in I$ or $a \not \in I$. If $a \in I$, $I = \lbrace a \rbrace \cup J$, but there are $2^n$ possible $J$s. If $a \not \in I$, we have $2^n$ $I'$s. So there are $2^{n+1}$ possible subsets.
+\end{proof}
+
+Example 3: show that $n! > 2^n$, which is true for $n>3$.
+
+\begin{proof}
+We will use the second form of the induction principle. $P(4)$ is true. If $n>4$ and $n! > 2^n$, we need to show that $(n+1) n!> 2 \cdot 2^n$. But $n+1>2$ by hypothesis, so the inequality always holds.
+\end{proof}
+
+Observation: the notation $1 + 2+ 3 + 4+ \cdots + n$ is unclear, we should use $\sum_{i=1}^n i$.
+
+Recursive formulas: we know the first term, and an algorithm to derive any term from the one before it, such as the definition of the factorial:
+
+\begin{equation}
+\begin{cases}
+0! = 1\\
+(n+1)! = (n+1) n!
+\end{cases}
+\end{equation}
+
+Another example is the sequence:
+
+\begin{equation}
+\begin{cases}
+S_1 = 2\\
+S_{n+1} = S_n + (2n+1)
+\end{cases}
+\end{equation}
+
+
+\begin{proof}[Proof that $S_n = n^2 + 1$]
+Assume that $S_n = n^2 +1$. Then $S_{n+1} = n^2 + 1 + 2n + 1 = (n+1)^2 + 1$.
+\end{proof}
+
+Formal definition of summation:
+
+\begin{equation}
+\sum_{i=0}^n a_i =a_0 + a_1 + a_2 + a_3 + \cdots + a_n
+\end{equation}
+
+by recursion: for an increment in $n$, we just add the $n+1$-th term. So it comes down to the formal definition of induction.
+
+Example: show by induction that
+
+\begin{equation}
+\forall a \in \mathbb{N} \vee a=0 \quad (a\neq 1): \quad \sum_{k=0}^n a^k = \frac{1-a^{n+1}}{1-a}
+\end{equation}
+
+See the property for $n=0$. Suppose that the property holds for $n$, show it for $n+1$:
+
+\begin{equation}
+\sum_{i=0}^{n+1} a_k = \sum_{k=0}^n a^k + a^{n+1} = \frac{1-a^{n+1}}{1-a} + a^{n+1} = \frac{1-a^{n+2}}{1-a}
+\end{equation}
+
+To do: given two real numbers, $\forall n \in \mathbb{N}$, show that
+
+\begin{equation}
+(a+b)^n = \sum_{k=0}^n {n\choose k} a^k b^{n-k}
+\end{equation}
+
+\section{Groups}
+
+We have a set $A$ with an operation $*$: $a, b \in A \rightarrow a*b \in A$. Es: $A$ strings, $*$ concatenation. $(A, *)$ is a group if the following are satisfied:
+
+\begin{enumerate}
+\item Associativity: $\forall a, b, c \in A: \quad a* (b*c) = (a*b)*c$
+\item Identity: $\exists e \in A: \forall a \in A: \quad e*a = a*e = a$
+\item Inverse: $\forall a \in A: \exists a^{-1} \in A: \quad a* a^{-1} = a^{-1} * a = e$
+\end{enumerate}
+
+$(A, *)$ is also a commutative group if $\forall a, b \in A: \quad a*b=b*a$
+
+Examples: $(\mathbb{N}, +)$ is not a group: there is no identity, but even if we add 0 there is no inverse. $(\mathbb{Z}, +)$ is a commutative group. $(\mathbb{R}, \times)$ is not a group because 0 has no inverse. $(\mathbb{R}_0, \times)$ is hower a group, as is $(\mathbb{R}_0, +)$. $(\mathbb{Z}_0, \times)$ is not a group because there is no inverse: $(\mathbb{Q}_0, \times)$ is a commutative group.
+
+So we introduce $\mathbb{Q}$:
+
+\begin{equation}
+\mathbb{Q}:= \left\lbrace \frac{a}{b}, a \in \mathbb{Z}, b\in \mathbb{N}\right\rbrace  / \sim
+\end{equation}
+
+but $ad \sim bc$ and $\mathbb{Q}$ is isomorphic to $\mathbb{Z}$
+
+\begin{definition}
+Order relation:
+
+\begin{equation}
+\frac a b \leq \frac cd \iff ad \leq bc 
+\end{equation}
+\end{definition}
+
+\begin{definition}
+Sum and product, subtraction and division are analogous:
+
+\begin{equation}
+\frac ab + \frac cd = \frac{ad+bc}{bd}
+\end{equation}
+\begin{equation}
+\frac ab \times \frac cd = \frac{ac}{bd}
+\end{equation}
+\end{definition}
+
+$(\mathbb{Q}, +, \times)$ is then a field:
+
+\begin{enumerate}
+\item $(\mathbb{Q}, +)$ is a commutative group;
+\item $(\mathbb{Q}_0, \times )$ is a commutative group
+\item $p (q+r) = pq + pr$
+\end{enumerate}
+
+\paragraph{Roots}
+
+The square root of a number $a\geq 0$ is a $b \geq 0$ such that $b^2 = a$.
+
+Show that in $\mathbb{Q}$ there is no $\sqrt{2}$:
+
+\begin{proof}
+By contradiction:\footnote{In the form: to show that $p \implies q$, we show that $\neg q \implies \neg p$, since
+\begin{equation}
+(p\implies q) \iff (\neg q \implies \neg p )
+\end{equation}} if there were $a \in \mathbb{Z}$ and $b \in \mathbb{N}$ such that
+
+\begin{equation}
+\left( a\over b \right) ^2 = 2
+\end{equation}
+
+Suppose that $a, b$ have $\gcd(a, b) = 1$. Then $a^2 = 2 b^2$. So $a$ is even, and $a=2k$.
+
+Then $4k^2 = 2b^2 \implies b=2n$: so $\gcd(a, b) \neq 1$
+\end{proof}
+
+To do: show that $\sqrt{3}$ is irrational, $\sqrt[3]{2}$ is irrational.
+
+\section{The set $\mathbb{R}$}
+
+The set is given.
+$\mathbb{R}$ is a completely ordered field:
+
+\begin{enumerate}
+\item $(\mathbb{R}, +)$ is a commutative group
+\item $(\mathbb{R}_0, \times)$ is a commutative group
+\item $a (b+c) = ab+ac$
+\end{enumerate}
+
+There also exists a relation called $\leq$, such that $\forall a, b, c \in \mathbb{R}$:
+
+\begin{enumerate}
+\item $a\leq a$
+\item $a \leq b \wedge b \leq a \implies a = b$
+\item $a \leq b \wedge b \leq c \implies a \leq c$
+\item $a \leq b \vee b \leq a$ (\emph{completely} ordered)
+\item $a \leq b \implies a+c \leq b+c$
+\item $a \geq 0 \wedge b \geq 0 \implies ab \geq 0$ (of course, $a \geq 0$ means that $0 \leq a$) 
+\end{enumerate}
+
+$(\mathbb{Q}, +, \times) $ is also a completely ordered field?
+
+Take the set of all the real numbers whose squares are greater or equal to 2: it has a minimum.
+
+In $\mathbb{Q}$, it has no minimum.
+
+Other statements: show that $a \leq 0 \wedge b \geq 0 \implies ab \leq 0$
+
+\begin{proof}
+Is $a \geq 0 \wedge -b \geq 0$? We first need to show that $a \geq 0 \iff -a \leq 0$: it suffices to add $-a$ to both sides. We also need to show that $a (-b) = -ab$: by an inverse application of the distributive property.
+\end{proof}
+
 \tableofcontents
 
 \end{document}
