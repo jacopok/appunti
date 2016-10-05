@@ -20,6 +20,8 @@
 \setcounter{tocdepth}{4}
 \usepackage{fnpct}
 \usepackage{centernot}
+\usepackage{chemfig}
+\usepackage[version=3]{mhchem}
 
 \usepackage{cool}
 \Style{DSymb={\mathrm d},DShorten=true,IntegrateDifferentialDSymb=\mathrm{d}}
@@ -39,6 +41,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 
 %\usepackage{mxchem}
+\usepackage{siunitx}
 \usepackage{url}
 \newcommand*{\defeq}{\stackrel{\text{def}}{=}}
 \author{Jacopo Tissino}
@@ -49,6 +52,8 @@
 \maketitle
 
 \chapter{Introduction}
+
+\section{History of chemistry \& basics}
 
 Chemistry studies the properties, the structure and the transformations of matter: it is a global science.
 
@@ -84,6 +89,91 @@ Chemical properties: they change when the composition changes.
 Of course, we use the scientific method.
 
 \paragraph{Law of Conservation of Mass} During a chemical reaction, matter cannot be destroyed nor created: it only changes form. So the total mass of the reactants is equal to the mass of the product.
+
+\paragraph{Proust's Law} Definite proportions
+
+\paragraph{Dalton's Law} The masses of a compound when it reacts with another to form different compounds have between then small rational ratios.
+
+\paragraph{Atomic Theory} The atomic number is the number of protons in an atom, denoted $Z$; the mass number is the sum of the protons and the neutrons, denoted $A$. A nuclide of the element $E$ is denoted $\ce{_Z^AE}$ or $\ce{E-A}$.
+
+\section{Measuring mass}
+
+Using kilograms is impractical, so we define the ``uam'' as equal to one twelveth of the mass of a $\ce{^{12}C}$.
+
+Atomic mass is the weighted average of the isotopic masses.
+
+The mass of a nucleus is usually less than the sum of the masses of the particles; this comes from the fact that $E = m c^2$.
+
+\subparagraph{Moles}
+
+A mole is defined as $N_A$ of something, where $N_A$ is the number of atoms in 12 grams of $\ce{^{12}C}$.
+
+\begin{equation}
+N_A \approx \SI{6.0221415E23}{}
+\end{equation}
+
+\subparagraph{Molar mass}
+
+It is the mass (in grams) of a mole of something, expressed in $\SI{}{g/mol}$. It is numerically equal to the atomic mass.
+So
+
+\begin{equation}
+MM = \frac{g}{n}
+\end{equation}
+
+\paragraph{Metals}
+
+Good conductors. They are usually oxidated when reacting with non-metals. They are usually solid at STP.
+
+\paragraph{Metalloids}
+
+Semiconductors. They act as (non-)metals when reacting with non-(metals).
+
+\paragraph{Non-metals}
+
+Usually di-atomic. Poor conductors. Exist in all states. The are usually reduced.
+
+\paragraph{Divisions of the periodic table}
+
+Groups are the columns in the periodic table, periods are rows.
+
+\chapter{Molecules \& compounds}
+
+\section{Pure substances}
+
+We divide pure substances into elements (atomic or molecular) or compounds (molecular or ionic).
+
+Molecular elements are usually diatomic, but sometimes (like in $\ce{S8}$) there are more atoms.
+
+\paragraph{Types of formulas}
+
+\begin{itemize}
+\item Minimal (brute formula): just the elements and the numerical ratios;
+\item Molecular: the elements and the exact number of each atom. To get it we need the molecular mass of the compound;
+\item Structural: the elements, their number, how they are placed in space and their bonds;
+\item Molecular models: spheres and sticks, or ``full'' molecular models where the atoms fill the spaces;
+\item Sterical formula: from VSEPR theory, VB and OM.
+\end{itemize}
+
+\section{Ionic compounds} They are formed by an anion (usually a non-metal) and a cation (usually a metal). We need a ``unit formula'', with the types of ions and their ratios. Ions are atoms with nonzero electric charge.
+
+To form cations or anions we have reactions like:
+
+\begin{align}
+\ce{X &-> X^{n+} + n \mathit{e}-}\\
+\ce{X + n \mathit{e}- &-> X^{n-}}
+\end{align}
+
+Atoms in the 1A-3A groups form ions with charge equal to their group number (their extra electrons).
+Non-metals usually form ions with charge equal to eight minus their group number (the electrons they are missing).
+
+There are also polyatomic ions (like \ce{CO3^{2-}}).
+
+To do: learn all the polyatomic ions. They are all negative, except for \ce{NH4^+}.
+
+When an ionic compound forms, its total charge is always 0: this is useful when balancing reactions and finding formulas.
+
+We always write the cation first and the anion last. We should only speak of the ``formula mass'' of an ionic compound.
 
 \tableofcontents
 

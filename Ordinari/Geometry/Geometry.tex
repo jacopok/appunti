@@ -149,9 +149,29 @@ To write the fact that $\mathbf{a} \parallel \mathbf{b}$, we could say that $\ex
 \exists \alpha , \beta \in \mathbb{R} : \neg (\alpha = \beta = 0 ):  \alpha \mathbf{a} + \beta \mathbf{b} = \mathbf{0}
 \end{equation}
 
-\paragraph{Complanar vectors}
+\paragraph{Co-hyper-planar vectors}
 
+With a similar argument, we say that $n$ vectors $\mathbf{x}_i$, where $0<i\leq n$ are in the same $n-1$-plane if
 
+\begin{equation}
+\forall i \in \mathbb{N}: 0<i\leq n : \exists \alpha_i \in \mathbb{R}: \exists \alpha_i \neq 0 : \sum_{i=1}^n \alpha_i \mathbf{x}_i = \mathbf{0}
+\end{equation}
+
+and we call this a \emph{linear combination} of the vectors $\mathbf{x}_i$.
+
+If there is no such linear combination (with at least one nonzero index) yielding $\mathbf{0}$, the vectors are said to be \emph{linearly independent}; otherwise they are \emph{linearly dependent}.
+If one of the vectors is the zero vector, all of them are automatically linearly dependent.
+
+\begin{definition}
+A \emph{subspace} is a subset $S$ of the geometrical vector space such that:
+\begin{enumerate}
+\item $\mathbf{0} \in S$;
+\item $\forall \mathbf{a}, \mathbf{b} \in S: \mathbf{a} + \mathbf{b} \in S $;
+\item $\forall \mathbf{a} \in S: \forall \lambda \in \mathbb{R}: \lambda \mathbf{a} \in S$;
+\end{enumerate}
+\end{definition}
+
+In $n$-dimensional space, the linear combinations of up to $n-1$ vectors always generate subspaces.
 
 \tableofcontents
 

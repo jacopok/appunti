@@ -1,0 +1,76 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{nicefrac}
+\usepackage[margin=3.3cm]{geometry}
+\usepackage{amssymb}
+\usepackage{accents}
+\usepackage{amsthm}
+\usepackage[pdftex, pdfborderstyle={/S/U/W 0}]{hyperref}
+\numberwithin{equation}{section}
+\usepackage{commath}
+\usepackage{graphicx}
+%\usepackage[extreme]{savetrees}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{nicefrac}
+\setcounter{tocdepth}{4}
+\usepackage{fnpct}
+\usepackage{centernot}
+
+\usepackage{cool}
+\Style{DSymb={\mathrm d},DShorten=true,IntegrateDifferentialDSymb=\mathrm{d}}
+
+\usepackage{microtype}
+\usepackage{cleveref}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\usepackage{mathtools}
+ 
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\usepackage{url}
+\newcommand*{\defeq}{\stackrel{\text{def}}{=}}
+\author{Jacopo Tissino}
+\title{Notes on Computer Science}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Natural Numbers}
+
+\section{Change of basis}
+
+We are looking for a practical, recursive formula to change between bases. The problem is posed as such: given a number $q$ in a base $R_1$ find the coefficients $b_n$ such that in base $R_2$
+
+\begin{equation}
+q = \sum_{i=0}^{n-1} a_i R_1^i = \sum_{i=0}^{m-1} b_i R_2^i
+\end{equation}
+
+We can write $q$ as:
+
+\begin{equation}
+q_0 = b_0 +  R_2 \left( b_1 + R_2 \left( b_2 + R_2 \left( b_3 + R_2 \left( b_4 + R_2 \cdots \right)\right)\right)\right) = b_0 + R_2 q_1
+\end{equation}
+
+Or in general
+
+\begin{equation}
+q_j = b_j + R_2 q_{j-1}
+\end{equation}
+
+So, given $q$, we can divide through by $R_2$ 
+
+\tableofcontents
+
+\end{document}

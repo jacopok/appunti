@@ -16,3 +16,6 @@
 \contentsline {section}{\numberline {2.3}Groups}{5}{section.2.3}
 \contentsline {paragraph}{Roots}{5}{section*.10}
 \contentsline {section}{\numberline {2.4}The set $\mathbb {R}$}{6}{section.2.4}
+\contentsline {paragraph}{Useful inequalities}{6}{section*.11}
+\contentsline {paragraph}{Integer part of a number}{7}{section*.12}
+\contentsline {section}{\numberline {2.5}Set notation}{7}{section.2.5}
