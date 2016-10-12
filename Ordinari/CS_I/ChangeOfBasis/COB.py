@@ -28,7 +28,10 @@ def main(n):
     while(n>0):
         r = n%b
         n = (n-r)/b
-        string = "%d" %r + string
+        if(r<10):
+            string = "%d" %r + string
+        else:
+            print "A"
     return string
 
 b = input("What is the new base?\n")

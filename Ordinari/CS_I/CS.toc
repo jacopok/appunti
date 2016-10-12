@@ -1,2 +1,13 @@
-\contentsline {chapter}{\numberline {1}Natural Numbers}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Change of basis}{1}{section.1.1}
+\contentsline {chapter}{\numberline {1}Numbers}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Natural Numbers}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Change of basis}{1}{subsection.1.1.1}
+\contentsline {section}{\numberline {1.2}Relative numbers}{1}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Complements}{1}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Representing sign}{2}{subsection.1.2.2}
+\contentsline {subsubsection}{Modulus and Sign}{2}{section*.1}
+\contentsline {subsubsection}{Complement to One}{2}{section*.2}
+\contentsline {subsubsection}{Complement to Two}{3}{section*.3}
+\contentsline {subsubsection}{Excess-$q$}{3}{section*.4}
+\contentsline {section}{\numberline {1.3}Real Numbers}{3}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Fixed point ($q$-point)}{3}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Floating point}{3}{subsection.1.3.2}

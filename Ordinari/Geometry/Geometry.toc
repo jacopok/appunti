@@ -8,3 +8,9 @@
 \contentsline {section}{\numberline {1.4}Linear dependence}{3}{section.1.4}
 \contentsline {paragraph}{Parallelism}{3}{section*.4}
 \contentsline {paragraph}{Co-hyper-planar vectors}{3}{section*.5}
+\contentsline {section}{\numberline {1.5}Scalar product}{4}{section.1.5}
+\contentsline {subsubsection}{Angle between vectors}{5}{section*.6}
+\contentsline {paragraph}{Orthogonality}{5}{section*.7}
+\contentsline {section}{\numberline {1.6}Vector product}{5}{section.1.6}
+\contentsline {section}{\numberline {1.7}Mixed product}{7}{section.1.7}
+\contentsline {section}{\numberline {1.8}Perpendicular set}{7}{section.1.8}
