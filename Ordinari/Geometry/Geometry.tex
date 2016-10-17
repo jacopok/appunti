@@ -439,6 +439,61 @@ $S^\perp$ is always a subspace:
 
 In $\mathbb{R}^n$, the perpendicular set of a subspace of dimension $d$ has dimension $n-d$.
 
+\section{Affine spaces}
+
+They resolve the ambiguity between vectors and points. $\mathbb{A}^3 (\mathbb{R})$ is affine to $\mathbb{R}^3$.
+
+\begin{definition}
+An affine space is the set of points on which the vector space $\mathbb{R}^3$ acts.
+\begin{equation}
+f: \mathbb{A}^3 (\mathbb{R}) \times \mathbb{R} \rightarrow \mathbb{A}^3 (\mathbb{R})
+\end{equation}
+
+So to a couple (point, vector) we associate a vector.
+\end{definition}
+
+\paragraph{Properties}
+
+\begin{enumerate}
+\item Transitive: $\forall (p, q) \in \mathbb{A}^3 (\mathbb{R}): \exists ! \mathbf{v} \in \mathbb{R}^3 s.t. q = p+\mathbf{v}$ (or, $\mathbf{v}$ is uniquely determined by $(p, q)$;
+\item Compatibility with the algebraic operations in $\mathbf{R}^3$ (sum, neutral element...);
+\item If we choose an $O \in \mathbb{A}^3 (\mathbb{R})$ we get $\mathbb{A}^3 (\mathbb{R}) \leftrightarrow \mathbb{R}^3$ (a reference frame in the affine space corresponds to a basis in the vector space);
+\end{enumerate}
+
+\subsection{Linear varieties}
+
+They correspond to the subspaces of the vector space. 
+
+\begin{definition}
+They are subsets of $\mathbb{A}^3 (\mathbb{R})$ in the form $P_0 + U = \lbrace Q \in \mathbb{A}^3 (\mathbb{R}) : Q-P_0 \in U\rbrace$, where $U$ is a subspace of $\mathbb{R}^3$.
+\end{definition}
+
+If $Q_1$ and $Q_2$ belong to $P_0 + U: Q_i = P_0 + U_i$, where $U_i \in U$, then $Q_2-Q_1 = U_2 - U_1 \in U$ is the vector connecting the points.
+
+\paragraph{Potential linear varieties of $\mathbb{A}^3 (\mathbb{R})$}
+
+\begin{itemize}
+\item $\lbrace \mathbf{0}\rbrace$, we get $P_0 + \mathbf{0} = P_0$; ***CHECK***
+\item $P_0 + \mathbf{R}^3 = \mathbb{A}^3 (\mathbb{R})$, all of space;
+\item if $U = <\mathbf{u}>$, with $\mathbf{u}\neq 0$, the dimension of $U$ is 1, and then $P_0 + U = \lbrace P_0 + \lambda \mathbf{u}\rbrace$;
+\item if $U = <\mathbf{u}_1; \mathbf{u}_2>$, the dimension of $U$ is 2, and $P_0 + U = \lbrace P_0 + \lambda \mathbf{u}_1 + \mu \mathbf{u}_2$.
+\end{itemize}
+
+We can do an analogous operation in $\mathbf{R}^2$.
+
+\subsubsection{Equations of linear varieties}
+
+Describing a linear variety in $\mathbb{A}^3 (\mathbb{R})$ as $P + <\mathbf{x}>$ gives us parametric equations.
+We just apply the definition ***CHECK***.
+
+\begin{equation}
+r: P_1 + <P_2 - P_1> = P_1 + \begin{pmatrix}
+x_2 - x_1 \\
+y_2 - y_1 \\
+z_2 - z_1 
+\end{pmatrix}
+\end{equation}
+
 \tableofcontents
 
 \end{document}

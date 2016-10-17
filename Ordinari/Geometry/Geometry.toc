@@ -14,3 +14,8 @@
 \contentsline {section}{\numberline {1.6}Vector product}{5}{section.1.6}
 \contentsline {section}{\numberline {1.7}Mixed product}{7}{section.1.7}
 \contentsline {section}{\numberline {1.8}Perpendicular set}{7}{section.1.8}
+\contentsline {section}{\numberline {1.9}Affine spaces}{8}{section.1.9}
+\contentsline {paragraph}{Properties}{8}{section*.8}
+\contentsline {subsection}{\numberline {1.9.1}Linear varieties}{8}{subsection.1.9.1}
+\contentsline {paragraph}{Potential linear varieties of $\mathbb {A}^3 (\mathbb {R})$}{8}{section*.9}
+\contentsline {subsubsection}{Equations of linear varieties}{9}{section*.10}

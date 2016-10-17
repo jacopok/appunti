@@ -370,8 +370,71 @@ A set is limited from above if it has an upper bound, and from below if it has a
 Open sets can be limited, but they do not have maximums and minimums: we can show this by taking the average between the first real number outside of the set and a number we suppose to be this maximum, getting to a contradiction.
 
 \begin{definition}
-We define the \emph{least upper bound} of a set $E$ as the minimum of the set of the upper bounds, and analogously for lower bounds. We can do this $\forall E \subseteq \mathbb{R}: E \neq \emptyset$.
+We define the \emph{least upper bound} of a set $E$ as the minimum of the set of the upper bounds, and analogously for lower bounds. We can do this $\forall E \subseteq \mathbb{R}: E \neq \emptyset$, and we denote them as $\inf E$ and $\sup E$.
 \end{definition}
+
+If $E$ does not have an upper limit, we write $\sup E = + \infty$, but this is just notation. The same goes for $\inf E = -\infty$. It is also common to write $\sup \emptyset = - \infty$ and $\inf \emptyset = + \infty$, but defining them this way makes the fact $\inf E \leq \sup E$ not true.
+
+$E$ has a maximum iff $\sup E \in E$. If $E \neq \emptyset \neq F$ and $E \subseteq F$, then $\sup E \leq \sup F$ and $\inf F \leq \inf E$.
+
+\begin{theorem}[Archimedes' axiom]
+Given $a, b \in \mathbb{R}$, where $a>0$ and $b>0$, $\exists n\in\mathbb{N}: na>b$.
+\end{theorem}
+
+\begin{proof}
+We choose $n = \lfloor b/a \rfloor +1$.
+\end{proof}
+
+\paragraph{Axiom of continuity or completeness} Given $E \subseteq \mathbb{R}$, $E\neq\emptyset$, with at least an upper bound, there exists $\sup E \in \mathbb{R}$. The inverse is easily proven from this.
+
+$\mathbb{R}$ (and sets which can be bijectively mapped to it, via a map that preserves addition and multiplication) is the only totally ordered set which verifies the axiom of continuity.
+
+\begin{theorem}
+$\sup E = M \iff \forall x \in M: x \leq M$ and $\forall \epsilon > 0: \exists z \in E : z>M-\epsilon$.
+\end{theorem}
+
+\begin{proof}
+We will prove the leftward implication by contradiction. Suppose there exists an $M'<M$. Then $\forall \epsilon \in E: z \leq M'$. But define $\epsilon := (M-M')/2$:then ???
+*Prove the rightward implication*
+\end{proof}
+
+\paragraph{Halved intervals}
+
+\begin{theorem}
+Take $a_k, b_k \in \mathbb{R}: \forall k \in \mathbb{N}: a_k < b_k$ and $\forall k \in \mathbb{N}: [a_{k+1}; b_{k+1}]$ is one of the halves of $[a_k; b_k]$. Then $\exists ! \lambda \in \mathbb{R}: \forall k \in \mathbb{N}: \lambda \in [a_k; b_k]$. We can write this as
+
+\begin{equation}
+\bigcap_{k=1}^{+\infty} [a_k; b_k] = \lbrace \lambda \rbrace
+\end{equation}
+\end{theorem}
+
+\section{Topology}
+
+We will focus on the topology of $\mathbb{R}$, sometimes generalizing to $\mathbb{R}^n$.
+
+A \emph{metric space} is couple $(X, \text{d})$, where $\text{d}: X\times X \rightarrow \mathbb{R}$ is a \emph{distance} function, satisfying $\forall x, y, z \in X$:
+
+\begin{enumerate}
+\item $\text{d}(x, y) \geq 0$; $\text{d} (x, y) = 0 \iff x=y$;\label{positivity-distance}
+\item $\text{d}(x, y) = \text{d}  (y, x)$;\label{symmetry-distance}
+\item $\text{d}(x, y) \leq \text{d}(x, z) + \text{d}(y, z)$ (the triangular inequality).\label{triangular-distance}
+\end{enumerate}
+
+On $\mathbb{R}$, the distance function is usually $\text{d}(x, y) = \abs{x-y}$.\footnote{This is not our only option: something like $\text{d}(x, y) = \sqrt{\abs{x-y}}$ would work as well.}
+
+This extends to $\mathbb{R}^n$:
+
+\begin{equation}
+\text{d}(x, y) = \sqrt{\sum_{i=0}^n (x_i - y_i)^2}
+\end{equation}
+
+This clearly satisfies conditions \ref{positivity-distance} and \ref{symmetry-distance}, but we have to prove condition \ref{triangular-distance}:
+
+\begin{proof}
+This follows from the subadditivity of the norm of vectors: $\mathbb{R}^n$ is a vector space
+\end{proof}
+
+
 
 \tableofcontents
 

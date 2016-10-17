@@ -19,3 +19,6 @@
 \contentsline {paragraph}{Useful inequalities}{6}{section*.11}
 \contentsline {paragraph}{Integer part of a number}{7}{section*.12}
 \contentsline {section}{\numberline {2.5}Set notation}{7}{section.2.5}
+\contentsline {paragraph}{Axiom of continuity or completeness}{8}{section*.13}
+\contentsline {paragraph}{Halved intervals}{8}{section*.14}
+\contentsline {section}{\numberline {2.6}Topology}{8}{section.2.6}
