@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.4.28)  17 OCT 2016 14:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.4.28)  18 OCT 2016 17:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1200,42 +1200,42 @@ Package hyperref Warning: Difference (3) between bookmark levels is greater
 
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 475.
+(hyperref)                than one, level fixed on input line 481.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 475.
+(hyperref)                removing `math shift' on input line 481.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 475.
+(hyperref)                removing `superscript' on input line 481.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 475.
+(hyperref)                removing `math shift' on input line 481.
 
-[8] [9] (./Geometry.toc)
+[8] [9] [10] (./Geometry.toc)
 \tf@toc=\write5
 \openout5 = `Geometry.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 499.
- [10
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 557.
+ [11
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 499.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 557.
  (./Geometry.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 499.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 499.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 557.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 557.
 Package rerunfilecheck Info: File `Geometry.out' has not changed.
-(rerunfilecheck)             Checksum: 7071E478A6D843BFBA9689A8F39D130B;1351.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 499.
+(rerunfilecheck)             Checksum: 09E840D4B94A1D764D0B99DE756AEE72;1504.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 557.
  ) 
 Here is how much of TeX's memory you used:
- 21260 strings out of 493803
- 383717 string characters out of 6153670
+ 21274 strings out of 493803
+ 383903 string characters out of 6153670
  507869 words of memory out of 5000000
- 24315 multiletter control sequences out of 15000+600000
- 22004 words of font info for 105 fonts, out of 8000000 for 9000
+ 24317 multiletter control sequences out of 15000+600000
+ 22053 words of font info for 106 fonts, out of 8000000 for 9000
  667 hyphenation exceptions out of 8191
  69i,16n,62p,10402b,485s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1253,10 +1253,10 @@ r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Geometry.pdf (11 pages, 203927 bytes).
+Output written on Geometry.pdf (12 pages, 210315 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 292 compressed objects within 3 object streams
- 98 named destinations out of 1000 (max. 500000)
- 18601 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 347 PDF objects out of 1000 (max. 8388607)
+ 313 compressed objects within 4 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 18617 words of extra memory for PDF output out of 20736 (max. 10000000)
 

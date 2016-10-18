@@ -455,17 +455,23 @@ So to a couple (point, vector) we associate a vector.
 \paragraph{Properties}
 
 \begin{enumerate}
-\item Transitive: $\forall (p, q) \in \mathbb{A}^3 (\mathbb{R}): \exists ! \mathbf{v} \in \mathbb{R}^3 s.t. q = p+\mathbf{v}$ (or, $\mathbf{v}$ is uniquely determined by $(p, q)$;
+\item Transitive: $\forall (p, q) \in \mathbb{A}^3 (\mathbb{R}): \exists ! \mathbf{v} \in \mathbb{R}^3$  such that  $q = p+\mathbf{v}$ (or, $\mathbf{v}$ is uniquely determined by $(p, q)$;
 \item Compatibility with the algebraic operations in $\mathbf{R}^3$ (sum, neutral element...);
 \item If we choose an $O \in \mathbb{A}^3 (\mathbb{R})$ we get $\mathbb{A}^3 (\mathbb{R}) \leftrightarrow \mathbb{R}^3$ (a reference frame in the affine space corresponds to a basis in the vector space);
 \end{enumerate}
+
+An affine space has more freedom than a vector space, since we can change the reference point.
 
 \subsection{Linear varieties}
 
 They correspond to the subspaces of the vector space. 
 
 \begin{definition}
-They are subsets of $\mathbb{A}^3 (\mathbb{R})$ in the form $P_0 + U = \lbrace Q \in \mathbb{A}^3 (\mathbb{R}) : Q-P_0 \in U\rbrace$, where $U$ is a subspace of $\mathbb{R}^3$.
+They are subsets of $\mathbb{A}^3 (\mathbb{R})$ in the form $P_0 + U = \lbrace Q \in \mathbb{A}^3 (\mathbb{R}) : Q-P_0 \in U\rbrace$, where $P_0$ is a point in space and $U$ is a subspace of $\mathbb{R}^3$.
+
+\begin{equation}
+P_0 + U = \lbrace q \in \mathbb{A}^3 (\mathbb{R}): q-P_0 \in U\rbrace
+\end{equation}
 \end{definition}
 
 If $Q_1$ and $Q_2$ belong to $P_0 + U: Q_i = P_0 + U_i$, where $U_i \in U$, then $Q_2-Q_1 = U_2 - U_1 \in U$ is the vector connecting the points.
@@ -473,11 +479,13 @@ If $Q_1$ and $Q_2$ belong to $P_0 + U: Q_i = P_0 + U_i$, where $U_i \in U$, then
 \paragraph{Potential linear varieties of $\mathbb{A}^3 (\mathbb{R})$}
 
 \begin{itemize}
-\item $\lbrace \mathbf{0}\rbrace$, we get $P_0 + \mathbf{0} = P_0$; ***CHECK***
-\item $P_0 + \mathbf{R}^3 = \mathbb{A}^3 (\mathbb{R})$, all of space;
-\item if $U = <\mathbf{u}>$, with $\mathbf{u}\neq 0$, the dimension of $U$ is 1, and then $P_0 + U = \lbrace P_0 + \lambda \mathbf{u}\rbrace$;
-\item if $U = <\mathbf{u}_1; \mathbf{u}_2>$, the dimension of $U$ is 2, and $P_0 + U = \lbrace P_0 + \lambda \mathbf{u}_1 + \mu \mathbf{u}_2$.
+\item $P_0 +\lbrace \mathbf{0}\rbrace$ is just $P_0$;
+\item $P_0 + \mathbf{R}^3 = \mathbb{A}^3 (\mathbb{R})$, is all of space;
+\item if $U = \langle\mathbf{u}\rangle$, with $\mathbf{u}\neq 0$, the dimension of $U$ is 1, and then $P_0 + U = \lbrace P_0 + \lambda \mathbf{u}\rbrace$;
+\item if $U = \langle\mathbf{u}_1; \mathbf{u}_2\rangle$, the dimension of $U$ is 2, and $P_0 + U = \lbrace P_0 + \lambda \mathbf{u}_1 + \mu \mathbf{u}_2\rbrace$.
 \end{itemize}
+
+The subspace $U$ cannot be changed for another: it is called ``giacitura''.
 
 We can do an analogous operation in $\mathbf{R}^2$.
 
@@ -493,6 +501,58 @@ y_2 - y_1 \\
 z_2 - z_1 
 \end{pmatrix}
 \end{equation}
+
+\section{Euclidean spaces}
+
+If we consider the structure ``vector subspace'' equipped with the notion of scalar product, we get an Euclidean space, denoted $\mathbb{E} ^3 (\mathbb{R})$. This also means we have a notion of distance: $\text{d}(P, Q) = \norm{\overrightarrow{PQ}}$, where $\overrightarrow{PQ}$ is $Q-P \in \mathbb{R}^3$.
+
+Given $S, T \subseteq \mathbb{E}^3 (\mathbb{R})$, we define
+
+\begin{equation}
+\text{d} (S, T) := \inf \left\lbrace \text{d} (P, Q), P \in S, Q \in T\right\rbrace \subseteq [0, +\infty [
+\end{equation}
+
+Note that this does not abide the usual axioms for a distance function: the distance between two different sets can be 0.
+
+\subsection{Distance between linear varieties}
+
+\begin{theorem}
+If $S$ and $T$ are linear varieties, $\exists p_0 \in S, q_0 \in T : \text{d} (p_0, q_0) = \text{d} (S, T)$.
+\end{theorem}
+
+\begin{proof}
+The linear varieties are $S = p_1 + U$ and  $T= q_1 + W$, where $U, W \subseteq \mathbb{R}^3$.
+
+It will be shown later that there exist $\mathbf{u} \in U, \mathbf{w} \in W, \mathbf{n} \in \lbrace U \cup W \rbrace ^\perp$ such that $p_1 q_1 = \mathbf{u} + \mathbf{w} + \mathbf{n}$, but we will use the result straight away.
+
+Take the points $p_0 = p_1 + \mathbf{u}$, $q_0 = q_1 + \mathbf{w}$. Then
+
+\begin{equation}
+\text{d}(p_0, q_0) = \norm{q_1 - \mathbf{w} - p_1 - \mathbf{u}} = \mathbf{n}
+\end{equation}
+
+Now to show that $(p_0, q_0)$ is minimal: take $(p', q') = (p_0 + \mathbf{u}', q_0 + \mathbf{w}')$.
+
+\begin{equation}
+\text{d}(p', q')^2 = \norm{q'-p'}^2 = \norm{q_0 - p_0 + \mathbf{w}' - \mathbf{u}'}^2 = \norm{\mathbf{n} + \mathbf{w}' - \mathbf{u}'}^2 
+\end{equation}
+
+but we also know that
+
+\begin{equation}
+\mathbf{n} \cdot (\mathbf{w} - \mathbf{u}) = 0
+\end{equation}
+
+since $\mathbf{n} \in \lbrace U \cup W \rbrace ^\perp$, so
+
+\begin{equation}
+\norm{\mathbf{n} + \mathbf{w}' - \mathbf{u}'}^2 = \norm{\mathbf{n}}^2 + \norm{\mathbf{w} -\mathbf{u}}^2 \geq \norm{\mathbf{n}}
+\end{equation}
+
+as desired. We have equality only if $\norm{\mathbf{w} -\mathbf{u}}^2=0$; if $U$ and $W$ have nonzero vectors in commons (i. e. they are parallel), there are $(p', q')$ such that $\text{d}(p', q')=\text{d}(p_0, q_0)$. 
+\end{proof}
+
+We can find intersections between linear varieties using cartesian or parametric equations, but it is often best to mix: use the cartesian equation for one variety and the parametric for the other.
 
 \tableofcontents
 
