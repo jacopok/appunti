@@ -1,0 +1,150 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{nicefrac}
+\usepackage[margin=3.3cm]{geometry}
+\usepackage{amssymb}
+\usepackage{accents}
+\usepackage{amsthm}
+\usepackage[pdftex, pdfborderstyle={/S/U/W 0}]{hyperref}
+\numberwithin{equation}{section}
+\usepackage{commath}
+\usepackage{graphicx}
+%\usepackage[extreme]{savetrees}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{nicefrac}
+\setcounter{tocdepth}{4}
+\usepackage{fnpct}
+\usepackage{centernot}
+
+\usepackage{cool}
+\Style{DSymb={\mathrm d},DShorten=true,IntegrateDifferentialDSymb=\mathrm{d}}
+
+\usepackage{microtype}
+\usepackage{cleveref}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\usepackage{mathtools}
+ 
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\usepackage{url}
+\newcommand*{\defeq}{\stackrel{\text{def}}{=}}
+\author{Jacopo Tissino}
+\title{Notes on Complements of Analysis}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Set theory}
+
+\section{The ZFC axioms}
+
+\paragraph{Extensionality}
+
+\begin{equation}
+\forall x: \forall y: \forall a: x=y \iff (a \in x \iff a \in y)
+\end{equation}
+
+\paragraph{Existence of the null set}
+
+\begin{equation}
+\exists x: \forall y: y \notin x
+\end{equation}
+
+\paragraph{Foundation}
+
+Every nonempty set contains an $\in$-minimal element:
+
+\begin{equation}
+\forall A: \exists x \in A : \forall y \in A: y \notin x
+\end{equation}
+
+This means that there cannot be an infinite $\in$ chain like $A_1 \ni A_2 \ni A_3 \ni \dots$.
+
+We can also say that $\forall A: \exists x \in A: x \cap A = \emptyset$.
+
+This also exclude the existence of the set of all sets: $\nexists x: \forall y: y \in x$.
+
+\paragraph{Separation}
+
+Given a well-defined property $P(x)$, there exists a set such that
+
+\begin{equation}
+\forall y : \forall x: x \in y \wedge P(x)
+\end{equation}
+
+This implies the existence of the empty set, and excludes Russel's paradox.
+
+\paragraph{Pair sets}
+
+\begin{equation}
+\forall a: \forall b: \exists x: \forall y: y \in x \iff (y=a \vee y=b)
+\end{equation}
+
+This implies the existence of singlets, and of ordered pairs, defined as: $(a, b) := \lbrace \lbrace a\rbrace, \lbrace a, b\rbrace\rbrace$ ($a = \cap (a, b)$, $b = \cup (a, b) \diagdown \cap (a, b)$).
+
+Of course, 
+
+\begin{equation}
+(a, b) = (c, d) \iff (a=c) \wedge (b=d)
+\end{equation}
+
+\paragraph{Union set axiom}
+
+\begin{equation}
+\forall x: \exists u: \forall z: \exists y: z \in u \iff (z \in y \wedge y \in x ) 
+\end{equation}
+
+The usual notation is $u = \cup x$, or $A\cup B$. This also enables us to define intersections:
+
+\begin{equation}
+A \cap B = \left\lbrace x \in  \left\lbrace A \cup B \right\rbrace : x \in A \wedge x \in B\right\rbrace
+\end{equation}
+
+\paragraph{Power set axiom}
+
+\begin{equation}
+\forall x: \exists p: \forall y: y \in p \iff y \subseteq x
+\end{equation}
+
+The usual notation is: $p = \mathcal{P}(x)$.
+
+\paragraph{Infinity}
+
+\begin{equation}
+\exists x: \forall y: \emptyset \in x \wedge (y \in x \implies y \cup \lbrace y \rbrace \in x )
+\end{equation}
+
+\paragraph{Replacement}
+
+\section{The Von Neumann Integers}
+
+We define $0_{VN} = \emptyset$, and $S(n_{VN}) =n \cup \lbrace n_{VN} \rbrace$. So $1_{VN} = \lbrace \emptyset \rbrace$, $2_{VN} = \lbrace \emptyset , \lbrace \emptyset \rbrace \rbrace$, $3_{VN} = \lbrace \emptyset , \lbrace \emptyset \rbrace , \lbrace \emptyset , \lbrace \emptyset \rbrace \rbrace \rbrace$...
+
+The $\leq$  relation is thus replaced by $\subseteq$, and $<$ by $\in$.
+
+The axiom of infinity seems to define the VN integers, but many sets could have those properties. So, we define the property $P(x) = \emptyset \in x \wedge (y \in x \implies y \cup \lbrace y \rbrace \in x )$
+
+We'd like to intersect all the sets satisfying $P(x)$ (HOW?)
+
+\begin{equation}
+\omega:= \lbrace k \in x : k \in Y \iff \forall Y \in \mathcal{P}(x): P(y)
+\end{equation}
+
+
+
+\tableofcontents
+
+\end{document}

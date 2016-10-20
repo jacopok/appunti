@@ -431,10 +431,51 @@ This extends to $\mathbb{R}^n$:
 This clearly satisfies conditions \ref{positivity-distance} and \ref{symmetry-distance}, but we have to prove condition \ref{triangular-distance}:
 
 \begin{proof}
-This follows from the subadditivity of the norm of vectors: $\mathbb{R}^n$ is a vector space
+This follows from the subadditivity of the norm of vectors: $\mathbb{R}^n$ is a vector space, and we can interpret $\text{d}(x, y)$ as $\norm{\mathbf{x}-\mathbf{y}}$, so in the equation $\norm{\mathbf{x}+\mathbf{y}} \leq \norm{\mathbf{x}} + \norm{\mathbf{y}}$ we substitute $\mathbf{x}= u-z$ and $\mathbf{y}= z-v$.
 \end{proof}
 
+\subsection{Balls and openness}
 
+Given the metric space $(X, d)$, with $x_0 \in X$ and $r>0, r\in \mathbb{R}$, we denote as $B(x_0, r)$ (or sometimes $B_r (x_0))$ the ``ball'':
+
+\begin{equation}
+B(x_0, r) = \lbrace x \in X: \text{d}(x, x_0) < r \rbrace
+\end{equation}
+
+For example, in $\mathbb{R}$ this looks like $(x_0 -r, x_0 + r)$.
+
+\begin{definition}
+Given the metric space $(X, d)$, and $E \subseteq X$, $x \in X$, we say that $x$ is internal to $E$ if $\exists r \in \mathbb{R}, r>0: B(x, r) \subseteq E$ (E intorno di X).
+\end{definition}
+
+\begin{definition}
+Given the metric space $(X, d)$, and $E \subseteq X$, $x \in X$, we say that $x$ is external to $E$ if $\exists r\in \mathbb{R}, r>0: B(x, r) \cap E =\emptyset$. $x$ is thus internal to the complement of $E$.
+\end{definition}
+
+\begin{definition}
+$x$ is a frontier (or boundary) point if it is neither internal nor external.
+\end{definition}
+
+We denote the set of internal points of $E$ as $\overset{\circ}{E}$ or $\text{int} E \subseteq E$, the boundary as $\partial E$, and the external points as $E^e$.
+
+For example, in $\mathbb{R}^n$, if $E= B(x_0, r)$,  $\norm{x-x_0} < r \iff x \in \overset{\circ}{E}$ because of the triangular inequality: $B(x, (r- \norm{x-x_0})) \subseteq B(x_0, r)$. We can see that for any $y$ $\text{d}(y, x_0) \leq \text{d}(y, x) + \text{d} (x_0, x)$.
+
+Also, if $\norm{x-x_0} > r$, $x \in E^e$, since we can construct $B(x, \norm{x-x_0} - r) \in E^C$.
+
+If $\norm{x-x_0} = r$, $x \in \partial E$ since we can construct $B(x, p)$ for some $p>0$, and supposing  WLOG that $p<r$ we can show that:
+
+\begin{align}
+B(x, p) \diagdown E \neq \emptyset &\Leftarrow ( x \in E^C \implies \forall t>0 x \in B(x, t))\\
+B(x, p) \cap E \neq \emptyset &
+\end{align}
+
+We can prove the last statement by defining
+
+\begin{equation}
+y:= x + \frac p2 \left( \frac{x-x_0}{r} \right)
+\end{equation}
+
+and showing that $\text{d}(y, x_0)<r$. 
 
 \tableofcontents
 

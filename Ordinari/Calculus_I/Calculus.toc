@@ -22,3 +22,4 @@
 \contentsline {paragraph}{Axiom of continuity or completeness}{8}{section*.13}
 \contentsline {paragraph}{Halved intervals}{8}{section*.14}
 \contentsline {section}{\numberline {2.6}Topology}{8}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Balls and openness}{9}{subsection.2.6.1}
