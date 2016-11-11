@@ -14,10 +14,15 @@
 \contentsline {section}{\numberline {1.6}Vector product}{5}{section.1.6}
 \contentsline {section}{\numberline {1.7}Mixed product}{7}{section.1.7}
 \contentsline {section}{\numberline {1.8}Perpendicular set}{7}{section.1.8}
-\contentsline {section}{\numberline {1.9}Affine spaces}{8}{section.1.9}
-\contentsline {paragraph}{Properties}{8}{section*.8}
-\contentsline {subsection}{\numberline {1.9.1}Linear varieties}{8}{subsection.1.9.1}
-\contentsline {paragraph}{Potential linear varieties of $\mathbb {A}^3 (\mathbb {R})$}{9}{section*.9}
-\contentsline {subsubsection}{Equations of linear varieties}{9}{section*.10}
-\contentsline {section}{\numberline {1.10}Euclidean spaces}{9}{section.1.10}
-\contentsline {subsection}{\numberline {1.10.1}Distance between linear varieties}{9}{subsection.1.10.1}
+\contentsline {chapter}{\numberline {2}Spaces}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Affine spaces}{9}{section.2.1}
+\contentsline {paragraph}{Properties}{9}{section*.8}
+\contentsline {subsection}{\numberline {2.1.1}Linear varieties}{9}{subsection.2.1.1}
+\contentsline {paragraph}{Potential linear varieties of $\mathbb {A}^3 (\mathbb {R})$}{10}{section*.9}
+\contentsline {subsubsection}{Equations of linear varieties}{10}{section*.10}
+\contentsline {section}{\numberline {2.2}Euclidean spaces}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Distance between linear varieties}{10}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}Plane bundles}{11}{section.2.3}
+\contentsline {paragraph}{Intersecting planes}{11}{section*.11}
+\contentsline {paragraph}{Parallel planes}{11}{section*.12}
+\contentsline {subsection}{\numberline {2.3.1}Plane - point distance}{12}{subsection.2.3.1}

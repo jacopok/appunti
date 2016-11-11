@@ -24,58 +24,41 @@
 
 #include <iostream>
 #include <cmath>
-<<<<<<< HEAD
-#include <vector>
-=======
-
 #include <string>
->>>>>>> df966ef41fb186bd73204a299ac3333f66c6d81c
 using namespace std;
 
 struct student {
     string name;
     string surname;
     long int id;
-<<<<<<< HEAD
-    vector<int> grades;
-=======
-    int grades[30];
->>>>>>> df966ef41fb186bd73204a299ac3333f66c6d81c
+    int * grades = new int[i];
     double average;
 };
 
 int main(){
     student first;
-<<<<<<< HEAD
-    int i = 0, grade;
-    cout << "Give me a grade or press CTRL-D: ";
-    while(cin >> grade){
-        cout << "Give me a grade or press CTRL-D: ";
-        first.grades.push_back(grade);
-=======
     cout << "Insert the name of the student: ";
     cin >> first.name;
     cout << "Insert the surname of the student: ";
     cin >> first.surname;
     cout << "Insert the id number of the student: ";
     cin >> first.id;
-    int i = 0, grade;
-    cout << "Give me a grade or press CTRL-D (I can only handle 30): ";
-    while(cin >> grade and i != 30){
-        cout << "Give me a grade or press CTRL-D: ";
-        first.grades[i] = grade;
->>>>>>> df966ef41fb186bd73204a299ac3333f66c6d81c
-        i++;
-    }
-    double sum = 0;
-    for(int k = 0; k<i; k++){
+    int i;
+    cout << "How many exams did you take? ";
+    cin >> i;
+    int max, min, sum;
+    for(int k=0; k!=i; k++){
+        cout << "Insert the grade of exam " << k + 1;
+        cin >> first.grades[k];
+        if(first.grades[k]>max){
+            max = first.grades[k];
+        }
+        if(first.grades[k]<min){
+            min = first.grades[k];
         sum += first.grades[k];
         }
-    double average = sum / i;
-    cout << "The average is " << average << endl;
-<<<<<<< HEAD
-return 0;
-=======
+    }
+    double average = (double) sum / i;
+    cout << "The average is " << average << ", the minimum is " << min << ", the maximum is " << max << endl;
     return 0;
->>>>>>> df966ef41fb186bd73204a299ac3333f66c6d81c
 }

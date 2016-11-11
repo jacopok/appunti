@@ -26,38 +26,13 @@
 #include <cmath>
 using namespace std;
 
-int calcola_fib(int k);
-
 int main(){
-<<<<<<< HEAD
-    
-=======
-    cout << "Which Fibonacci number do you want to calculate?";
-    int k;
-    cin >> k;
-    cout << "The " << k << "th Fibonacci number is: " << calcola_fib(k) << endl;
-    double ratio = (double) calcola_fib(k) / calcola_fib(k - 1);
-    cout << "The ratio with its predecessor is: " << ratio << endl;
->>>>>>> df966ef41fb186bd73204a299ac3333f66c6d81c
+    int i;
+    cout << "How many terms do you want? ";
+    cin >> i;
+    double term = pow(1. + ( 1. / double(i) ), i);
+    cout << "The " << i << "-th term of the sequence is " << term << endl;
+    double error = (M_E - term) / M_E;
+    cout << "The error with respect to " << M_E << " is " << error*100 << "%" << endl;
     return 0;
-}
-
-int calcola_fib(int k){
-<<<<<<< HEAD
-    long long numero[k];
-    numero[0] = 1;
-    numero[1] = 1;
-    for(int i = 2; i<=k; i++){
-        numero[i] = numero[i-1] + numero[i-2];
-    }
-    return numero[k];
-=======
-    long double number[k+1];
-    number[0] = 0;
-    number[1] = 1;
-    for(int i = 2; i<=k; i++){
-        number[i] = number[i-1] + number[i-2];
-    }
-    return number[k];
->>>>>>> df966ef41fb186bd73204a299ac3333f66c6d81c
 }

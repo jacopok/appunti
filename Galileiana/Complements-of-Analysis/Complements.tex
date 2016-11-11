@@ -26,6 +26,7 @@
 
 \usepackage{microtype}
 \usepackage{cleveref}
+\usepackage{tensor}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -129,6 +130,24 @@ The usual notation is: $p = \mathcal{P}(x)$.
 
 \paragraph{Replacement}
 
+Given the set $A$, we can construct the set $\lbrace x \in A : R(x)$. This allows us to construct infinite unions: given the sets $A_i$, $i \in \mathbb{N}$,
+
+\begin{equation}
+W = \mathbb{N} \rightarrow \lbrace A_0, A_1, A_2 ...\rbrace = I
+\end{equation}
+
+then $\exists \cup I = \cup _{n \in \mathbb{N}} A_n$.
+
+\paragraph{Choice}
+
+Given a set $A$ of nonempty sets, such that any two are disjoint, we can always find a set $B$ containing exactly one element for any element of $A$.
+
+(Reformulate as: $A\times B =\emptyset$ iff $A= \emptyset$ or $B =\emptyset$.)
+
+\subsection{Goedel}
+
+In 1938 Goedel proved that ZFC is coherent. In 1931 he proved that any coherent axiom set contains undecidable propositions. One example for ZFC is the continuum hypothesis.
+
 \section{The Von Neumann Integers}
 
 We define $0_{VN} = \emptyset$, and $S(n_{VN}) =n \cup \lbrace n_{VN} \rbrace$. So $1_{VN} = \lbrace \emptyset \rbrace$, $2_{VN} = \lbrace \emptyset , \lbrace \emptyset \rbrace \rbrace$, $3_{VN} = \lbrace \emptyset , \lbrace \emptyset \rbrace , \lbrace \emptyset , \lbrace \emptyset \rbrace \rbrace \rbrace$...
@@ -143,7 +162,322 @@ We'd like to intersect all the sets satisfying $P(x)$ (HOW?)
 \omega:= \lbrace k \in x : k \in Y \iff \forall Y \in \mathcal{P}(x): P(y)
 \end{equation}
 
+to get the actual set $\mathbb{N}$.
 
+\section{Cardinality}
+
+Given the sets $A$ and $B$, we say they have the same cardinality if there exists a bijective $f: A \rightarrow B$.
+
+Having the same cardinality is an equivalence relation, but the set of all the sets with the same cardinality is not a set.
+
+We say that $\abs{a} \leq \abs{B}$ if $\exists f : A\rightarrow B$ injective. This is an order relation: it is
+
+\begin{itemize}
+\item reflexive: $\abs{A} \leq \abs{A}$;
+\item transitive: $\abs{A} \leq \abs{B} \wedge \abs{B} \leq \abs{C} \implies \abs{A} \leq \abs{C}$;
+\item antisymmetric: $\abs{A} \leq \abs{B} \wedge \abs{B}\leq \abs{A} \implies \abs{A} = \abs{B}$;\label{card-antisymmetry}
+\item connected if there is a good ordering: $\forall A, B : \abs{A} \leq \abs{B} \vee \abs{B}\leq \abs{A}$.
+\end{itemize}
+
+Saying that there exists a surjective $g: B\rightarrow A$ is equivalent to saying there exists an injective $f : A\rightarrow B$.
+
+\begin{proof}
+If there exists an injective $f : A\rightarrow B$, we define $g(y) := f^{-1} (y)$ if $y \in f(A)$, and any $a_0$ otherwise. $g$ is surjective.
+
+If there exists a surjective $g: B\rightarrow A$, we define $f(x)$ as any element in $g^{-1}\lbrace x\rbrace$. We need the axiom of choice for this.
+\end{proof}
+
+\begin{proof}[Proof of point \ref{card-antisymmetry}, by Cantor-Bernstein-Schroeder]
+We have the two bijective functions $f : A\rightarrow B$ and $g : B\rightarrow A$. Then 
+\end{proof}
+
+\chapter{Inequalities}
+
+\section{Means}
+
+We shall treat sequences ($n$-uples) in the form $a = (a_1, a_2, \dots , a_n)$ where $\forall i: a_i \geq 0$.
+
+\begin{definition}
+The $r$-mean of $a$, denoted $M_r (a)$ or just $M_r$, is:
+
+\begin{equation}
+M_r (a) := \left( \frac{1}{n} \displaystyle\sum _{i=1}^n a_i^r \right) ^{\frac{1}{r}}
+\end{equation}
+
+If $r<0$ and $\exists i : a_i = 0$, we take $M_r = 0$.
+\end{definition}
+
+Some notable means are:
+
+\begin{itemize}
+\item the arithmetic mean $A := M_1$; any mean can be written as $M_r = A (a_i^r )^{1/r}$
+\item the harmonic mean $H := M_{-1}$
+\item the geometric mean $G (a ) := \sqrt[n]{\prod_i a_i} = \exp [ A (\log a_i) ]$
+\end{itemize}
+
+\begin{definition}
+Given the set of weights $p = (p_1, p_2, \dots, p_n)$, where $\forall i: p_i>0$, the weighted sum $M_r$ is:
+
+\begin{equation}
+M_r = M (a, p ) :=\left( \frac{\displaystyle \sum_i p_i a_i^r}{\displaystyle\sum_i p_i}\right)^{1/r}
+\end{equation}
+
+The weighted geometric mean, from the definition, is
+
+\begin{equation}
+G := \left( \prod_i a_i ^{p_i} \right) ^{1/\sum_i p_i}
+\end{equation}
+
+\end{definition}
+
+We notice that means are 1-homogeneous, that is, $\forall \lambda \in \mathbb {R}^+: M_r (\lambda a) = \lambda M_r (a)$.
+
+We can always suppose that the weights all add up to 1. If this is true, we call then $q_i$.
+
+We notice that $\min a_i \leq M_r (a) \leq \max a_i$, with equality iff all the $a_i$ are equal, or if $r<0$ and $\exists a_i = 0$. The same is true for the geometric mean.
+
+\begin{theorem}
+\begin{equation}
+\lim_{r \rightarrow 0 } M_r (a) = G (a)
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+
+Suppose that $\forall i: a_i > 0$. We look at the log of $M_r$:
+
+\begin{equation}
+\lim_{r\rightarrow 0} \log M_r = \lim_{r\rightarrow 0 } \frac{1}{r} \log \sum _i q_i a_i ^r
+\end{equation}
+
+Now, $\sum_i q_i a_i^r$ goes to 1 under our hypotheses.
+
+So, adding and subtracting 1 to the sum (since the $q_i$ add up to 1), and multiplying and dividing, we get:
+
+\begin{equation}
+\lim_{r\rightarrow 0} \frac{1+ \log\left(\displaystyle\sum_i q_i (a_i^r -1 ) \right)}{\displaystyle\sum_i q_i (a_i^r -1)}\frac{\displaystyle\sum_i q_i ( a_i^r -1 )}{r}
+\end{equation}
+
+but by the limit $\lim_{x\rightarrow 0} \log (1+x) /x =1$ the first fraction goes to 1, so we get:
+
+\begin{equation}
+\lim_{r\rightarrow 0} \frac{\sum_i q_i (a_i^r)}{r}
+\end{equation}
+
+which by the linearity of the limit and the limit $\lim_{x\rightarrow 0} (a^x -1)/x = \log a$ equals:
+
+\begin{equation}
+\sum_i q_i \log a_i = \log \left(\prod_i a_i ^{q_i} \right) = \log G (a)
+\end{equation}
+
+In the case where $\exists a_i = 0$, we take the sets $b = \lbrace a_i \neq 0 \rbrace$, $s = \lbrace \text{the corresponding } q_i \rbrace$.
+
+Now, in the limit
+
+\begin{equation}
+\lim _{r\rightarrow 0^+} M_r (a, q) = \lim_{r\rightarrow 0^+} \left( \sum_i q_i a_i ^r \right) ^{1/r}
+\end{equation}
+
+we would like to swap the $a$s for the $b$s and the $q$s for the $s$s, but we need to account for the fact that $\sum_i s_i < 1$. 
+So
+
+\begin{equation}
+\lim_{r\rightarrow 0^+} \left( \sum_i s_i \right) ^{1/r} M_r (b, s) = 0 = G(a) = \lim_{r\rightarrow 0^-} M_r (a, q)
+\end{equation}
+
+by definition. So we define $M_0 := G$.
+\end{proof}
+
+\begin{theorem}
+\begin{align}
+\lim_{r\rightarrow +\infty} M_r (a_i) &= \max (a_i)\\
+\lim_{r\rightarrow -\infty} M_r (a_i) &= \min (a_i)
+\end{align}
+\end{theorem}
+
+\begin{proof}
+We take $a_k$ to be the maximum $a_i$. Then, since $(q_i a_i^r) ^{1/r} \leq \left( \sum_i q_i a_i^r\right)^{1/r}$, we can write
+
+\begin{equation}
+q_k^{1/r} a_k \leq M_r (a_i) \leq \max (a_i)
+\end{equation}
+
+which, by the squeeze theorem, implies the thesis.
+
+For $r\rightarrow -\infty$, we just need to notice that
+
+\begin{equation}
+M_{-r} a_i = \frac{1}{M_r \left(\frac{1}{a_i}\right)}
+\end{equation}
+
+and that the maximum of the $1/a_i$ corresponds to the minimum of the $a_i$.
+\end{proof}
+
+\paragraph{Cauchy's Inequality}
+
+\begin{theorem}
+Given two sequences of numbers $a_i$ and $b_i$ with the usual properties:
+
+\begin{equation}
+\left( 
+    \sum_i a_i b_i 
+\right)^2
+\leq
+\left(
+    \sum_i a_i ^2
+\right)
+\left(
+    \sum_i b_i ^2
+\right)
+\end{equation}
+
+The equality holds iff the vectors $a$ and $b$ are linearly dependent.
+\end{theorem}
+
+\begin{proof}
+We can rearrange the inequality like:
+
+\begin{align}
+\left(
+    \sum_i a_i ^2
+\right)
+\left(
+    \sum_j b_j ^2
+\right) -
+\left( 
+    \sum_k a_k b_k 
+\right)^2
+&\geq 0\\
+\left(
+    \sum_i a_i ^2
+\right)
+\left(
+    \sum_j b_j ^2
+\right) -
+\left( 
+    \sum_i a_i b_i 
+\right)
+\left( 
+    \sum_j a_j b_j 
+\right)
+&\geq 0\\
+\sum_{i, j} a_i^2 b_j^2 -\sum_{i, j} a_i b_i a_j b_j &\geq 0
+\\
+\frac 12 \sum_{i, j} 2\left(
+a_i^2 b_j^2 - a_i b_i a_j b_j
+\right)&\geq 0
+\\
+\frac 12 \sum_{i, j} \left(
+a_i b_j - b_i a_j
+\right)^2 &\geq 0
+\end{align}
+
+Where, in the last passage, we have swapped some indices which would have been summed over in another iteration anyway. Now, this is clearly true. 
+
+$a$ and $b$ are proportional iff $\forall i, j : a_i b_j - b_i a_j = 0$, that is, the matrix they span has rank 1.
+\end{proof}
+
+This implies that $\forall r>0: M_r \leq M_{2r}$, with equality iff all the $a_i$ are equal. This can be easily proven by setting $a_i := \sqrt{p_i}$ and $b_i := \sqrt{p_i} a_i^r$ and applying the theorem.
+
+\begin{theorem}
+$G\leq A$.
+\end{theorem}
+
+\begin{proof}
+$A = M_1 \geq M_{1/2} \geq M_{1/4} \geq M_{1/8}\geq \dots  \geq \lim_{r\rightarrow 0} M_r = G$
+\end{proof}
+
+\begin{theorem}[Young's Inequality]
+\begin{equation}
+\forall a, b \geq 0: \forall p>1 : ab \leq \frac{a^p}{p} + \frac{b^{p'}}{p'}
+\end{equation}
+
+where $p^{-1} + p'^{-1} = 1$. Equality holds iff $b = a^{p-1}$.
+\end{theorem}
+
+\begin{proof}
+We just need to use $G\leq A$ with the set $(a^p, b^{p'})$ and as weights $(p^{-1}, p'^{-1})$.
+\end{proof}
+
+\begin{proof}[Integral version of the proof]
+Suppose WLOG that $b\leq a^{p-1}$. Now, graph the function $y = x^{p-1}$. Now, in $[0; +\infty] \times [0; +\infty]$, consider the area between $x=a$ and $y=b$, it is $ab$ and surely less than the sum of these integrals:
+
+\begin{equation}
+ab \leq \int^{a}_{0} x^{p-1} \, \text{d}x + \int^{b}_{0} y^{\frac{1}{p-1}} \, \text{d} y = \frac{a^p}{p} + \frac{b^{\frac{1}{p-1} +1}}{\frac{1}{p-1} +1} = \frac{a^p}{p} + \frac{b^{p'}}{p'}
+\end{equation}
+\end{proof}
+
+\paragraph{Hoelder}
+
+\begin{theorem}
+Given some $n$-uples, $(a_{ji})$ ($j$ is the index of the tuple number, and $i$ is the element in the tuple) and some weights $\alpha_i$ such that $\sum_i \alpha_i = 1$, the following holds:
+
+\begin{equation}
+\sum_i \left( \prod_j a_{ji}^{\alpha_j}\right) \leq \prod_j \left(
+\sum _i a_{ji} 
+\right)^{\alpha_j}
+\end{equation}
+
+with equality iff all the $n$-uples are proportional.
+\end{theorem}
+
+\begin{proof}
+If one of the tuples is 0 in every position, then the theorem is automatically proven.
+
+Otherwise, we can divide the left side of the inequality by the right to get:
+
+\begin{equation}
+\frac{\displaystyle
+\sum_i \left(
+\prod_j a_{ji}^{\alpha_j}
+\right)
+}{\displaystyle
+\prod_j
+\left(
+\sum_i a_{ji}
+\right)^{\alpha_j}
+}
+=
+\sum_i
+\left(
+\prod_j
+\left(
+\frac{
+a_{ji}
+}{
+\sum_k a_{jk}
+}
+\right)^{\alpha_j}
+\right)\leq 1
+\end{equation}
+
+but 
+
+\begin{equation}
+\sum_i
+\left(
+\prod_j
+\left(
+\frac{
+a_{ji}
+}{
+\sum_k a_{jk}
+}
+\right)^{\alpha_j}
+\right)\leq
+\sum_i
+\left(
+\sum_j \alpha_j \left(
+\frac{a_{ji}}{\sum_k a_{jk}}
+\right)
+\right) =
+\sum_j \alpha_j
+\frac{\sum_i a_{ji}}{\sum_k a_{jk}}
+=1
+\end{equation}
+
+by $G\leq A$, and since $\sum_k \alpha_k = 1$.
+\end{proof}
 
 \tableofcontents
 

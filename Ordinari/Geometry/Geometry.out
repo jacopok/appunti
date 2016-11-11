@@ -14,10 +14,15 @@
 \BOOKMARK [1][-]{section.1.6}{Vector product}{chapter.1}% 14
 \BOOKMARK [1][-]{section.1.7}{Mixed product}{chapter.1}% 15
 \BOOKMARK [1][-]{section.1.8}{Perpendicular set}{chapter.1}% 16
-\BOOKMARK [1][-]{section.1.9}{Affine spaces}{chapter.1}% 17
-\BOOKMARK [2][-]{section*.8}{Properties}{section.1.9}% 18
-\BOOKMARK [2][-]{subsection.1.9.1}{Linear varieties}{section.1.9}% 19
-\BOOKMARK [3][-]{section*.9}{Potential linear varieties of A3 \(R\)}{subsection.1.9.1}% 20
-\BOOKMARK [3][-]{section*.10}{Equations of linear varieties}{subsection.1.9.1}% 21
-\BOOKMARK [1][-]{section.1.10}{Euclidean spaces}{chapter.1}% 22
-\BOOKMARK [2][-]{subsection.1.10.1}{Distance between linear varieties}{section.1.10}% 23
+\BOOKMARK [0][-]{chapter.2}{Spaces}{}% 17
+\BOOKMARK [1][-]{section.2.1}{Affine spaces}{chapter.2}% 18
+\BOOKMARK [2][-]{section*.8}{Properties}{section.2.1}% 19
+\BOOKMARK [2][-]{subsection.2.1.1}{Linear varieties}{section.2.1}% 20
+\BOOKMARK [3][-]{section*.9}{Potential linear varieties of A3 \(R\)}{subsection.2.1.1}% 21
+\BOOKMARK [3][-]{section*.10}{Equations of linear varieties}{subsection.2.1.1}% 22
+\BOOKMARK [1][-]{section.2.2}{Euclidean spaces}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.2.1}{Distance between linear varieties}{section.2.2}% 24
+\BOOKMARK [1][-]{section.2.3}{Plane bundles}{chapter.2}% 25
+\BOOKMARK [2][-]{section*.11}{Intersecting planes}{section.2.3}% 26
+\BOOKMARK [3][-]{section*.12}{Parallel planes}{section*.11}% 27
+\BOOKMARK [2][-]{subsection.2.3.1}{Plane - point distance}{section.2.3}% 28

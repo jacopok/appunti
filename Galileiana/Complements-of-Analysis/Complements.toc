@@ -9,4 +9,11 @@
 \contentsline {paragraph}{Power set axiom}{2}{section*.7}
 \contentsline {paragraph}{Infinity}{2}{section*.8}
 \contentsline {paragraph}{Replacement}{2}{section*.9}
+\contentsline {paragraph}{Choice}{2}{section*.10}
+\contentsline {subsection}{\numberline {1.1.1}Goedel}{2}{subsection.1.1.1}
 \contentsline {section}{\numberline {1.2}The Von Neumann Integers}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Cardinality}{3}{section.1.3}
+\contentsline {chapter}{\numberline {2}Inequalities}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Means}{4}{section.2.1}
+\contentsline {paragraph}{Cauchy's Inequality}{6}{section*.11}
+\contentsline {paragraph}{Hoelder}{7}{section*.12}

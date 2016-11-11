@@ -439,6 +439,8 @@ $S^\perp$ is always a subspace:
 
 In $\mathbb{R}^n$, the perpendicular set of a subspace of dimension $d$ has dimension $n-d$.
 
+\chapter{Spaces}
+
 \section{Affine spaces}
 
 They resolve the ambiguity between vectors and points. $\mathbb{A}^3 (\mathbb{R})$ is affine to $\mathbb{R}^3$.
@@ -553,6 +555,113 @@ as desired. We have equality only if $\norm{\mathbf{w} -\mathbf{u}}^2=0$; if $U$
 \end{proof}
 
 We can find intersections between linear varieties using cartesian or parametric equations, but it is often best to mix: use the cartesian equation for one variety and the parametric for the other.
+
+\section{Plane bundles}
+
+In $\mathbb{A}^3 (\mathbb{R})$, plane bundles are a useful construct. We start with two planes:
+
+\begin{align}
+\pi &: ax + by + cz + d=0\\
+\pi ' &: a'x+b'y+c'z+d'=0
+\end{align}
+
+Their plane bundle is made as such:
+
+\begin{equation}
+\lambda (ax + by + cz + d ) + \mu (a'x+b'y+c'z+d')=0
+\end{equation}
+
+for some $\lambda$ and $\mu \in \mathbb{R}$, such that $(\lambda, \mu) \neq (0, 0)$.
+We immediately notice that for any $\alpha \in \mathbb{R}^*$, $(\lambda, \mu)$ and $(\alpha \lambda, \alpha \mu)$ correspond to the same plane.
+
+\paragraph{Intersecting planes} If $\pi \cup \pi' = r$, a line, then $P \in r \implies P \in \zeta$ for any $\zeta$ in the bundle, because the coordinates of $P$ solve both of the planes' equations. So this is the \emph{proper bundle} of axis $r$.
+
+\paragraph{Parallel planes} If $\pi: P + \langle \mathbf{v}, \mathbf{u}\rbrace$ and $\pi': P' + \langle \mathbf{v}, \mathbf{u}\rbrace$, then it must be that $a = a'$, $b=b'$ and  $c=c'$, since the perpendicular vector is the same. So the plane equation looks like:
+
+\begin{equation}
+(\lambda + \mu ) (ax + by+ cz) + \lambda d + \mu d'=0
+\end{equation}
+
+Which is parallel to the two starting planes, so the bundle consists of all the parallel planes to the starting ones.
+
+\subsection{Plane - point distance}
+
+We want to find the distance between the point $P$ and the plane $T = Q + V$. We call the projection of $P$ onto the plane $Q_0$.
+
+The cartesian equation of $T$ is $ax+by+cz+d=0$. Then the perpendicular subspace $V^\perp$ is
+
+\begin{equation}
+V^\perp = \langle \begin{pmatrix}
+a\\b\\c
+\end{pmatrix}\rangle = \langle \mathbf{n}\rangle
+\end{equation}
+
+$P_0 Q_0$ is proportional to $\mathbf{n}$, $QQ_0$ is perpendicular to it. Now, interpret $QP$ as $Q Q_0 + Q_0 P$ and take $QP \cdot \mathbf{n} = QQ_0 \cdot \mathbf{n} + Q_0 P \cdot \mathbf{n} = \alpha \norm{\mathbf{n}}^2$. Since $\mathbf{n}$ is arbitrary, we choose $\norm{\mathbf{n}}=1$, so $\norm{Q_0 P} = \abs{\alpha}$, so we can calculate $\alpha$ with the scalar product $QP \cdot \mathbf{n}$, without knowing anything about $Q_0$.
+
+With our choice of $\mathbf{n}$, the perpendicular subspace became
+
+\begin{equation}
+V^\perp = \left\langle
+\begin{pmatrix}
+a\\b\\c
+\end{pmatrix}
+\frac{
+1}
+{
+\sqrt{a^2 + b^2 + c^2}
+}
+\right\rangle
+\end{equation}
+
+Now we calculate
+
+\begin{equation}
+\text{d}(P, T) = \abs{\alpha} =
+\abs{
+QP \cdot \begin{pmatrix}
+a\\b\\c
+\end{pmatrix}
+\frac{1
+}{
+\sqrt{a^2 + b^2 + c^2}
+}}
+\end{equation}
+
+The vector $QP$ is
+
+\begin{equation}
+\begin{pmatrix}
+x_1 - x_0\\
+y_1 - y_0\\
+z_1 - z_0
+\end{pmatrix}
+\end{equation}
+
+So
+
+\begin{equation}
+\text{d}(P, T) = \abs{
+\frac{
+ax_0 + by_0 + c z_0 -a x_1 - b x_1 - c x_1
+}{
+\sqrt{a^2 + b^2 + c^2}
+}
+}
+\end{equation}
+
+But $Q \in T$, so $a x_1 + b x_1 + c x_1 + d = 0$, so $d = -a x_1 - b x_1 - c x_1$.
+
+\begin{equation}
+\text{d}(P, T) = \abs{
+\frac{
+ax_0 + by_0 + c z_0 +d
+}{
+\sqrt{a^2 + b^2 + c^2}
+}
+}
+\end{equation}
+
+which is the final formula.
 
 \tableofcontents
 
