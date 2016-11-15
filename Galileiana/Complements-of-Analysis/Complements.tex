@@ -479,6 +479,103 @@ a_{ji}
 by $G\leq A$, and since $\sum_k \alpha_k = 1$.
 \end{proof}
 
+\chapter{Miscellaneous}
+
+\section{Stirling's formula}
+
+\begin{theorem}
+For large enough numbers, the factorial can be approximated as $n! \sim n^n e^{-n} \sqrt{2\pi n}$; that is:
+
+\begin{equation}
+\lim_{n\rightarrow +\infty} \frac{n!}{n^n e^{-n} \sqrt{2\pi n}} = 1
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+We define the succession $a_n$ as:
+
+\begin{equation}
+a_n := \log \left(
+\frac{n!}{n^n e^{-n} \sqrt{n}}
+\right) =
+\log n! - \log \left(
+\left(
+n+ \frac 12
+\right) \log n  -n
+\right)
+\end{equation}
+
+So we just need to prove that $\lim_{n\rightarrow +\infty} a_n = \log (\sqrt{2\pi})$. First, we will show that it is strictly decreasing:
+
+\begin{align}
+a_n - a_{n+1} &= \left(
+n + \frac 12 \right) \log \left(
+\frac{n+1}{n}\right) -1\nonumber \\
+&=
+(2n+1) \left(
+\frac 12 \log \left( \frac{1 + \frac{1}{2n+1}}{1 - \frac{1}{2n+1}}
+\right) - \frac{1}{2n +1} \right) \label{term-difference-stirling}
+\end{align}
+
+We will now use the fact that, $\forall t \in [0;1]$:
+
+\begin{equation}
+\frac 12 \log \left(
+\frac{1+t}{1-t}
+\right) -t <
+\frac{t^3}{3(1-t^2)} \label{taylor-log-stirling}
+\end{equation}
+
+this can be proven with derivatives,\footnote{\begin{equation}
+\frac{\dif}{\dif t} \left(
+\frac 12 \left( \log \left(
+\frac{1+t}{1-t}
+\right) -t\right) - \frac{t^3}{3(1-t^2)}
+\right) =
+\frac{-2 t^4 -3 t^2 + 3}{3 (t^2 -1)^2} < 0
+\end{equation}
+
+and we have equality for $t=0$ in \eqref{taylor-log-stirling}.} but a deeper reason is the fact that $\forall t \in [-1; 1]$ we can write the following MacLaurin series:
+
+\begin{align}
+\log(1+t) &= \sum_{i=1}^{+\infty} \frac{(-1)^{i+1} t^i}{i}\\
+\log(1-t) &= - \sum_{i=1}^{+\infty} \frac{t^i}{i}
+\end{align}
+
+Then we can expand:
+
+\begin{equation}
+\log\left(
+\frac{1+t}{1-t}\right)
+ = \log (1+t) -\log (1-t) = 2\sum_{i=0}^{+\infty} \frac{t^{2i+1}}{2i+1}
+\end{equation}
+
+so
+
+\begin{equation}
+\frac 12 \log \left( \frac{1+t}{1-t} \right) <
+t + \frac{t^3}{3} \left(
+\sum_{i=1}^{+\infty} t^{2i}
+\right) = t + \frac{t^3}{3 (1-t^2)}
+\end{equation}
+
+Now we can take $t = (2n+1)^{-1}$ in equation \eqref{term-difference-stirling}, to get the following formula for $a_n - a_{n+1}$:
+
+\begin{align}
+\frac 1t \left(
+\frac 12 \log \left(\frac{1+t}{1-t}\right) -t
+\right) &<
+\frac{t^2}{3(1-t^2)} \\
+&=
+\frac{(2n+1)^{-2}}{3(1-(2n+1)^{-2}} \\ 
+&= \frac 1{12n^2 + 12n} \\ 
+&= 12 \left(\frac 1n - \frac{1}{n+1}\right)
+\end{align}
+
+So, we have proven that the function $a_n - (12 n) ^{-1}$ is strictly increasing; that is, its limit is either real or $+\infty$. Now, we shall prove that $a_n$ is stricty decreasing, that is, $0<a_n - a_{n+1}$.
+
+\end{proof}
+
 \tableofcontents
 
 \end{document}

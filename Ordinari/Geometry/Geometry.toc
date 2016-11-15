@@ -7,22 +7,35 @@
 \contentsline {section}{\numberline {1.3}Reference frames}{2}{section.1.3}
 \contentsline {section}{\numberline {1.4}Linear dependence}{3}{section.1.4}
 \contentsline {paragraph}{Parallelism}{3}{section*.4}
-\contentsline {paragraph}{Co-hyper-planar vectors}{3}{section*.5}
+\contentsline {paragraph}{Linearly dependent vectors}{3}{section*.5}
 \contentsline {section}{\numberline {1.5}Scalar product}{4}{section.1.5}
 \contentsline {subsubsection}{Angle between vectors}{5}{section*.6}
 \contentsline {paragraph}{Orthogonality}{5}{section*.7}
-\contentsline {section}{\numberline {1.6}Vector product}{5}{section.1.6}
+\contentsline {section}{\numberline {1.6}Vector product}{6}{section.1.6}
 \contentsline {section}{\numberline {1.7}Mixed product}{7}{section.1.7}
-\contentsline {section}{\numberline {1.8}Perpendicular set}{7}{section.1.8}
+\contentsline {section}{\numberline {1.8}Perpendicular set}{8}{section.1.8}
 \contentsline {chapter}{\numberline {2}Spaces}{9}{chapter.2}
 \contentsline {section}{\numberline {2.1}Affine spaces}{9}{section.2.1}
 \contentsline {paragraph}{Properties}{9}{section*.8}
 \contentsline {subsection}{\numberline {2.1.1}Linear varieties}{9}{subsection.2.1.1}
 \contentsline {paragraph}{Potential linear varieties of $\mathbb {A}^3 (\mathbb {R})$}{10}{section*.9}
-\contentsline {subsubsection}{Equations of linear varieties}{10}{section*.10}
+\contentsline {subsubsection}{Parametric equations of linear varieties}{10}{section*.10}
+\contentsline {subsubsection}{Cartesian equations of linear varieties}{10}{section*.11}
 \contentsline {section}{\numberline {2.2}Euclidean spaces}{10}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Distance between linear varieties}{10}{subsection.2.2.1}
 \contentsline {section}{\numberline {2.3}Plane bundles}{11}{section.2.3}
-\contentsline {paragraph}{Intersecting planes}{11}{section*.11}
-\contentsline {paragraph}{Parallel planes}{11}{section*.12}
-\contentsline {subsection}{\numberline {2.3.1}Plane - point distance}{12}{subsection.2.3.1}
+\contentsline {paragraph}{Intersecting planes}{11}{section*.12}
+\contentsline {paragraph}{Parallel planes}{12}{section*.13}
+\contentsline {subsection}{\numberline {2.3.1}Plane-point distance}{12}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Plane-plane or plane-line distance}{13}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Point-line distance}{13}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Line-line distance}{13}{subsection.2.3.4}
+\contentsline {paragraph}{Mixed product method}{13}{section*.14}
+\contentsline {paragraph}{Plane method}{13}{section*.15}
+\contentsline {paragraph}{Linear variety method}{13}{section*.16}
+\contentsline {section}{\numberline {2.4}Abstract vector spaces}{14}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Examples}{14}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}Subspaces}{14}{section.2.5}
+\contentsline {paragraph}{Generators and bases}{14}{section*.17}
+\contentsline {section}{\numberline {2.6}Bases}{15}{section.2.6}
+\contentsline {paragraph}{Elimination}{15}{section*.18}

@@ -7,7 +7,7 @@
 \BOOKMARK [1][-]{section.1.3}{Reference frames}{chapter.1}% 7
 \BOOKMARK [1][-]{section.1.4}{Linear dependence}{chapter.1}% 8
 \BOOKMARK [2][-]{section*.4}{Parallelism}{section.1.4}% 9
-\BOOKMARK [3][-]{section*.5}{Co-hyper-planar vectors}{section*.4}% 10
+\BOOKMARK [3][-]{section*.5}{Linearly dependent vectors}{section*.4}% 10
 \BOOKMARK [1][-]{section.1.5}{Scalar product}{chapter.1}% 11
 \BOOKMARK [2][-]{section*.6}{Angle between vectors}{section.1.5}% 12
 \BOOKMARK [3][-]{section*.7}{Orthogonality}{section*.6}% 13
@@ -19,10 +19,23 @@
 \BOOKMARK [2][-]{section*.8}{Properties}{section.2.1}% 19
 \BOOKMARK [2][-]{subsection.2.1.1}{Linear varieties}{section.2.1}% 20
 \BOOKMARK [3][-]{section*.9}{Potential linear varieties of A3 \(R\)}{subsection.2.1.1}% 21
-\BOOKMARK [3][-]{section*.10}{Equations of linear varieties}{subsection.2.1.1}% 22
-\BOOKMARK [1][-]{section.2.2}{Euclidean spaces}{chapter.2}% 23
-\BOOKMARK [2][-]{subsection.2.2.1}{Distance between linear varieties}{section.2.2}% 24
-\BOOKMARK [1][-]{section.2.3}{Plane bundles}{chapter.2}% 25
-\BOOKMARK [2][-]{section*.11}{Intersecting planes}{section.2.3}% 26
-\BOOKMARK [3][-]{section*.12}{Parallel planes}{section*.11}% 27
-\BOOKMARK [2][-]{subsection.2.3.1}{Plane - point distance}{section.2.3}% 28
+\BOOKMARK [3][-]{section*.10}{Parametric equations of linear varieties}{subsection.2.1.1}% 22
+\BOOKMARK [3][-]{section*.11}{Cartesian equations of linear varieties}{subsection.2.1.1}% 23
+\BOOKMARK [1][-]{section.2.2}{Euclidean spaces}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.1}{Distance between linear varieties}{section.2.2}% 25
+\BOOKMARK [1][-]{section.2.3}{Plane bundles}{chapter.2}% 26
+\BOOKMARK [2][-]{section*.12}{Intersecting planes}{section.2.3}% 27
+\BOOKMARK [3][-]{section*.13}{Parallel planes}{section*.12}% 28
+\BOOKMARK [2][-]{subsection.2.3.1}{Plane-point distance}{section.2.3}% 29
+\BOOKMARK [2][-]{subsection.2.3.2}{Plane-plane or plane-line distance}{section.2.3}% 30
+\BOOKMARK [2][-]{subsection.2.3.3}{Point-line distance}{section.2.3}% 31
+\BOOKMARK [2][-]{subsection.2.3.4}{Line-line distance}{section.2.3}% 32
+\BOOKMARK [3][-]{section*.14}{Mixed product method}{subsection.2.3.4}% 33
+\BOOKMARK [4][-]{section*.15}{Plane method}{section*.14}% 34
+\BOOKMARK [4][-]{section*.16}{Linear variety method}{section*.14}% 35
+\BOOKMARK [1][-]{section.2.4}{Abstract vector spaces}{chapter.2}% 36
+\BOOKMARK [2][-]{subsection.2.4.1}{Examples}{section.2.4}% 37
+\BOOKMARK [1][-]{section.2.5}{Subspaces}{chapter.2}% 38
+\BOOKMARK [2][-]{section*.17}{Generators and bases}{section.2.5}% 39
+\BOOKMARK [1][-]{section.2.6}{Bases}{chapter.2}% 40
+\BOOKMARK [2][-]{section*.18}{Elimination}{section.2.6}% 41

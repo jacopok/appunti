@@ -149,7 +149,7 @@ To write the fact that $\mathbf{a} \parallel \mathbf{b}$, we could say that $\ex
 \exists \alpha , \beta \in \mathbb{R} : \neg (\alpha = \beta = 0 ):  \alpha \mathbf{a} + \beta \mathbf{b} = \mathbf{0}
 \end{equation}
 
-\paragraph{Co-hyper-planar vectors}
+\paragraph{Linearly dependent vectors}
 
 With a similar argument, we say that $n$ vectors $\mathbf{x}_i$, where $0<i\leq n$ are in the same $n-1$-plane if
 
@@ -158,6 +158,8 @@ With a similar argument, we say that $n$ vectors $\mathbf{x}_i$, where $0<i\leq 
 \end{equation}
 
 and we call this a \emph{linear combination} of the vectors $\mathbf{x}_i$.
+
+One vector is linearly dependend only if it is $\mathbf{0}$.
 
 If there is no such linear combination (with at least one nonzero index) yielding $\mathbf{0}$, the vectors are said to be \emph{linearly independent}; otherwise they are \emph{linearly dependent}.
 If one of the vectors is the zero vector, all of them are automatically linearly dependent.
@@ -491,18 +493,22 @@ The subspace $U$ cannot be changed for another: it is called ``giacitura''.
 
 We can do an analogous operation in $\mathbf{R}^2$.
 
-\subsubsection{Equations of linear varieties}
+\subsubsection{Parametric equations of linear varieties}
 
-Describing a linear variety in $\mathbb{A}^3 (\mathbb{R})$ as $P + <\mathbf{x}>$ gives us parametric equations.
-We just apply the definition ***CHECK***.
+Describing a linear variety in $\mathbb{A}^3 (\mathbb{R})$ as $P + \langle \mathbf{x}\rangle$ gives us parametric equations.
+We just apply the definition; for example, in the case of a linear variety of dimension 1:
 
 \begin{equation}
-r: P_1 + <P_2 - P_1> = P_1 + \begin{pmatrix}
+r: P_1 + \langle P_2 - P_1\rangle = P_1 + \alpha \begin{pmatrix}
 x_2 - x_1 \\
 y_2 - y_1 \\
 z_2 - z_1 
 \end{pmatrix}
 \end{equation}
+
+\subsubsection{Cartesian equations of linear varieties}
+
+We can find them by taking the orthogonal of the orthogonal subspace, and substituting $(x_i - P_i)$ for each coordinate.
 
 \section{Euclidean spaces}
 
@@ -584,7 +590,7 @@ We immediately notice that for any $\alpha \in \mathbb{R}^*$, $(\lambda, \mu)$ a
 
 Which is parallel to the two starting planes, so the bundle consists of all the parallel planes to the starting ones.
 
-\subsection{Plane - point distance}
+\subsection{Plane-point distance}
 
 We want to find the distance between the point $P$ and the plane $T = Q + V$. We call the projection of $P$ onto the plane $Q_0$.
 
@@ -662,6 +668,127 @@ ax_0 + by_0 + c z_0 +d
 \end{equation}
 
 which is the final formula.
+
+\subsection{Plane-plane or plane-line distance}
+
+If they intersect, the distance is 0. Otherwise, we just pick a point from one plane, and then calculate its distance from the other, since they are parallel. The same holds for a plane and a line.
+
+\subsection{Point-line distance}
+
+If $P \in r$, the distance is 0. Otherwise, $\text{d} (P, r) = \text{d} (P, Q_0)$, where $Q_0$ is the projection of $P$ onto the line. If we take a plane $\sigma$ such that $\sigma \perp r$ and $P\in \sigma$, then $Q_0 = \sigma \cap r$.
+
+If we do not care about the position of $Q_0$, we can just take any point $Q \in r$ and $\mathbf{v}\in r$, and calculate:
+
+\begin{equation}
+\text{d} (P, r) = \frac{\norm{\overrightarrow{QP} \times \mathbf{v}}}{\norm{v}}
+\end{equation}
+
+which is the height of the parallelogram spanned by $\mathbf{v}$ and $\overrightarrow{QP}$.
+
+\subsection{Line-line distance}
+
+If $r \cap s \neq \emptyset$, the distance is 0. If $r \parallel s$, we use the point-line formula. 
+
+\paragraph{Mixed product method}
+Otherwise, we can choose $P \in r$ and $Q \in s$, $\mathbf{w}$ in the direction of $r$ and $\mathbf{v}$ in the direction of $s$. Now, we take the volume of the parallelepiped spanned by $\overrightarrow{QP}$, $\mathbf{w}$ and $\mathbf{v}$ and divide it by the area of its base:
+
+\begin{equation}
+h = \frac{\abs{\overrightarrow{QP} \cdot (\mathbf{v}\times \mathbf{w})}}{\norm{\mathbf{v}\times \mathbf{w}}}
+\end{equation}
+
+\paragraph{Plane method}
+Take a plane $\sigma$ such that $s \in \sigma$ and $\sigma \parallel r$. Then, $\text{d} (r, s) =\text{d}(r, \sigma) =  \text{d}(P\in r, \sigma)$
+
+\paragraph{Linear variety method}
+We can write $r = P + \langle \mathbf{w}\rangle$ and $s = Q + \langle \mathbf{v} \rangle$. We must choose our $P$ and $Q$ such that $\overrightarrow{PQ} \cdot \mathbf{v} = \overrightarrow{PQ} \cdot \mathbf{w} = 0$. Then $\norm{\overrightarrow{PQ}}$ is the distance.
+
+\section{Abstract vector spaces}
+
+\begin{definition}
+A vector space over a field $\mathbb{F}$ is a set $V \neq \emptyset$ equipped with:
+
+\begin{itemize}
+\item addition: $v_1, v_2 \in V \implies v_1 + v_2 \in V$;
+\item scalar multiplication: $\alpha \in \mathbb{F}, v \in V \implies \alpha v \in V$;
+\end{itemize}
+
+which must satisfy, $\forall a, b, c \in V$ and $ \forall \alpha, \beta \in \mathbb{F}$:
+
+\begin{itemize}
+\item commutativity for addition: $a+ b = b+a$;
+\item associativity for addition:  $(a+b) +c = a + (b+c)$;
+\item existence of a neutral element for addition $\exists \mathbf{0} \in V: a + \mathbf{0} = a$;
+\item existence of additive inverses: $\exists v\in V: v+a = \mathbf{0}$;
+\item distributivity of scalar multiplication with respect to addition: $\alpha (a+b) = \alpha a + \alpha b$;
+\item distrivutivity of scalar addition with respect to scalar multiplication: $(\alpha + \beta) a = \alpha a + \beta a$;
+\item associativity of scalar multiplication: $\alpha (\beta a) = (\alpha \beta ) a$;
+\item identity element of scalar multiplication: $\exists 1 \in \mathbb{F}: 1a = a$.
+\end{itemize}
+\end{definition}
+
+\subsection{Examples}
+
+$\mathbb{R}^n$ and the geometric vectors are real vector spaces. $\mathbb{R}[x]$ are the polynomials with real coefficients; addition and scalar multiplication are defined as usual.
+
+If we take $I \subseteq \mathbb{R}$, the set of all $f: I \rightarrow \mathbb{R}$ is a vector space. Addition and scalar multiplication can be defined point by point on the image. Subspaces of this vector space are the continuous functions and the differentiable functions.
+
+Real or complex matrices with $n$ rows and $m$ columns are a vector space (denoted by $M_{n\times m} (\mathbb{R})$). Addition and scalar multiplication are defined as: $a_{ij} + b_{ij} = c_{ij}$, $\alpha a_{ij} = c_{ij}$.
+
+\section{Subspaces}
+
+$U\subseteq V$, $U\neq \emptyset$ is a vector subspace if the operations of $V$, restricted to $U$, make it a vector space. $U$ is subspace iff it contains all the linear combinations of its vectors.
+
+\paragraph{Generators and bases}
+
+\begin{definition}
+Given the subspace $U$, the vectors $\mathbf{u}_i$ are \emph{generators} if every vector in $U$ can be written as a linear combination of them.
+\end{definition}
+
+\section{Bases}
+
+\begin{definition}
+A basis of a subspace $U$ is a set of linearly independent generators.
+\end{definition}
+
+For example, the canonical basis of $M_{n\times m} (\mathbb{R})$ is $\mathbf{e}_{ij} = \delta_{ij}$.\footnote{$\delta_{ij}$ is the Dirac delta, which is 1 only if the two indices are equal, and 0 otherwise.}
+
+\begin{theorem}
+Given a vector subspace $U\subseteq V$, the vectors $\mathbf{u}_i \in U$ are a basis iff every vector in $U$ can be written in a unique way as a linear combination of $\mathbf{u}_i$.
+\end{theorem}
+
+\begin{proof}
+Leftward implication: if every vector can be written in a unique way, $\mathbf{u}_i$ are generators, and $\mathbf{0} = \sum 0 \mathbf{u}_i$: by the fact that the representation is unique $\mathbf{u}_i$ are linearly independent.
+
+Rightward implication: if $\mathbf{u}_i$ is a basis, take $\mathbf{v} = \sum \alpha_i \mathbf{u}_i = \sum \beta_i \mathbf{u}_i$. Then $\mathbf{v} - \mathbf{v} = \mathbf{0} = \sum (\alpha_i - \beta_i ) \mathbf{u}_i$, which implies that $\forall i \in \mathbb{N} \alpha_i = \beta_i$, that is, the representation is unique.
+\end{proof}
+
+A set of vectors $S$ can be a set of generators even if it is infinite, as long as any vector is written as a combination of just a finite subset of them. For example, the set $S = \lbrace x^n | \forall n \in \mathbb{N} \rbrace$ is a set of generators for the polynomials.
+
+\paragraph{Elimination}
+
+\begin{theorem}
+If $\mathbf{u}_i, i \in [1, n]$ are linearly dependent generators of $U$, then $\exists k \in [1, n]: \mathbf{u}_i, i \in [1, n]\smallsetminus \lbrace k\rbrace$ are generators of $U$.
+\end{theorem}
+
+\begin{proof}
+In the combination $\mathbf{0} = \sum \alpha_i \mathbf{u}_i$ at least one $\alpha_i$ must be nonzero. Take one such coefficient and divide by it:
+
+\begin{equation}
+\frac{\alpha_i \mathbf{u}_i}{\alpha_i} = -\frac{1}{\alpha_i} \displaystyle\sum_{\substack{k=1 \\ k\neq i}}^n \alpha_k \mathbf{u}_k
+\end{equation}
+
+So we have written $\mathbf{u}_i$ as a linear combination of the other basis vectors. Now, we can express any vector in $U$ without it.
+\end{proof}
+
+In a finitely generated space (a space with finitely many generators), we can always find a basis applying this theorem repeatedly.
+
+\begin{theorem}
+If $\mathbf{u}_i$ are linearly independent vectors in a subspace $U$, given a vector $\mathbf{v} \in U$, the vectors $\lbrace \mathbf{u}_i, \mathbf{v}\rbrace$ are linearly independent iff $\mathbf{v} \notin \langle \mathbf{u}_i \rangle$.
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
 
 \tableofcontents
 
