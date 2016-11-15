@@ -774,7 +774,7 @@ If $\mathbf{u}_i, i \in [1, n]$ are linearly dependent generators of $U$, then $
 In the combination $\mathbf{0} = \sum \alpha_i \mathbf{u}_i$ at least one $\alpha_i$ must be nonzero. Take one such coefficient and divide by it:
 
 \begin{equation}
-\frac{\alpha_i \mathbf{u}_i}{\alpha_i} = -\frac{1}{\alpha_i} \displaystyle\sum_{\substack{k=1 \\ k\neq i}}^n \alpha_k \mathbf{u}_k
+\frac{\alpha_i \mathbf{u}_i}{\alpha_i} = -\frac{1}{\alpha_i} \displaystyle\sum_{\mathclap{\substack{k=1 \\ k\neq i}}}^n \alpha_k \mathbf{u}_k
 \end{equation}
 
 So we have written $\mathbf{u}_i$ as a linear combination of the other basis vectors. Now, we can express any vector in $U$ without it.
@@ -787,7 +787,72 @@ If $\mathbf{u}_i$ are linearly independent vectors in a subspace $U$, given a ve
 \end{theorem}
 
 \begin{proof}
+Leftward implication: if $\mathbf{v} \in \langle \mathbf{u}_i \rangle$, then $\mathbf{v}- \sum \alpha_i \mathbf{u}_i = \mathbf{0}$, so they are linearly dependent.
 
+Rightward implication: if there exist coefficients $\lbrace \beta, \alpha_i \rbrace$ such that $\beta \mathbf{v} + \sum \alpha_i \mathbf{u}_i = 0$, then $\beta \neq 0$ since $\mathbf{u}_i$ are linearly independent, then we can divide by $\beta$ and:
+
+\begin{equation}
+\mathbf{v} = -\frac 1\beta \sum_i \alpha_i \in \langle \mathbf{u}_i\rangle
+\end{equation}
+\end{proof}
+
+\paragraph{Constructing a basis}
+
+Given a finitely generated subspace $U\neq \mathbf{0}$, we can construct a basis for it: choose a vector $\mathbf{u}_1$, which is independent. If $U = \langle \mathbf{u}_1\rangle$, we are done. If not, $\exists \mathbf{u}_2 \in U, \mathbf{u}_2 \notin \langle \mathbf{u}_1\rangle$, so they are independent. We can go on as long as the generated subspace does not equal $U$.
+
+\begin{theorem}
+Given the linearly independent vectors $\lbrace \mathbf{u}_i\rbrace_{i \in [1, k]} \in V$ and the vectors $\langle \mathbf{v}_i\rangle_{i \in [1, p]} = V$, then $k \leq p$.
+\end{theorem}
+
+\begin{proof}
+$\mathbf{u}_1 = \sum \alpha_i \mathbf{v}_i$. $\forall i: \mathbf{u}_i \neq \mathbf{0}$, so at least one $\alpha_i$ is not 0. WLOG, we can take $\alpha_1 \neq 0$. Now,
+
+\begin{equation}
+\mathbf{v}_1 = \frac{1}{\alpha_1} \mathbf{u}_1 - \sum_{i=2}^p \frac{\alpha_i \mathbf{v}_i}{\alpha_1}
+\end{equation}
+
+so $\langle \mathbf{u}_1, \mathbf{v}_i \rangle =V$. We have substituted one of the generators: we wish to substitute $k$ generators, but we must watch out for an issue: in
+
+\begin{equation}
+\mathbf{u}_2 = \beta_1 \mathbf{u}_1 \sum_{i=2}^p \beta_i \mathbf{v}_i
+\end{equation} 
+
+one of the $\beta_i$ must be $\neq 0$, but the proof would not work if it were just $\beta_1$.
+
+This is easily fixed: if $\forall i \in [2, p]: \beta_i =0$, then we would have $\mathbf{u}_2 = \beta_1 \mathbf{u}_1$, which is excluded since they are independent. So we suppose, again WLOG, that $\beta_2 \neq 0$, and we can continue:
+
+\begin{equation}
+\mathbf{v}_2 = -\frac 1{\beta_2}\left( \beta_1 \mathbf{u}_1 - \mathbf{u}_2 + \sum_{i=3}^p \beta_i \mathbf{v}_i \right)
+\end{equation}
+
+This way, we can substitute $k$ of the $p$ generators and we will still have generators. So, $k\leq p$.
+\end{proof}
+
+\begin{corollary}
+All the bases of a subspace have the same number of elements, we call this the \emph{dimension} of the subspace.
+\end{corollary}
+
+\begin{proof}
+Given $n$ vectors in a basis and $k$ in another basis, we use alternatively the fact that they are generators and independent to see that $k\leq n$ and $n\leq k$.
+\end{proof}
+
+\begin{corollary}
+If $U\subseteq W \subseteq V$ and $U, W$ are subspaces, then if $\dim U = \dim W$ then $U=W$.
+\end{corollary}
+
+\begin{proof}
+Given the basis vectors of $U$, $\lbrace \mathbf{u}_i\rbrace _{i\in [1, n]}$, $\lbrace \mathbf{u}_i, \mathbf{w}\rbrace$ are linearly independent iff $\mathbf{w} \notin U$, so if $\exists \mathbf{w} \in W: \mathbf{w}\notin U$, then there would be $n+1$ linearly independent vectors in $W$, so $\forall\mathbf{w} \in W, \mathbf{w} \in U$.
+\end{proof}
+
+\section{Operations on subspaces}
+
+\subsection{Intersection}
+
+\begin{theorem}
+Given a vector space $V$ and the subspaces $W \subseteq V$ and $U\subseteq V$, then $W\cap U$ is a subspace.
+\end{theorem}
+\begin{proof}
+$\mathbf{0} \in W\cap U$, and given $\mathbf{v}_1, \mathbf{v}_2 \in W\cap U$, $\mathbf{v}_1 + \mathbf{v}_2 \in U$ and $\mathbf{v}_1 + \mathbf{v}_2 \in W$, so $\mathbf{v}_1 + \mathbf{v}_2 \in W\cap U$. The same holds for scalar multiplication.
 \end{proof}
 
 \tableofcontents
