@@ -479,9 +479,70 @@ a_{ji}
 by $G\leq A$, and since $\sum_k \alpha_k = 1$.
 \end{proof}
 
+\chapter{Convex functions}
+
+\section{Definition}
+
+\begin{definition}
+Given an interval $I \subseteq \mathbb{R}$, $f: I\rightarrow \mathbb{R}$ is convex if, $\forall x_1, x_2 \in I$ and $\forall \lambda \in [0, 1]$:
+
+\begin{equation}
+f(\lambda x_1 + (1-\lambda) x_2) \leq \lambda f(x_1) + (1-\lambda)f(x_2)
+\end{equation}
+\end{definition}
+
 \chapter{Miscellaneous}
 
 \section{Stirling's formula}
+
+For the proof we will need another result first:
+
+\begin{theorem}[Wallis]
+\begin{equation}
+\lim_{n\rightarrow +\infty} \frac{\displaystyle\prod_{i=1}^{n} (2i)^2}{(2n+1)\displaystyle \prod _{i=1}^{n-1} (2i+1)^2}  = \frac{\pi}{2}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+We define the succession $I_n$ as:
+
+\begin{equation}
+I_n = \int^{\frac{\pi}{2}}_{0} (\sin x )^n \, \text{d}x
+\end{equation}
+
+Clearly a first property is $I_{n+1} \leq I_n$. Then, if $n\geq 2$, we can calculate:
+
+\begin{align*}
+I_n &= \int^{\frac{\pi}{2}}_{0} \sin^2 (x) \sin^{n-2} x \, \text{d}x\\
+&= \int^{\frac{\pi}{2}}_{0} (1-\cos^2 x) \sin^{n-2} x \, \text{d}x\\
+&= I_{n-2} -\int^{\frac{\pi}{2}}_{0} (\cos^2 x) \left( \frac{\sin^{n-1} x}{n-1} \right)' \, \text{d}x\\
+&= I_{n-2} -\frac{1}{n-1} \left(\left. \cos x \sin^{n-1} x \right]^{\frac{\pi}{2}}_0 + \int^{\frac{\pi}{2}}_{0} \sin^n x \, \text{d}x \right)\\
+&= I_{n-2} - \frac{1}{n-1} I_n
+\end{align*}
+
+therefore $I_n = I_{n-2} ((n-1)/n)$.
+
+Now, consider:
+
+\begin{equation}
+\frac{I_{2n+1}}{I_{2n}} = \frac{2n}{2n+1}\leq \frac{I_2n+1}{I_{2n}} \leq 1
+\end{equation}
+
+this, by the squeeze theorem, implies
+
+\begin{equation}
+\lim_{n\rightarrow +\infty} \frac{I_{2n+1}}{I_{2n}} =1
+\end{equation}
+
+But we can expand the $I_n$ into products of the even or odd $I_n$ preceding them, so we get:
+
+\begin{equation}
+\lim_{n\rightarrow+\infty} \frac{I_{2n+1}}{I_{2n}} = \frac{I_1 \displaystyle\prod_{i=1}^{n} \frac{2i}{2i+1}}{I_0 \displaystyle \prod _{i=1}^{n} \frac{2i-1}{2i}} = \frac{\displaystyle\prod_{i=1}^{n} (2i)^2}{(2n+1)\displaystyle \prod _{i=1}^{n-1} (2i+1)^2} \frac{I_1}{I_0}
+\end{equation}
+
+and $I_0 = \pi /2$, $I_1 = 1$.
+\end{proof}
+
 
 \begin{theorem}
 For large enough numbers, the factorial can be approximated as $n! \sim n^n e^{-n} \sqrt{2\pi n}$; that is:
@@ -562,7 +623,7 @@ t + \frac{t^3}{3} \left(
 Now we can take $t = (2n+1)^{-1}$ in equation \eqref{term-difference-stirling}, to get the following formula for $a_n - a_{n+1}$:
 
 \begin{align}
-\frac 1t \left(
+f(t) = \frac 1t \left(
 \frac 12 \log \left(\frac{1+t}{1-t}\right) -t
 \right) &<
 \frac{t^2}{3(1-t^2)} \\
@@ -573,6 +634,14 @@ Now we can take $t = (2n+1)^{-1}$ in equation \eqref{term-difference-stirling}, 
 \end{align}
 
 So, we have proven that the function $a_n - (12 n) ^{-1}$ is strictly increasing; that is, its limit is either real or $+\infty$. Now, we shall prove that $a_n$ is stricty decreasing, that is, $0<a_n - a_{n+1}$.
+
+It is enough for $f(t)$ to satisfy this condition:
+
+\begin{equation}
+f'(t) =\frac 12 \frac{1}{1+t} + \frac{1}{2} \frac{1}{1-t} > 0 \quad \forall t \in [0, 1]
+\end{equation}
+
+and $f(0) = 0$, so $\forall t \in [0, 1]: f(t)>0$. So $a_n$ is strictly decreasing, thus its limit is either real or $-\infty$. But the limits of $a_n$ and $a_n - (12n)^{-1}$ must be the same since their difference has limit 0: so $\lim_{n\rightarrow +\infty} a_n = c \in \mathbb{R}$.
 
 \end{proof}
 

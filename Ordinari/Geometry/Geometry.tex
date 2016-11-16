@@ -38,6 +38,9 @@
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\im}{im}
+
 \usepackage{url}
 \newcommand*{\defeq}{\stackrel{\text{def}}{=}}
 \author{Jacopo Tissino}
@@ -841,7 +844,7 @@ If $U\subseteq W \subseteq V$ and $U, W$ are subspaces, then if $\dim U = \dim W
 \end{corollary}
 
 \begin{proof}
-Given the basis vectors of $U$, $\lbrace \mathbf{u}_i\rbrace _{i\in [1, n]}$, $\lbrace \mathbf{u}_i, \mathbf{w}\rbrace$ are linearly independent iff $\mathbf{w} \notin U$, so if $\exists \mathbf{w} \in W: \mathbf{w}\notin U$, then there would be $n+1$ linearly independent vectors in $W$, so $\forall\mathbf{w} \in W, \mathbf{w} \in U$.
+Given the basis vectors of $U$, $\lbrace \mathbf{u}_i\rbrace _{i\in [1, n]}$, $\lbrace \mathbf{u}_i, \mathbf{w}\rbrace$ are linearly independent iff $\mathbf{w} \notin U$, so if $\exists \mathbf{w} \in W: \mathbf{w}\notin U$, then there would be $n+1$ linearly independent vectors in $W$, which is impossible, so $\forall\mathbf{w} \in W, \mathbf{w} \in U$.
 \end{proof}
 
 \section{Operations on subspaces}
@@ -854,6 +857,198 @@ Given a vector space $V$ and the subspaces $W \subseteq V$ and $U\subseteq V$, t
 \begin{proof}
 $\mathbf{0} \in W\cap U$, and given $\mathbf{v}_1, \mathbf{v}_2 \in W\cap U$, $\mathbf{v}_1 + \mathbf{v}_2 \in U$ and $\mathbf{v}_1 + \mathbf{v}_2 \in W$, so $\mathbf{v}_1 + \mathbf{v}_2 \in W\cap U$. The same holds for scalar multiplication.
 \end{proof}
+
+\subsection{Sum}
+
+The union of subspaces is generally not a subspace, and we only need one example to show this. So, we define:
+
+\begin{definition}
+Given the subspaces $U$ and $W$, their \emph{sum space} is defined as $U+W := \langle U \cup W \rangle$.\footnote{Obviously the set of genenerators given for this subspace are not a basis.} This is the smallest subspace containing both $U $ and $W$.
+\end{definition}
+
+\begin{definition}
+We say that the sum of two subspaces is \emph{direct} iff a vector in it is written uniquely as a linear combination of vectors of each starting subspace; this is denoted like: $S \oplus T$.
+\end{definition}
+
+For example, $\mathbb{R}^2 = \langle \mathbf{e}_1 \rangle \oplus \langle \mathbf{e}_2 \rangle$.
+
+\begin{theorem}
+The sum of two subspaces is direct iff their intersection is exactly $\mathbf{0}$.
+\end{theorem}
+
+\begin{proof}
+Leftward implication: given $\mathbf{v} \in S \oplus T$, take $\mathbf{v} \in S\cap T$. Then $\mathbf{v} = (\mathbf{v}_S + \mathbf{0}_T) = (\mathbf{0}_S + \mathbf{v}_T)$. By the uniqueness of the representation, $\mathbf{v} = \mathbf{0}$.
+
+Rightward implication: given that $S \cap T = \lbrace \mathbf{0}\rbrace$, take $\mathbf{v} \in S+T$, and suppose that $\mathbf{v} = \mathbf{s}_1 + \mathbf{t}_1 = \mathbf{s}_2 + \mathbf{t}_2$.
+
+Now, $\mathbf{s}_1 - \mathbf{s}_2 \in S$ and $\mathbf{t}_1 - \mathbf{t}_2 \in T$, but $\mathbf{s}_1 - \mathbf{s}_2 = \mathbf{t}_1 - \mathbf{t}_2$ so they belong to $S \cap T$, which implies $\mathbf{s}_1 - \mathbf{s}_2 = \mathbf{t}_1 - \mathbf{t}_2 = \mathbf{0}$.
+\end{proof}
+
+It is clear that
+\begin{equation}
+\dim U + \dim W \geq \dim (U+W) \geq \max \lbrace \dim U , \dim W \rbrace
+\end{equation}
+
+\begin{theorem}[Grassmann's formula]
+\begin{equation}
+\dim (S+T) = \dim S + \dim T - \dim (S\cap T)
+\end{equation}
+\end{theorem}
+
+A sketch of the proof is as follows:
+
+We construct a basis for $S \cap T$, then we add vectors until we get to a basis of $S$, and we do the same for $T$. All these vectors must then be a basis for $S+T$ (it must be proven that they are independent generators), but we counted the ones from $S\cap T$ twice. 
+
+\chapter{Matrices}
+
+\section{Elementary operations}
+
+Given the set of generators $U = \langle \mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n\rangle$, we can perform the following operations without changing $U$:
+
+\begin{enumerate}
+\item switching places: $U = \langle \mathbf{u}_2, \mathbf{u}_1, \dots, \mathbf{u}_2 \rangle$;
+\item adding to any generator any other generator scaled by some amount: $U = \langle (\mathbf{u}_1 + \alpha \mathbf{u}_2), \mathbf{u}_2, \dots, \mathbf{u}_n \rangle$
+\item scaling any generator: $U = \langle \alpha \mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n\rangle$
+\end{enumerate}
+
+We can perform these to the rows of a matrix.
+
+\begin{definition}
+A matrix is said to be in \emph{row echelon form} if:
+\begin{enumerate}
+\item all the rows composed by just zeroes are on the bottom of the matrix;
+\item the pivot\footnote{The first nonzero coefficient in a row of a matrix is called \emph{pivot}.} of any row is strictly to the right of the one of the row above it.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+The \emph{rank by rows} of a matrix is the dimension of the space spanned by its rows. 
+\end{definition}
+
+If a matrix is in row echelon form, this is the number of nonzero rows. The rank of a matrix is invariant under elementary operations.
+
+\section{Matrix multiplication}
+
+This is the first operation we introduce that distinguishes matrices from any other vector space. 
+
+If we multiply $\mathbf{A} \in M_{m\times n} (\mathbb{F})$ and $\mathbf{B} \in M_{p\times n} (\mathbb{F})$ we get $\mathbf{AB} = \mathbf{C}$ such that:
+
+\begin{equation}
+\mathbf{C}_{ij} = \sum_{k=1}^m \mathbf{A}_{ik} \mathbf{B}_{kj}
+\end{equation}
+
+It has all the properties we would expect, with respect to both addition and scalar multiplication: associativity, distributivity, but it is not commutative. The identity matrix $I_n \in M_{n\times n}(\mathbb{F})$ is defined so that $I_{ij} = \delta_{ij}$, and its columns (or rows) are the canonical basis of $\mathbb{R}^n$.
+
+\subsection{Elementary operations through matrix multiplication}
+
+We can express all the elementary operations through multiplying to the left by some matrix, which can be obtained by performing the operations on the identity matrix.
+
+\subsection{Linear applications}
+
+An application is linear if it preserves the operations on the spaces:
+
+\begin{align}
+f: V\rightarrow W \text{ linear} \iff \forall \mathbf{v}_1, \mathbf{v}_2 \in V: f(\mathbf{v}_1) + f(\mathbf{v}_2) &= f(\mathbf{v}_1 + \mathbf{v}_2) \\
+\forall \alpha \in \mathbb{R}: f(\alpha \mathbf{v}_1) &= \alpha f(\mathbf{v}_1)
+\end{align}
+
+A linear function $f: \mathbb{R}\rightarrow \mathbb{R}$ must satisfy $f(x) = f( 1x) = x f(1)$, so it is necessarily of the form $f(x) = \alpha x$ for some $\alpha\in\mathbb{R}$.
+
+By the same reasoning, a function $f: \mathbb{R}^n\rightarrow \mathbb{R}^m$ is uniquely determined by the vectors onto which the basis vectors land, and is described by a matrix $\mathbf{A} \in M_{m\times n}(\mathbb{R})$: $f(\mathbf{x}) = \mathbf{Ax}$. The columns of $\mathbf{A}$ are the vectors onto which the basis vectors land.
+
+\begin{theorem}
+Given a linear function $f: V \rightarrow W$, it preserves subspaces:
+\begin{enumerate}
+\item if $S\subseteq V$ is a subspace, $f(S)$ is a subspace in $W$;
+\item if $T\subseteq W$ is a subspace, $f^{-1} (T) = \lbrace \mathbf{v} \in V: f(\mathbf{v}) \in T\rbrace$ is a subspace in $V$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The proof follows trivially from the properties of linear functions.
+\end{proof}
+
+We find that the image of the function $f(V)$ is a subspace of $W$.
+
+\begin{definition}
+\begin{equation}
+\ker f = f^{-1} (\mathbf{0}) = \lbrace \mathbf{v} \in V : f(\mathbf{v}) = \mathbf{0}\rbrace
+\end{equation}
+\end{definition}
+
+\begin{theorem}
+A linear function $f: V \rightarrow W$ is surjective iff $f(V) = W$ and injective iff $\ker f = \lbrace \mathbf{0}\rbrace$. \footnote{Note that this is only the case for \emph{linear} functions.}
+\end{theorem}
+
+\begin{proof}
+The surjective part is trivial.
+
+Leftward implication: if $f$ is injective,  $\mathbf{v} \in \ker f$, $\mathbf{v} = f(\mathbf{0}) \implies \mathbf{v} = \mathbf{v} = \mathbf{0}$ since $f(\mathbf{0}) = \mathbf{0}$.
+
+Rightward implication: if $\ker f = \lbrace \mathbf{0}\rbrace$, take $\mathbf{v}_1, \mathbf{v}_2 \in V$ such that $f(\mathbf{v}_1) = f(\mathbf{v}_2)$. Then
+
+\begin{equation}
+f(\mathbf{v}_1) - f(\mathbf{v}_2) = f(\mathbf{v}_1 - \mathbf{v}_2) = \mathbf{0} \implies
+\mathbf{v}_1 - \mathbf{v}_2 \in \ker f \implies \mathbf{v}_1 - \mathbf{v}_2 = \mathbf{0}
+\end{equation}
+\end{proof}
+
+If $V = \langle \mathbf{v}_i \rangle$, and $f: V \rightarrow W $ is linear, then $f(V) = \langle f(\mathbf{v}_i) \rangle$.
+
+So $\dim (f(V) ) \leq \dim V$, since there will be $\dim V$ generators.
+
+\subsection{Dimensions}
+
+\begin{theorem}[Dimension theorem]
+Given a linear function $f: V\rightarrow W$, if $V$ is finitely generated, then
+
+\begin{equation}
+\dim V = \dim f(V) + \dim \ker f
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+We construct a basis for $V$ from a basis of $\ker f$ and one of $f(V)$.
+
+If $\lbrace \mathbf{u}_i \rbrace$ is a basis for $\ker f$ and $\lbrace\mathbf{w}_i \rbrace $ is a basis for $f(V)$, we take the vectors $\lbrace \mathbf{v}_i \rbrace$ such that $\forall i: f(\mathbf{v}_i) = \mathbf{w}_i$. Then $\lbrace \mathbf{v}_i , \mathbf{u}_i \rbrace$ is a basis for $V$:
+
+
+\textbf{Generators}: take any $\mathbf{x} \in V$, then $f(\mathbf{x}) \in f(V)$, so $f(\mathbf{x}) = \sum \beta_i \mathbf{w}_i$. Therefore, $f(\mathbf{x} - \sum \beta_i \mathbf{v} ) = f(\mathbf{x}) - \sum \beta_i f(\mathbf{v}_i) = \mathbf{0}$.
+
+So, $\mathbf{x} - \sum \beta_i \mathbf{v}_i \in \ker f \implies \mathbf{x} - \sum \beta_i \mathbf{v}_i = \sum \alpha_i \mathbf{u}_i$, which gives us the final formula:
+
+\begin{equation}
+\mathbf{x} = \sum_i \beta_i \mathbf{v}_i + \sum_i \alpha_i \mathbf{u}_i
+\end{equation}
+
+\textbf{Independent}: we take
+
+\begin{equation}
+\sum_i \beta_i \mathbf{v}_i + \sum_i \alpha_i \mathbf{u}_i = \mathbf{0}
+\end{equation}
+
+and apply $f$: the $\alpha$s must go to 0 since their combination is in the kernel, and the $\beta$s must go to 0 since the basis vectors for $V$ are independent.
+\end{proof}
+
+\section{Linear applications through matrices}
+
+Given a matrix $\mathbf{A} \in M_{m\times n} (\mathbb{R})$, we define $L_A: \mathbb{R}^m \rightarrow \mathbb{R}^n$ as: $\mathbf{x} \rightarrow \mathbf{Ax}$. The image of $L_A$ is the subspace generatd by the columns of $\mathbf{A}$.
+
+\begin{definition}
+The rank by columns of $\mathbf{A}$ is the dimension of the subspace generated by its columns, and the same goes for the rows: $\rank_C A = \dim \im(L_A)$.
+\end{definition}
+
+The kernel of $L_A$ is just the set of solutions to $\mathbf{Ax} = \mathbf{0}$.
+
+\begin{theorem}
+The rank by columns and the rank by rows are always equal.
+\end{theorem}
+
+\begin{proof}
+Suppose WLOG that $\mathbf{A}$ is in row echelon form. Then $\rank_C \mathbf{A} = \rank _R \mathbf{A}$ is the number of pivots.
+\end{proof}
+
+The columns containing the pivots also form a basis for the column space of $\mathbf{A}$.
 
 \tableofcontents
 
