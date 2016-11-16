@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.10.29)  16 NOV 2016 19:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.10.29)  17 NOV 2016 00:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1257,29 +1257,34 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Chapter 3.
 [18
 
-] [19] [20] [21] (./Geometry.toc [22
+] [19] [20]
+
+Package hyperref Warning: Difference (3) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1059.
+
+[21] (./Geometry.toc [22
 
 ])
 \tf@toc=\write5
 \openout5 = `Geometry.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1053.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1079.
  [23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1053.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1079.
  (./Geometry.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1053.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1053.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1079.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1079.
 
 Package rerunfilecheck Info: File `Geometry.out' has not changed.
-(rerunfilecheck)             Checksum: 3F21AB66E1F92EAF351BAEBE0CB27404;3489.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1053.
+(rerunfilecheck)             Checksum: ECFC82CA073F0EAFD52DEA7494FB526D;3613.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1079.
  ) 
 Here is how much of TeX's memory you used:
- 21588 strings out of 493787
- 389151 string characters out of 6153242
+ 21600 strings out of 493787
+ 389282 string characters out of 6153242
  511877 words of memory out of 5000000
- 24512 multiletter control sequences out of 15000+600000
- 23039 words of font info for 120 fonts, out of 8000000 for 9000
+ 24515 multiletter control sequences out of 15000+600000
+ 23197 words of font info for 122 fonts, out of 8000000 for 9000
  667 hyphenation exceptions out of 8191
  69i,16n,62p,10402b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1298,10 +1303,10 @@ share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Geometry.pdf (24 pages, 265711 bytes).
+Output written on Geometry.pdf (24 pages, 268387 bytes).
 PDF statistics:
- 632 PDF objects out of 1000 (max. 8388607)
- 583 compressed objects within 6 object streams
- 209 named destinations out of 1000 (max. 500000)
- 18849 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 646 PDF objects out of 1000 (max. 8388607)
+ 597 compressed objects within 6 object streams
+ 214 named destinations out of 1000 (max. 500000)
+ 18865 words of extra memory for PDF output out of 20736 (max. 10000000)
 

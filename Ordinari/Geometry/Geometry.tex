@@ -803,7 +803,7 @@ Rightward implication: if there exist coefficients $\lbrace \beta, \alpha_i \rbr
 
 Given a finitely generated subspace $U\neq \mathbf{0}$, we can construct a basis for it: choose a vector $\mathbf{u}_1$, which is independent. If $U = \langle \mathbf{u}_1\rangle$, we are done. If not, $\exists \mathbf{u}_2 \in U, \mathbf{u}_2 \notin \langle \mathbf{u}_1\rangle$, so they are independent. We can go on as long as the generated subspace does not equal $U$.
 
-\begin{theorem}
+\begin{theorem}[Steinitz exchange lemma]
 Given the linearly independent vectors $\lbrace \mathbf{u}_i\rbrace_{i \in [1, k]} \in V$ and the vectors $\langle \mathbf{v}_i\rangle_{i \in [1, p]} = V$, then $k \leq p$.
 \end{theorem}
 
@@ -1041,14 +1041,38 @@ The rank by columns of $\mathbf{A}$ is the dimension of the subspace generated b
 The kernel of $L_A$ is just the set of solutions to $\mathbf{Ax} = \mathbf{0}$.
 
 \begin{theorem}
-The rank by columns and the rank by rows are always equal.
+\begin{equation}
+\rank \mathbf{A} = \rank \mathbf{A}^T
+\end{equation}
 \end{theorem}
 
 \begin{proof}
-Suppose WLOG that $\mathbf{A}$ is in row echelon form. Then $\rank_C \mathbf{A} = \rank _R \mathbf{A}$ is the number of pivots.
+%Suppose WLOG that $\mathbf{A}$ is in row echelon form. Then $\rank_C \mathbf{A} = \rank _R \mathbf{A}$ is the number of pivots.
+
+??? Abate-DF pag. 101
 \end{proof}
 
 The columns containing the pivots also form a basis for the column space of $\mathbf{A}$.
+
+\paragraph{Inverse images}
+
+What does the set $f^{-1} (\mathbf{w})$ look like? If it is not the kernel it is not a subspace, but, if $f^{-1} (\mathbf{w}) \neq \emptyset$, we can take two vectors $\mathbf{v}_1, \mathbf{v}_2 \in f^{-1} (\mathbf{w})$, and write:
+
+\begin{equation}
+\mathbf{0} = \mathbf{w} - \mathbf{w} = f(\mathbf{v}_1) - f(\mathbf{v}_2) \implies \mathbf{v}_1 - \mathbf{v}_2 \in \ker f
+\end{equation}
+
+So, all the sets of counterimages of vectors can be written as $f^{-1} (\mathbf{w}) = \lbrace \mathbf{u} + \mathbf{v}, \forall \mathbf{v} \in\ker f \rbrace$ and are thus linear varieties of direction.
+
+\section{Linear systems}
+
+Given the matrix $\mathbf{A}_{m\times n} (\mathbb{R})$, we define the function $L_A$ as usual. Now, for some $\mathbf{b} \in \mathbb{R}^n$, $L_A^{-1} (\mathbf{b}) \neq \emptyset \iff \mathbf{b} \in \im L_A \iff \im L_A = \langle \mathbf{A}_i, \mathbf{b}\rangle$ where $\mathbf{A}_i$ are the columns of the matrix.
+
+So, we can write the matrix $(\mathbf{A}|\mathbf{b}) \in M_{m\times(n+1)} (\mathbb{R})$ which is $\mathbf{A}$ with an additional column containing $\mathbf{b}$.
+
+\begin{theorem}[Ronché --- Capelli]
+The linear system $\mathbf{Ax} = \mathbf{b}$ has solution iff $\rank \mathbf{A} = \rank (\mathbf{A}|\mathbf{b})$. If it does, the solutions form a linear variety with $\ker L_A$ as its directing space; therefore it has dimension $n - \rank A$.
+\end{theorem}
 
 \tableofcontents
 
