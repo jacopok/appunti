@@ -21,5 +21,18 @@
 \BOOKMARK [1][-]{section.2.5}{Set notation}{chapter.2}% 21
 \BOOKMARK [2][-]{section*.13}{Axiom of continuity or completeness}{section.2.5}% 22
 \BOOKMARK [3][-]{section*.14}{Halved intervals}{section*.13}% 23
-\BOOKMARK [1][-]{section.2.6}{Topology}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.6.1}{Balls and openness}{section.2.6}% 25
+\BOOKMARK [0][-]{chapter.3}{Topology}{}% 24
+\BOOKMARK [1][-]{subsection.3.0.1}{Balls and openness}{chapter.3}% 25
+\BOOKMARK [2][-]{section*.15}{Open sets}{subsection.3.0.1}% 26
+\BOOKMARK [3][-]{section*.16}{Closed sets}{section*.15}% 27
+\BOOKMARK [4][-]{section*.17}{Closure}{section*.16}% 28
+\BOOKMARK [1][-]{section.3.1}{Limit points}{chapter.3}% 29
+\BOOKMARK [0][-]{chapter.4}{Functions}{}% 30
+\BOOKMARK [1][-]{section.4.1}{Basics}{chapter.4}% 31
+\BOOKMARK [2][-]{section*.18}{Composition}{section.4.1}% 32
+\BOOKMARK [3][-]{section*.19}{Injectivity}{section*.18}% 33
+\BOOKMARK [1][-]{section.4.2}{Basic functions}{chapter.4}% 34
+\BOOKMARK [2][-]{section*.20}{Powers}{section.4.2}% 35
+\BOOKMARK [3][-]{section*.21}{Trig functions}{section*.20}% 36
+\BOOKMARK [4][-]{section*.22}{Logs}{section*.21}% 37
+\BOOKMARK [4][-]{section*.23}{Misc}{section*.21}% 38

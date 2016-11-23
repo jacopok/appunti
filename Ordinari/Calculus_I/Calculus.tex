@@ -24,12 +24,17 @@
 \usepackage{cool}
 \Style{DSymb={\mathrm d},DShorten=true,IntegrateDifferentialDSymb=\mathrm{d}}
 
+\DeclareMathOperator{\sgn}{sgn}
 \usepackage{microtype}
 \usepackage{cleveref}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \usepackage{mathtools}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
  
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
@@ -401,14 +406,65 @@ We will prove the leftward implication by contradiction. Suppose there exists an
 \paragraph{Halved intervals}
 
 \begin{theorem}
-Take $a_k, b_k \in \mathbb{R}: \forall k \in \mathbb{N}: a_k < b_k$ and $\forall k \in \mathbb{N}: [a_{k+1}; b_{k+1}]$ is one of the halves of $[a_k; b_k]$. Then $\exists ! \lambda \in \mathbb{R}: \forall k \in \mathbb{N}: \lambda \in [a_k; b_k]$. We can write this as
+Take $a_k, b_k \in \mathbb{R}: \forall k \in \mathbb{N}: a_k < b_k$ and $\forall k \in \mathbb{N}: [a_{k+1}; b_{k+1}]$ is one of the halves of $[a_k; b_k]$:
+
+\begin{equation}
+\forall k: [a_{k+1}, b_{k+1}] = \left[a_k, \frac{a_k + b_k}{2}\right] \vee \left[\frac{a_k + b_k}{2}, b_k\right]
+\end{equation}
+
+Then $\exists ! \lambda \in \mathbb{R}: \forall k \in \mathbb{N}: \lambda \in [a_k; b_k]$. We can write this as
 
 \begin{equation}
 \bigcap_{k=1}^{+\infty} [a_k; b_k] = \lbrace \lambda \rbrace
 \end{equation}
+
+$\lambda$ is clearly the $\sup \lbrace a_k: k \in \mathbb{N}\rbrace = \inf \lbrace b_k: k \in \mathbb{N}\rbrace$.
 \end{theorem}
 
-\section{Topology}
+\begin{proof}
+First, we will show that $\forall k, j \in \mathbb{N}: a_k < b_k$.
+
+\begin{itemize}
+\item $k\geq j$: $a_k < b_k \leq b_j$;
+\item $k< j$: $a_k \leq a_j < b_j$.
+\end{itemize}
+
+so, $\forall k \in \mathbb{N}$, $a_k$ is a lower bound for $\lbrace b_j: j \in \mathbb{N}\rbrace$: $\forall k: a_k \leq \inf \lbrace b_j\rbrace$. So, $\inf \lbrace b_j \rbrace \leq \sup \lbrace a_k \rbrace $ (these must exist since the sets are bounded).
+
+We can see this as:
+
+\begin{equation}
+\forall n \in \mathbb{N}: 0 \leq \inf \lbrace b_j \rbrace - \sup \lbrace a_k \rbrace \leq b_n - a_n = \frac{b_1- a_1}{2^{n-1}}
+\end{equation}
+
+It is clear that if $x \geq 0$ and $\forall \varepsilon > 0: x \leq \varepsilon$, then $x=0$.
+
+Also, $\forall \varepsilon > 0: \exists n \in \mathbb{N}: n\varepsilon > b_1 - a_1$ by Archimedes' property. But $\forall n \in \mathbb{N}: n \leq 2^{n-1}$. So
+
+\begin{equation}
+\forall \varepsilon > 0: \exists n \in \mathbb{N} : 0 \leq \inf \lbrace b_j \rbrace - \sup \lbrace a_k \rbrace \leq b_n - a_n = \frac{b_1- a_1}{2^{n-1}} < \varepsilon
+\end{equation}
+
+which implies $ \inf \lbrace b_j \rbrace = \sup \lbrace a_k \rbrace := \lambda \in \mathbb{R}$.
+\end{proof}
+
+This doesn't just work for halved intervals: any set of intervals for which $[a_{k+1}, b_{k+1}]\leq [a_k, b_k]$ and $\lim_{k \rightarrow +\infty} b_k - a_k =0$:
+
+\begin{proof}
+We need to show the two inclusions in 
+
+\begin{equation}
+\cap_{k=1}^{+\infty} [a_k, b_k] = \lambda
+\end{equation}
+
+$\lambda = \sup \lbrace a_k \rbrace = \inf \lbrace b_j \rbrace$, so $\forall k: \lambda \in [a_k, b_k]$.
+
+We need to show that if $x \in \cap_{k=1}^{+\infty} [a_k, b_k]$, then $x = \lambda$. 
+
+If $\forall k: a_k \leq x \leq b_k$, then $x$ is an upper bound of $\lbrace a_k \rbrace$ ($x \geq \sup \lbrace a_k \rbrace$) and a lower bound of $\lbrace b_k \rbrace$ ($x \leq \inf \lbrace b_k \rbrace$). So, $x = \lambda$.
+\end{proof}
+
+\chapter{Topology}
 
 We will focus on the topology of $\mathbb{R}$, sometimes generalizing to $\mathbb{R}^n$.
 
@@ -476,6 +532,222 @@ y:= x + \frac p2 \left( \frac{x-x_0}{r} \right)
 \end{equation}
 
 and showing that $\text{d}(y, x_0)<r$. 
+
+It is easily proven that $\partial \mathbb{Q} = \mathbb{R}$, and that $\partial E = \partial(E^C)$.
+
+\subsubsection{Open sets}
+
+\begin{theorem}
+$E\subseteq X$ is open, that is, $\overset{\circ}{E} =E$, iff $E \cap \partial E = \emptyset$.
+\end{theorem}
+
+This clearly implies that $\forall E \subseteq X : \overset{\circ}{E}$ is open. $E^e$ is also open. We conventionally say that $\emptyset$ is open.
+
+\begin{proof}
+Rightward: if $x \in E$, and $E$ is open, then every point is internal, so it is not a frontier point.
+
+Leftward: if $x \in E$, $x \notin \partial E$, and it is not external, so $x \in \overset{\circ}{E}$.
+\end{proof}
+
+\begin{theorem}
+A union (finite or infinite) of open sets is open.
+\end{theorem}
+
+\begin{proof}
+If $x \in \cup E_i$, $\exists k: x \in E_k$, so $\exists r>0: B(x, r) \subseteq E_k \subseteq \cup E_i$.
+\end{proof}
+
+\begin{theorem}
+If $A$ and $B$ are open, $A \cap B$ is open.
+\end{theorem}
+
+\begin{proof}
+Take $x \in A \cap B$. Then, $\exists r_1, r_2 > 0: B(x, r_1) \subseteq A$ and $B(x, r_2) \subseteq B$. If we take $r := \min\lbrace r_1, r_2\rbrace$ we have $B(x, r) \subseteq A \cap B$.
+\end{proof}
+
+By induction we can see that, if $\forall i: A_i$ is open, then $\cap_{i=0}^\infty A_i$ is open. This, however, does not generalize to infinite intersections.
+
+\subsubsection{Closed sets}
+
+In a metric space $X$, $D\subseteq X$ is closed if $D^C$ is open. Intervals like $[a, b] \subseteq \mathbb{R}$ are closed. $\lbrace a \rbrace \subseteq \mathbb{R}$ is also closed.
+
+\begin{theorem}
+$D$ is closed iff $\partial D \subseteq D$, that is, $D = \overset{\circ}{D} \cup \partial D$.
+
+$D$ is closed iff $D^C \cap \partial (D^C) = \emptyset$, that is, $\partial D \subseteq (D^C)^C = D$.
+\end{theorem}
+
+\begin{theorem}
+A finite union of closed sets is closed.
+\end{theorem}
+
+\begin{proof}
+\begin{equation}
+\left( 
+\bigcup_{i=0}^n D_i
+\right)^C
+=\bigcap_{i=0}^n
+\left(
+D_i
+\right)^C
+\end{equation}
+\end{proof}
+
+\begin{theorem}
+A (finite or infinite) intersection of closed sets is closed.
+\end{theorem}
+
+\begin{proof}
+\begin{equation}
+\left( 
+\bigcap_{i=0}^n D_i
+\right)^C
+=\bigcup_{i=0}^n
+\left(
+D_i
+\right)^C
+\end{equation}
+\end{proof}
+
+\paragraph{Closure}
+
+\begin{definition}
+The \emph{closure} of a set $E$, denoted $\bar{E}$, is $\bar{E}:= \overset{\circ}{E} + \partial E$.
+\end{definition}
+
+$E$ is closed iff $\bar{E} = E$. $\bar{E}$ is always closed since $(\bar{E})^C$ is open. $\overset{\circ}{E} \subseteq E \subseteq \bar{E}$.
+
+\begin{theorem}
+$\bar{E}$ is the smallest closed set containing $E$: if $D$ is closed and $E \subseteq D$, then $\bar{E}\subseteq D$.
+\end{theorem}
+
+\begin{proof}
+$D^e \subseteq E^e = \bar{E}^e$. If we take an $x \in \bar{E}$, $x$ cannot belong to $\bar{E}^e$. This means it also does not belong to $D^e$, so $x \in \overset{\circ}{D} \vee x \in \partial D \implies x \in D$.
+\end{proof}
+
+\section{Limit points}
+
+\begin{definition}
+Take the set $E \subseteq \mathbb{R}^n$: $x_0 \in \mathbb{R}^n$ is a limit point for $E$ if
+
+\begin{equation}
+\forall r>0: \exists x \in E, x\neq x_0 : x \in B(x_0, r)
+\end{equation}
+
+Equivalently, $B(x_0, r)$ contains infinite points of $E$.
+
+The set of the limit points of $E$ is denoted $\mathcal{D}E$: it is called ``derived set''.
+\end{definition}
+
+If $x \in E^e$, then $x \notin \mathcal{D}E$; also if $x \in \overset{\circ}{E}$ then $x \in \mathcal{D}E$. This holds in $\mathbb{R}^n$, but it might not in pathological metric spaces.
+
+So we have $\overset{\circ}{E} \subseteq \mathcal{D}E \subseteq \bar{E}$.
+
+Some examples: $\mathcal{D}\mathbb{Z} = \emptyset$, $\mathcal{D}(a, b) = [a, b]$.
+
+\begin{theorem}
+$D$ is closed iff it contains all of its limit points.
+\end{theorem} 
+
+\begin{proof}
+Rightward implication: $\mathcal{D} D \subseteq \bar{D} = D$.
+
+Leftward implication: by contradiction. Suppose that $\partial D \nsubseteq D$. Then $\exists x \in \partial D \smallsetminus D$, so $\forall r>0: \exists y \in B(x, r) \cap D$. But $y \in D$, and $x \notin D$, so $y\neq x$: $x$ is a limit point, which implies $x \in D$.
+\end{proof}
+
+
+\begin{theorem}
+Given $a, b \in \mathbb{R}$, $\exists r \in \mathbb{Q}: a<r<b$. ($\mathbb{Q}$ is dense in $\mathbb{R})$.
+\end{theorem}
+
+\begin{proof}
+By Archimedes' property, the multiples of $k^{-1}$ ($k \in \mathbb{N}$) will always exceed $a$. We can choose a $k$ such that $k(b-a)>1$. Then, 
+
+\begin{align}
+ka &< \floor{ka} +1 \leq ka+1 < kb\\
+a &< \frac{\floor{ka} +1}{k} < b
+\end{align}
+\end{proof}
+
+So, $\bar{\mathbb{Q}} = \mathcal{D}\mathbb{Q} =\mathbb{R}$. We can also easily prove that $\mathcal{D}(\mathbb{R}\smallsetminus \mathbb{Q}) = \mathbb{R}$, and $\overset{\circ}{\mathbb{Q}} = \emptyset$.
+
+If $E\subseteq \mathbb{R}$ is finite, $\mathcal{D}E = \emptyset$.
+
+\begin{theorem}
+If $E\subseteq \mathbb{R}$ is limited and infinite, then $\mathcal{D}E \neq \emptyset$.
+\end{theorem}
+
+\begin{proof}
+We can split $E$ in two parts, taking the average of $\sup E$ and $\inf E$. Then, in one of the sets into which we split $E$ there must still be infinitely many points. We can apply the same splitting process to it, and so on: by the Halved Intervals theorem in the end the intersection of the sets we selected on each iteration will contain just one element $\lambda \in E$, and by construction $
+\lambda \in \mathcal{D}E$.
+\end{proof}
+
+This also holds in $\mathbb{R}^n$.
+
+\chapter{Functions}
+
+\section{Basics}
+Given two nonempty sets $A$ and $B$, a function $f: A \rightarrow B$ is a subset of $A \times B$ such that each elements of $A$ appears in exactly one of the ordered pairs $(a, b): a \in A, b \in B$.
+
+$A$ is called \emph{domain}, $B$ is called \emph{range}. The \emph{image} of a set $X \subseteq A$ is $f(X) = \lbrace y \in B: \exists x \in X: f(x) = y\rbrace$. A function is \emph{surjective} if $f(A) = B$. Similarly, the \emph{preimage} of a set $Y \subseteq B$ is $f^{-1}(Y) = \lbrace x \in A: \exists y \in Y: f(x) = y\rbrace$.
+
+\paragraph{Composition}
+
+Given $f: A \rightarrow B$ and $g: B \rightarrow C$, $\exists h:= g \circ f: A\rightarrow C$ such that $g\circ f)(x) = g(f(x))$.
+
+For convenience, given an expression in the variable $x$, we automatically assume it represents a function $f:A\rightarrow\mathbb{R}$, which associates every $x$ with the expression evaluated at that point. $A$ is the largest subset of $\mathbb{R}$ for which the function is defined.
+
+\paragraph{Injectivity}
+
+$f:A\rightarrow B$ is injective if $\forall x_1, x_2 \in A: x_1 \neq x_2 \implies f(x_1) \neq f(x_2)$.
+
+Given an injective function, we can define an inverse: $f^{-1}: f(A) \rightarrow A$, where $f^{-1}(y) = x \in A: f(x) =y$.
+
+$\forall x \in A: f^{-1} \circ f (x) = x$ and $\forall y \in f(A): f\circ f^{-1}(y) = y$.
+
+An inverse function is always bijective.
+
+\begin{definition}
+Given the subset $A \subseteq \mathbb{R}$, $f:A \rightarrow \mathbb{R}$ is said to be increasing if $\forall x_1, x_2 \in A: x_2 >x_1 \implies f(x_2) \geq f(x_1)$, decreasing if $f(x_2) \leq f(x_1)$. It is \emph{strictly} increasing or decreasing if the inequalities are strict.
+\end{definition}
+
+\begin{definition}
+$f$ is even if $f(-x) = f(x)$, and odd if $f(-x) = -f(x)$.
+\end{definition}
+
+\section{Basic functions}
+
+\paragraph{Powers}
+
+$f(x) = x^\alpha $ is easily defined $\forall x \in \mathbb{R}$ if $\alpha \in \mathbb{Q}$ and its denominator is odd, and only for positive numbers if is even.
+
+In general, though, if $\alpha \notin \mathbb{Q}$ and $\alpha > 0$:
+
+\begin{equation}
+x^\alpha=\begin{cases}
+\sup \left\lbrace x^p: p \in \mathbb{Q}, p < \alpha \right\rbrace \qquad x\geq 1  \\
+\inf \left\lbrace x^p: p \in \mathbb{Q}, p < \alpha \right\rbrace \qquad 0\leq x<1 
+\end{cases}
+\end{equation}
+
+If $\alpha<0$, $x^\alpha := (x^{-\alpha})^{-1}$.
+
+\paragraph{Trig functions}
+
+As usual.
+
+\paragraph{Logs}
+
+\begin{definition}
+Given $a>0$, $a\neq 1$, $x>0$, we define: $\log_a x = p \iff a^p = x$.
+\end{definition}
+
+Some properties are:
+$\log_{a^{-1}} x = -\log_a x$, $\log_b x = \log_b a \cdot \log_a x$. 
+
+\paragraph{Misc}
+
+$\sgn x$ is defined as usual, and $\sgn 0 = 0$.
 
 \tableofcontents
 

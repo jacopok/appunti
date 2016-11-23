@@ -489,13 +489,22 @@ Given an interval $I \subseteq \mathbb{R}$, $f: I\rightarrow \mathbb{R}$ is conv
 \begin{equation}
 f(\lambda x_1 + (1-\lambda) x_2) \leq \lambda f(x_1) + (1-\lambda)f(x_2)
 \end{equation}
+
+This is read as ``$f$ applied to a convex combination of $x_1$ and $x_2$ is less than or equal to a convex combination of $f(x_1)$ and $f(x_2)$.''
 \end{definition}
+
+$x = \lambda x_1 + (1-\lambda) x_2$ is a convex combination (a kind of weighted average) of $x_1$ and $x_2$; we clearly have $x_1 \leq x \leq x_2$, reaching equality on one side or the other for $\lambda = 1$ or $\lambda = 0$ respectively.
+
+An alternative definition is: $f$ is convex if $\forall x_1, x, x_2: x_1 \leq x \leq x_2$:
+
+\begin{equation}
+f(x_1) + \frac{f(x_2) - f(x_1)}{x_2 - x_1}(x - x_1) \geq f(x)
+\end{equation}
+
 
 \chapter{Miscellaneous}
 
-\section{Stirling's formula}
-
-For the proof we will need another result first:
+\section{Wallis}
 
 \begin{theorem}[Wallis]
 \begin{equation}
@@ -543,6 +552,7 @@ But we can expand the $I_n$ into products of the even or odd $I_n$ preceding the
 and $I_0 = \pi /2$, $I_1 = 1$.
 \end{proof}
 
+\section{Stirling}
 
 \begin{theorem}
 For large enough numbers, the factorial can be approximated as $n! \sim n^n e^{-n} \sqrt{2\pi n}$; that is:
@@ -642,6 +652,25 @@ f'(t) =\frac 12 \frac{1}{1+t} + \frac{1}{2} \frac{1}{1-t} > 0 \quad \forall t \i
 \end{equation}
 
 and $f(0) = 0$, so $\forall t \in [0, 1]: f(t)>0$. So $a_n$ is strictly decreasing, thus its limit is either real or $-\infty$. But the limits of $a_n$ and $a_n - (12n)^{-1}$ must be the same since their difference has limit 0: so $\lim_{n\rightarrow +\infty} a_n = c \in \mathbb{R}$.
+
+This means that
+
+\begin{equation}
+\lim_{n\rightarrow +\infty} \frac{n!}{n^n e^{-n} \sqrt{2\pi n}} = e^c
+\end{equation}
+
+Now we can apply Wallis:
+
+\begin{align*}
+\lim_{n\rightarrow +\infty} \frac{\displaystyle\prod_{i=1}^{n} (2i)^2}{(2n+1)\displaystyle \prod _{i=1}^{n-1} (2i+1)^2}  &= \lim_{n\rightarrow \infty} \frac{(2^n n!)^2}{(2n+1) \left( \frac{(2n)!}{2^n n!}\right)^2}\\
+&=\lim_{n\rightarrow \infty} \frac{2^{4n} (n!)^4}{(2n!)^2 (2n+1)} \\
+&=\lim_{n\rightarrow \infty} \frac{2^{4n} \left( e^c \frac{n^n}{e^n} \sqrt{n} \right)^4}{\left( e^c \frac{(2n)^{2n}}{e^2n} \sqrt{2n} \right)^2 (2n+1)}\\
+&=\lim_{n\rightarrow \infty} (e^c)^2 \frac{n^2}{2n(2n+1)} = \frac{(e^c)^2}{4}
+= \frac{\pi}{2} 
+\end{align*}
+\begin{equation}
+e^c = \sqrt{2\pi} \implies c = \log(\sqrt{2\pi})
+\end{equation}
 
 \end{proof}
 

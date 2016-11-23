@@ -20,4 +20,5 @@
 \contentsline {chapter}{\numberline {3}Convex functions}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Definition}{9}{section.3.1}
 \contentsline {chapter}{\numberline {4}Miscellaneous}{10}{chapter.4}
-\contentsline {section}{\numberline {4.1}Stirling's formula}{10}{section.4.1}
+\contentsline {section}{\numberline {4.1}Wallis}{10}{section.4.1}
+\contentsline {section}{\numberline {4.2}Stirling}{11}{section.4.2}
