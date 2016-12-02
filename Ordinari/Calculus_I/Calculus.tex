@@ -490,7 +490,7 @@ This clearly satisfies conditions \ref{positivity-distance} and \ref{symmetry-di
 This follows from the subadditivity of the norm of vectors: $\mathbb{R}^n$ is a vector space, and we can interpret $\text{d}(x, y)$ as $\norm{\mathbf{x}-\mathbf{y}}$, so in the equation $\norm{\mathbf{x}+\mathbf{y}} \leq \norm{\mathbf{x}} + \norm{\mathbf{y}}$ we substitute $\mathbf{x}= u-z$ and $\mathbf{y}= z-v$.
 \end{proof}
 
-\subsection{Balls and openness}
+\section{Balls and openness}
 
 Given the metric space $(X, d)$, with $x_0 \in X$ and $r>0, r\in \mathbb{R}$, we denote as $B(x_0, r)$ (or sometimes $B_r (x_0))$ the ``ball'':
 
@@ -749,6 +749,137 @@ $\log_{a^{-1}} x = -\log_a x$, $\log_b x = \log_b a \cdot \log_a x$.
 
 $\sgn x$ is defined as usual, and $\sgn 0 = 0$.
 
+\begin{definition}
+Given a function $f: A \rightarrow B$, and $D \subset A$, we can restrict $f$ to $D$: the function $f_{|D}: D\rightarrow B$ is defined by $\forall x \in D: f_{|D} (x) = f(x)$.
+\end{definition}
+
+\paragraph{Inverses}
+
+Since $\sin$, $\cos$ and $\tan$ are not injective, to invert them we have to restrict their domain: $\arcsin$ is the inverse of $\sin_{|[-\pi/2, \pi/2]} x$, $\arccos x$ is the inverse of $\cos_{|[0, \pi]} x$
+ and $\arctan$ is the inverse of $\tan_{|]\-\pi/2, \pi/2[} x$.
+ 
+\section{Some other properties}
+
+\begin{definition}
+A function $f: A \rightarrow \mathbb{R}$ is bounded by above if $\exists M \in \mathbb{R}: \forall x \in A: f(x) \leq M$; that is, $\sup \lbrace f(A)\rbrace \in \mathbb{R}$.
+The definition is analogous for functions that have a lower bound.
+
+A function is bounded if it has a lower and upper bound; that is, $\abs{f(x)}$ has an upper bound.
+\end{definition}
+
+\begin{definition}
+The upper bound of $f$ in $A$ is the $\sup \lbrace f(A) \rbrace$, it is often denoted $\sup_A f$ or $\sup_{x \in A} f$.
+\end{definition}
+
+\begin{definition}
+$x_0 \in A$ is a maximum for $f$ in $A$ if $\forall x \in A: f(x) \leq f(x_0)$. It is often denoted $\max_A f$ or $\max_{x\in A} f$.
+\end{definition}
+
+The following hold:
+
+\begin{align}
+\forall x \in A: f(x)\leq &\sup_A f \\
+\forall \varepsilon > 0: \exists z \in A : f(z) > &\sup_A f - \varepsilon
+\end{align}
+
+\chapter{Limits}
+
+\section{Definitions}
+
+\begin{definition}
+Given $D\subseteq \mathbb{R}$, $f: D \rightarrow \mathbb{R}$, and a limit point $x_0 \in D$, we say that $\lim_{x\rightarrow x_0} f(x) = L$ iff
+
+\begin{equation}
+\forall \varepsilon > 0: \exists \delta > 0 : f(     D \cap B (x_0, \delta)\smallsetminus \lbrace x_0 \rbrace ) \subseteq B(L, \varepsilon)
+\end{equation}
+\end{definition}
+
+Since $x_0$ is a limit point, $\forall \delta >0: ]x_0 - \delta, x_0 +\delta[ \smallsetminus \lbrace x_0 \rbrace \neq \emptyset$. The value of $f(x_0)$ is irrelevant. The value of $\delta$ we choose depends both on $\varepsilon$ and $x_0$; if it works for $\varepsilon_1$ it must also $\forall \varepsilon > \varepsilon_1$.
+
+\section{Properties}
+
+\begin{theorem}
+Given $D\subseteq \mathbb{R}$, $f, g: D \rightarrow \mathbb{R}$, and a limit point $x_0 \in D$. If
+
+\begin{equation}
+\lim_{x \rightarrow x_0} f(x) = L \in \mathbb{R} \wedge \lim_{x \rightarrow x_0} g(x) = M \in \mathbb{R}
+\end{equation}
+
+then
+
+\begin{align}
+\lim_{x \rightarrow x_0} f(x) + g(x) &= L + M \\
+\lim_{x \rightarrow x_0} f(x) g(x) &= LM \\
+\lim_{x \rightarrow x_0} \frac{f(x)}{g(x)} &= \frac{L}{M} \quad \text{as long as } M \neq 0
+\end{align}
+\end{theorem}
+
+\begin{proof}[Additivity]
+\begin{align}
+\forall \varepsilon > 0 : \exists \delta_1 > 0: &\forall x \in D : 0 < \abs{x-x_0} <\delta_1 \abs{f(x) - L} < \varepsilon  \\
+\forall \varepsilon > 0 : \exists \delta_2 > 0: &\forall x \in D : 0 < \abs{x-x_0} <\delta_2 \abs{g(x) - M} < \varepsilon  
+\end{align}
+
+We can take $\delta := \min \lbrace \delta_1, \delta_2 \rbrace$. Then
+
+\begin{align}
+&\forall \eta = 2\varepsilon > 0 : \exists \delta > 0: \forall x \in D : \nonumber \\
+&0 < \abs{x-x_0} <\delta \abs{f(x) + g(x) - (L+M)} \leq \abs{f(x) -L} + \abs{g(x) - M} < \eta 
+\end{align}
+\end{proof}
+
+\begin{proof}[Multiplicativity]
+We will use $f$ and $g$ as shorthand for $f(x)$ and $g(x)$. Then, setting the same $\delta$ as before, we have that $\forall x \in D: 0 < \abs{x - x_0} < \delta$:
+
+\begin{align}
+&\abs{fg-LM} \leq \abs{fg-Lg} + \abs{Lg - LM}  \\
+&= \abs{g}\abs{f-L} + \abs{L} \abs{g-M}     < \left( \abs{g} + \abs{L}\right) \varepsilon\\
+&< \left( 1 + \abs{M} + \abs{L}\right) \varepsilon
+\end{align}
+
+The last step is justified since, if $\varepsilon < 1$, $g \in [M-1, M+1]$.
+\end{proof}
+
+\begin{proof}[Divisibility]
+We can say that $\forall \varepsilon > 0 $ there  $\exists \delta > 0$ such that:
+
+\begin{align}
+\abs{\frac{f}{g}- \frac{L}{M}}
+&\leq\frac{\abs{M} \abs{f-L} + \abs{L} \abs{g-M}}{\abs{g} \abs{M}}\\
+&< 2 \left( \frac{\abs{M} + \abs{L}}{M^2} \right) \varepsilon
+\end{align}
+\end{proof}
+
+\begin{theorem}
+If the limit exists, it is unique.
+\end{theorem}
+
+\begin{proof}
+By contradiction: suppose both $L$ and $M$ were limits. Then by linearity
+
+\begin{equation}
+L-M = \lim_{x \rightarrow x_0} f(x) - f(x) = \lim_{x \rightarrow x_0} 0 = 0
+\end{equation}
+\end{proof}
+
+\paragraph{Change of variable}
+
+\begin{theorem}
+If $\lim_{x \rightarrow x_0} f(x) = L $ and $\lim_{y \rightarrow L} g(y) = M$, and $g$ is continuous in $L$, then
+
+\begin{equation}
+\lim_{x \rightarrow x_0} g(f(x)) = M
+\end{equation}
+\end{theorem}
+ 
+\paragraph{Squeeze theorem}
+
+Given $D \subseteq \mathbb{R}$, a limit point $x_0 \in D$, and $f, g, h: D \rightarrow \mathbb{R}$ such that $\forall x \in D: f \leq g \leq h$:
+
+\begin{equation}
+\lim_{x\rightarrow x_0} f(x) = \lim_{x \rightarrow x_0} h(x) = L \implies \lim_{x \rightarrow x_0} g(x) = L
+\end{equation}
+ 
 \tableofcontents
 
 \end{document}

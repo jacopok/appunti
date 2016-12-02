@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.10.29)  22 NOV 2016 17:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.10.29)  2 DEC 2016 16:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1224,28 +1224,32 @@ Chapter 3.
 Chapter 4.
 [10
 
-] [11] [12] [13] (./Complements.toc)
+] [11] [12]
+Chapter 5.
+[13
+
+] [14] [15] [16] (./Complements.toc)
 \tf@toc=\write5
 \openout5 = `Complements.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 679.
- [14
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 827.
+ [17
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 679.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 827.
  (./Complements.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 679.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 679.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 827.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 827.
 Package rerunfilecheck Info: File `Complements.out' has not changed.
-(rerunfilecheck)             Checksum: 6E65136EAA529F604437A296EB03742D;1372.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 679.
+(rerunfilecheck)             Checksum: A8C303D2E163067F0478896A3FDA1947;1745.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 827.
  ) 
 Here is how much of TeX's memory you used:
- 21448 strings out of 493787
- 387814 string characters out of 6153242
+ 21499 strings out of 493787
+ 388398 string characters out of 6153242
  512680 words of memory out of 5000000
- 24516 multiletter control sequences out of 15000+600000
- 21046 words of font info for 94 fonts, out of 8000000 for 9000
+ 24523 multiletter control sequences out of 15000+600000
+ 21400 words of font info for 100 fonts, out of 8000000 for 9000
  667 hyphenation exceptions out of 8191
  69i,11n,62p,10405b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
@@ -1265,10 +1269,10 @@ e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Complements.pdf (15 pages, 229396 bytes).
+Output written on Complements.pdf (18 pages, 240966 bytes).
 PDF statistics:
- 367 PDF objects out of 1000 (max. 8388607)
- 328 compressed objects within 4 object streams
- 112 named destinations out of 1000 (max. 500000)
- 16577 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 437 PDF objects out of 1000 (max. 8388607)
+ 395 compressed objects within 4 object streams
+ 144 named destinations out of 1000 (max. 500000)
+ 16625 words of extra memory for PDF output out of 17280 (max. 10000000)
 

@@ -501,6 +501,154 @@ An alternative definition is: $f$ is convex if $\forall x_1, x, x_2: x_1 \leq x 
 f(x_1) + \frac{f(x_2) - f(x_1)}{x_2 - x_1}(x - x_1) \geq f(x)
 \end{equation}
 
+\chapter{Discrete dynamical systems}
+
+These are systems in which time is quantized, and things change over time. We are given a function, and we analyze its behaviour when we iterate it. An example is the logistic equation:
+
+\begin{equation}
+P_{n+1} = \lambda P_n (1- P_n)
+\end{equation}
+
+Another one is the algorithm to calculate $\sqrt{5}$: choose any $P_0$ and apply
+
+\begin{equation}
+P_{n+1} = \frac{1}{2} \left( P_n + \frac{5}{P_n} \right)
+\end{equation}
+
+\section{Basic notation}
+
+The notation we will use for iteration is:
+
+\begin{equation}
+f^n (x) =\overbrace{f \circ f \circ \cdots \circ f \circ f}^n (x)
+\end{equation}
+
+\begin{definition}
+Given a point $x_0 \in \mathbb{R}$ and a function $f: \mathbb{R} \rightarrow \mathbb{R}$, the orbit of $x_0$ is the sequence of the $x_n := f^n (x_0)$ with $n\in \mathbb{N}$.
+\end{definition}
+
+\begin{definition}
+$x_0$ is a fixed point if $f(x_0) = x_0$.
+\end{definition}
+
+\begin{definition}
+$x_0$ is periodic with period $k$ if $f^k (x_0) = x_0$. The least $k$ for which this is true is the minimal period.
+\end{definition}
+
+\begin{definition}
+A point is definitively fixed (or periodic) if in its orbit there is a fixed (or periodic) point.
+\end{definition}
+
+\section{Graphical analysis}
+
+\section{Fixed points}
+
+\begin{theorem}
+Given the continuous function $f: [a, b] \rightarrow [a, b]$, $f$ has at least one fixed point.
+\end{theorem}
+
+\begin{proof}
+We can define the auxiliary function $g(x):= f(x) -x$. We then see that $g(a) \geq 0$ and $g(b) \leq 0$, then $\exists c \in [a, b]: g(c) = 0$, so $f(c) = c$.
+\end{proof}
+
+\begin{definition}
+The fixed point $x_0$ of the function $f$ is said to be:
+\begin{enumerate}
+\item attractive if $\abs{f'(x_0)} < 1$;
+\item neutral if $\abs{f'(x_0)} = 1$;
+\item repulsive if $\abs{f'(x_0)} > 1$.
+\end{enumerate}
+\end{definition}
+
+For example, $x^2$ has two fixed points: 0 is attractive, 1 is repulsive.
+
+The reason for this definition is the following theorem:
+
+\begin{theorem}
+If $x_0$ is attractive, then $\exists I(x_0, \delta)$ (an interval) such that $\forall x \in I: f^n(x) \rightarrow x_0$.
+
+If $x_0$ is repulsive, then $\exists I(x_0, \delta)$ such that $\forall x \in I: \exists n \in \mathbb{N}: f^n(x) \notin I$.
+\end{theorem}
+
+\begin{proof}[Attractive points]
+\begin{equation}
+\abs{f'(x_0)} = \lim _{x \rightarrow x_0} \abs{\frac{f(x) - f(x_0)}{x - x_0}}
+\end{equation}
+
+If $\abs{f'(x_0)} < 1$, then $\exists \delta > 0 , \lambda > 0$ such that 
+
+\begin{equation}
+\forall x \in I(x_0, \delta): \abs{\frac{f(x) - f(x_0)}{x - x_0}}< \lambda < 1
+\end{equation}
+
+where we can think of $\lambda$ as $f'(x_0) + \varepsilon$.
+
+Then, if $x \in I$, we can show that the orbit converges to $x_0$:
+
+\begin{equation}
+\abs{f(x) - f(x_0)} = \abs{f(x) - x_0} < \lambda \abs{x - x_0} < \lambda \delta < \delta
+\end{equation}
+
+So the distance from $x_0$ has diminished:
+
+\begin{equation}
+\abs{f^n(x) - x_0} < \lambda^n \abs{x - x_0} < \lambda ^n \delta \rightarrow 0
+\end{equation}
+\end{proof}
+
+\begin{proof}[Repulsive points]
+If $\abs{f'(x_0) > 1}$, $\exists \delta >0, \lambda >0$ such that $\forall x \in I(x_0, \delta)$:
+
+\begin{equation}
+\abs{\frac{f(x) - f(x_0)}{x - x_0}} > \lambda > 1
+\end{equation}
+
+where we can think of $\lambda$ as being $f'(x_0) - \varepsilon$.
+Like before, then, we can write
+
+\begin{equation}
+\abs{f^n (x_0) - x_0} > \lambda ^n \abs{x - x_0} \rightarrow + \infty
+\end{equation}
+
+so for some $n \in \mathbb{N}$ the point will escape the interval.
+\end{proof}
+
+Now, we should point out that while a point will surely escape a repulsive point, there is no guarantee that it will stay outside of it; it might even come back to $x_0$ itself.
+
+\section{Periodic points}
+
+If $x_0$ is $n-$periodic for $f$, then it is fixed for $f^n$.
+
+An $n-$periodic point is said to be attractive or repulsive if it is for $f^n$. Then, we call the orbit of $x_0$ attractive or repulsive.
+
+\begin{theorem}
+If $x_n \rightarrow L \in \mathbb{R}$, and $f$ is continuous in $L$, then $L$ is a fixed point for $f$.
+\end{theorem}
+
+\begin{proof}
+\begin{equation}
+L = \lim_{n\rightarrow \infty} x_{n+1} = \lim_{n \rightarrow \infty} f(x_n) = f(L)
+\end{equation}
+\end{proof}
+
+We can use the same proof for the case in which $x_{kn} \rightarrow L$, with $k \in \mathbb{N}$:
+
+\begin{equation}
+L = \lim_{n\rightarrow \infty} x_{k(n+1)} = \lim_{n \rightarrow \infty} f^k(x_{kn}) = f^k(L)
+\end{equation}
+
+\subsection{Chain rule}
+
+To check whether a point is fixed for $f^n$ we need to look at its derivative: we can use the chain rule to get
+
+\begin{equation}
+(f^n)' (x_0) = (f^{n-1})' (f(x_0)) f'(x_0) = \prod_{i=0}^{n-1} f'(f^i(x_0)) =\prod_{i=0}^{n-1} f'(x_i)
+\end{equation}
+
+Where we use the notation in which $x_{n+1} = f(x_n)$.
+We then notice that $\forall i \in \lbrace 1 \dots n \rbrace: (f^n)' (x_0) = (f^n)'(f^i (x_0))$: we can swap the order of the points.
+
+
 
 \chapter{Miscellaneous}
 

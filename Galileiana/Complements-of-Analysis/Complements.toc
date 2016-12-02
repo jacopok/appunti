@@ -19,6 +19,12 @@
 \contentsline {paragraph}{Hoelder}{7}{section*.12}
 \contentsline {chapter}{\numberline {3}Convex functions}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Definition}{9}{section.3.1}
-\contentsline {chapter}{\numberline {4}Miscellaneous}{10}{chapter.4}
-\contentsline {section}{\numberline {4.1}Wallis}{10}{section.4.1}
-\contentsline {section}{\numberline {4.2}Stirling}{11}{section.4.2}
+\contentsline {chapter}{\numberline {4}Discrete dynamical systems}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}Basic notation}{10}{section.4.1}
+\contentsline {section}{\numberline {4.2}Graphical analysis}{10}{section.4.2}
+\contentsline {section}{\numberline {4.3}Fixed points}{10}{section.4.3}
+\contentsline {section}{\numberline {4.4}Periodic points}{12}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Chain rule}{12}{subsection.4.4.1}
+\contentsline {chapter}{\numberline {5}Miscellaneous}{13}{chapter.5}
+\contentsline {section}{\numberline {5.1}Wallis}{13}{section.5.1}
+\contentsline {section}{\numberline {5.2}Stirling}{14}{section.5.2}

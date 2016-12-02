@@ -22,11 +22,11 @@
 \contentsline {paragraph}{Axiom of continuity or completeness}{8}{section*.13}
 \contentsline {paragraph}{Halved intervals}{8}{section*.14}
 \contentsline {chapter}{\numberline {3}Topology}{10}{chapter.3}
-\contentsline {subsection}{\numberline {3.0.1}Balls and openness}{10}{subsection.3.0.1}
+\contentsline {section}{\numberline {3.1}Balls and openness}{10}{section.3.1}
 \contentsline {subsubsection}{Open sets}{11}{section*.15}
 \contentsline {subsubsection}{Closed sets}{12}{section*.16}
 \contentsline {paragraph}{Closure}{12}{section*.17}
-\contentsline {section}{\numberline {3.1}Limit points}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}Limit points}{12}{section.3.2}
 \contentsline {chapter}{\numberline {4}Functions}{14}{chapter.4}
 \contentsline {section}{\numberline {4.1}Basics}{14}{section.4.1}
 \contentsline {paragraph}{Composition}{14}{section*.18}
@@ -36,3 +36,10 @@
 \contentsline {paragraph}{Trig functions}{15}{section*.21}
 \contentsline {paragraph}{Logs}{15}{section*.22}
 \contentsline {paragraph}{Misc}{15}{section*.23}
+\contentsline {paragraph}{Inverses}{15}{section*.24}
+\contentsline {section}{\numberline {4.3}Some other properties}{15}{section.4.3}
+\contentsline {chapter}{\numberline {5}Limits}{16}{chapter.5}
+\contentsline {section}{\numberline {5.1}Definitions}{16}{section.5.1}
+\contentsline {section}{\numberline {5.2}Properties}{16}{section.5.2}
+\contentsline {paragraph}{Change of variable}{17}{section*.25}
+\contentsline {paragraph}{Squeeze theorem}{17}{section*.26}
