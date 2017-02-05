@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.10.29)  29 NOV 2016 16:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2016.10.29)  6 DEC 2016 22:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1305,27 +1305,27 @@ Package hyperref Warning: Difference (3) between bookmark levels is greater
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 877.
 
-[17] (./Calculus.toc [18
+[17] [18] (./Calculus.toc [19
 
 ])
 \tf@toc=\write5
 \openout5 = `Calculus.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 885.
- [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 885.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 914.
+ [20]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 914.
  (./Calculus.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 885.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 885.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 914.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 914.
 Package rerunfilecheck Info: File `Calculus.out' has not changed.
-(rerunfilecheck)             Checksum: 2E8C7B42B94866836B47F51A0734BAD5;2634.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 885.
+(rerunfilecheck)             Checksum: 316C39D383DFF5E7B6EC64FA9FB948EA;2696.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 914.
  ) 
 Here is how much of TeX's memory you used:
- 21553 strings out of 493787
- 388975 string characters out of 6153242
- 513250 words of memory out of 5000000
- 24524 multiletter control sequences out of 15000+600000
+ 21559 strings out of 493787
+ 389050 string characters out of 6153242
+ 514250 words of memory out of 5000000
+ 24525 multiletter control sequences out of 15000+600000
  23785 words of font info for 114 fonts, out of 8000000 for 9000
  667 hyphenation exceptions out of 8191
  69i,11n,62p,10402b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1344,10 +1344,10 @@ amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Calculus.pdf (20 pages, 243086 bytes).
+Output written on Calculus.pdf (21 pages, 244647 bytes).
 PDF statistics:
- 554 PDF objects out of 1000 (max. 8388607)
- 510 compressed objects within 6 object streams
- 187 named destinations out of 1000 (max. 500000)
- 16745 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 566 PDF objects out of 1000 (max. 8388607)
+ 521 compressed objects within 6 object streams
+ 192 named destinations out of 1000 (max. 500000)
+ 16753 words of extra memory for PDF output out of 17280 (max. 10000000)
 

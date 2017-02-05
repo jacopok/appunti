@@ -30,6 +30,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \usepackage{mathtools}
+\usepackage{commath}
  
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
@@ -47,8 +48,45 @@
 
 \maketitle
 
+\section{Distribuzione gaussiana}
 
+È una distribuzione degli scarti $z_i = x_i - x_{\text{ref}}$, ricavata dalle seguenti premesse:
+
+\begin{enumerate}
+\item Se ci sono solo errori casuali, la densità di probabilità degli scarti deve essere simmetrica rispetto allo zero;
+\item Gli scarti grandi sono poco probabili: $\lim_{z\rightarrow \infty} = 0$;
+\item Gli scarti piccoli sono molto probabili: $\lim_{z\rightarrow 0} = \max{f(z)}$.
+\item $f(z) = \frac{\dif p}{\dif z}$.
+\end{enumerate}
+
+Gauss ha dimostrato che deve avere l'espressione:
+
+\begin{equation}
+f(z) = k e^{-h^2 z^2}
+\end{equation}
+
+dove $k$ è una costante di normalizzazione e $h$ è un parametro detto \emph{modulo di precisione}.
+
+Per trovare il valore di $k$ poniamo
+
+\begin{equation}
+k \int_{\mathbb{R}} e^{-h^2 z^2} \, \dif z = 1
+\end{equation}
+
+che ci dà $k = h /\sqrt{\pi}$. Sembra che $h$ sia correlato a $\sigma$; vediamo che 
+
+\begin{equation}
+E(z) = \int_{\mathbb{R}} z \frac{h}{\sqrt{\pi}} e^{-h^2 z^2} \, \dif z = 0
+\end{equation}
+
+per simmetria, e dunque $E(z) = x^* = 0$. 
+Questo semplifica il calcolo della varianza:
+
+\begin{equation}
+\var (
+\end{equation}
 
 \tableofcontents
+
 
 \end{document}

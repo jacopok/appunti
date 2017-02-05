@@ -874,12 +874,43 @@ If $\lim_{x \rightarrow x_0} f(x) = L $ and $\lim_{y \rightarrow L} g(y) = M$, a
  
 \paragraph{Squeeze theorem}
 
-Given $D \subseteq \mathbb{R}$, a limit point $x_0 \in D$, and $f, g, h: D \rightarrow \mathbb{R}$ such that $\forall x \in D: f \leq g \leq h$:
+Given $D \subseteq \mathbb{R}$, a limit point $x_0 \in D$, and $f, g, h: D \rightarrow \mathbb{R}$ such that $\exists r: \forall x \in B(x_0, r): f \leq g \leq h$:
 
 \begin{equation}
 \lim_{x\rightarrow x_0} f(x) = \lim_{x \rightarrow x_0} h(x) = L \implies \lim_{x \rightarrow x_0} g(x) = L
 \end{equation}
+
+\begin{proof}
+From the definition of limit we have that, $\forall \varepsilon >0: \exists \delta_1, \delta_2:$
+
+\begin{align*}
+\forall x \in B(x_0, r): &0 < \abs{x-x_0} < \delta_1: \quad f(x)>L-\varepsilon\\
+\forall x \in B(x_0, r): &0 < \abs{x-x_0} < \delta_2: \quad g(x)<M+\varepsilon
+\end{align*}
+
+We can then take $\delta:= \min \lbrace r, \delta_1, \delta_2 \rbrace$. Then $\forall x \in D: 0 < \abs{x-x_0}< \delta$ we have:
+
+\begin{equation}
+L- \varepsilon < f(x) \leq g(x) \leq h(x) < L+ \varepsilon
+\end{equation}
+\end{proof}
  
+This allows us to prove that
+
+\begin{equation}
+\lim_{x \rightarrow 0} \frac{\sin x}{x} = 1
+\end{equation}
+
+\section{Infinite limits}
+
+We can write that $\lim_{x \rightarrow x_0} f(x) = + \infty$ if
+
+\begin{equation}
+\forall M > 0: \exists \delta > 0: \forall x \in B(x_0, \delta ) \smallsetminus \lbrace x_0 \rbrace: f(x) > M
+\end{equation}
+
+and analogously for $-\infty$. The properties which were proven to work earlier still do.
+
 \tableofcontents
 
 \end{document}

@@ -501,6 +501,50 @@ An alternative definition is: $f$ is convex if $\forall x_1, x, x_2: x_1 \leq x 
 f(x_1) + \frac{f(x_2) - f(x_1)}{x_2 - x_1}(x - x_1) \geq f(x)
 \end{equation}
 
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+If $f$ is convex, then it is Lipschitz-continuous, which implies it is continuous, at least in the interior of an interval. Also, if the derivative is defined, then it is bounded.
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+The left and right derivatives of a convex function are defined everywhere.
+The following hold:
+
+\begin{enumerate}
+\item $f'_-(x) \leq f'_+ (x)$;
+\item both are non decreasing;
+\item $x<y \implies f'_+(x) \leq f'_- (y)$.
+\end{enumerate}
+
+\begin{theorem}
+\begin{equation}
+\forall x_0 \in I: \exists m \in \mathbb{R}: \forall x \in I: f(x) \geq f(x_0) + m (x - x_0)
+\end{equation}
+
+Clearly, $m$ is between the left and right derivative.
+\end{theorem}
+
+\begin{theorem}
+The set of points in which $f: I \rightarrow \mathbb{R}$ is not differentiable (that is, the left and right derivatives are not continuous) is at most countable.
+\end{theorem}
+
+\begin{corollary}
+If $f$ is differentiable in $I$, then it is convex if $f'$ is increasing, and if it is two times differentiable, it is convex if $f''\geq 0$.
+\end{corollary}
+
+The right derivative is right-continuous, the left derivative is left-continuous. The points where $f$ is differentiable coincide with those where $f'_+$ and $f'_-$ are continuous.
+
+\begin{theorem}[Jensen's inequality]
+If $F$ is convex, then $\forall g: [0, 1] \rightarrow \mathbb{R}$:
+\begin{equation}
+\int^{1}_{0} F(g(x)) \, \text{d} x  \geq F\left( \int^{1}_{0} g(x) \, \text{d}x \right)
+\end{equation}
+\end{theorem}
+
 \chapter{Discrete dynamical systems}
 
 These are systems in which time is quantized, and things change over time. We are given a function, and we analyze its behaviour when we iterate it. An example is the logistic equation:
@@ -634,7 +678,7 @@ L = \lim_{n\rightarrow \infty} x_{n+1} = \lim_{n \rightarrow \infty} f(x_n) = f(
 We can use the same proof for the case in which $x_{kn} \rightarrow L$, with $k \in \mathbb{N}$:
 
 \begin{equation}
-L = \lim_{n\rightarrow \infty} x_{k(n+1)} = \lim_{n \rightarrow \infty} f^k(x_{kn}) = f^k(L)
+L = \lim_{n\rightarrow \infty} x_{k(n+1)} = \lim_{n \rightarrow \infty} f^k(x_{kn}) = f^k(L) 
 \end{equation}
 
 \subsection{Chain rule}
