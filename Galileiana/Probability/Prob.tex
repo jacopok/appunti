@@ -1,0 +1,87 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{nicefrac}
+\usepackage[margin=3.3cm]{geometry}
+\usepackage{amssymb}
+\usepackage[italian]{babel}
+\usepackage{accents}
+\usepackage{amsthm}
+\usepackage[pdftex, pdfborderstyle={/S/U/W 0}]{hyperref}
+\numberwithin{equation}{section}
+\usepackage{commath}
+\usepackage{graphicx}
+%\usepackage[extreme]{savetrees}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{nicefrac}
+\setcounter{tocdepth}{4}
+\usepackage{fnpct}
+\usepackage{centernot}
+
+\usepackage{cool}
+\Style{DSymb={\mathrm d},DShorten=true,IntegrateDifferentialDSymb=\mathrm{d}}
+
+\usepackage{microtype}
+\usepackage{cleveref}
+\usepackage{tensor}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}[section]
+\usepackage{mathtools}
+ 
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corollario}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\usepackage{url}
+\newcommand*{\defeq}{\stackrel{\text{def}}{=}}
+\author{Jacopo Tissino}
+\title{Modelli probabilistici}
+
+\begin{document}
+
+\maketitle
+
+\section{Basi}
+
+\begin{definition}
+\emph{Esperimento aleatorio}: osservazione su un fenomeno il cui esito non è determinabile a priori.
+\end{definition}
+
+\begin{definition}
+\emph{Spazio di probabilità}: terna di 
+
+\begin{enumerate}
+\item Spazio campionario $\Omega$: l'insieme degli esiti possibili;
+\item Evento: elemento di $\mathcal{P}(\Omega)$;
+\item Probabilità: $\mathbb{P}: \mathcal{P}: \Omega \rightarrow [0, 1]$ tale che:
+\begin{enumerate}
+\item $\mathbb{P}(\Omega) = 1$;
+\item $\sigma$-additività: $\forall$ successione di eventi $(A_n)_{n \in \mathbb{N}}$:
+\begin{equation}
+\mathbb{P}\left(\displaystyle \bigcup_{n=1}^\infty A_n \right) = \sum_{n=1}^\infty \mathbb{P} (A_n)
+\end{equation}
+\end{enumerate}
+\end{enumerate}
+\end{definition}
+
+Le operazioni logiche fra eventi sono equivalenti a quelle insiemistiche fra sottoinsiemi di $\Omega$. Valgono i teoremi di De Morgan, anche per insiemi numerabili.
+
+Eventi ``disgiunti'' hanno intersezione nulla. Dalla $\sigma$-additività deriva l'additività finita.
+
+Proprietà immediate: $\forall A, B \in \mathcal{P}
+
+\begin{enumerate}
+\item 
+\end{enumerate}
+
+\tableofcontents
+
+\end{document}

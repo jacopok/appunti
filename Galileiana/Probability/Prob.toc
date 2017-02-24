@@ -1,0 +1,3 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {section}{\numberline {1}Basi}{1}{section.1}
