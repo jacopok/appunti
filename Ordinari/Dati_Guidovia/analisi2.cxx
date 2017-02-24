@@ -20,6 +20,12 @@
  * 
  * 
  */
+ 
+// Significato sigle dei dati:
+// s = slitta scarica senza spessore
+// n = slitta carica senza spessore
+// c = slitta scarica con spessore sottile
+// g = slitta scarica con spessore grosso
 
 using namespace std;
 
@@ -33,7 +39,7 @@ using namespace std;
 class datum {
     public: double value;
     int position;
-    int primes;
+    int position2;
     char charge;
 };
 
@@ -44,15 +50,15 @@ class singleposition {
 
 double stdev (vector<double> data);
 double av (vector<double> data);
-vector <double> finddata (int position, int primes, char charge, vector<datum> alldata);
-vector <singleposition> analyse (int primes, char charge);
+vector <double> finddata (int position, char charge, vector<datum> alldata);
+vector <singleposition> analyse (char charge);
 
 vector <datum> alldata;
 
 int main()
 {
 //    cout << "Insert name of the file to be analyzed:" << endl;
-    string filename = "datiraw.txt";
+    string filename = "datiraw2.txt";
 //    cin >> filename;
     ifstream file;
     file.open(filename);
@@ -60,17 +66,20 @@ int main()
         datum singlet;
         file >> singlet.value;
         file >> singlet.position;
-        file >> singlet.primes;
+        file >> singlet.position2;
         file >> singlet.charge;
         alldata.push_back(singlet);
         }
 //   for (unsigned int i = 0; i<alldata.size(); ++i)
-//        cout << alldata[i].value << " " <<  alldata[i].position << " " <<  alldata[i].primes << " " <<  alldata[i].charge << endl;
+//        cout << alldata[i].value << " " <<  alldata[i].position << " " <<  alldata[i].charge << endl;
 //   Check whether all the data is read properly
-    vector <singleposition> set15 = analyse(15, 's');
-    vector <singleposition> set30 = analyse(30, 's');
-    vector <singleposition> set45 = analyse(45, 's');
-    vector <singleposition> set45c = analyse(45, 'c');
+    char potenziali[4] = {'s', 'n', 'c', 'g'};
+    for (auto i : potenziali){
+        vector <singleposition> scaricanosp = analyse(i);
+        for (unsigned int i = 0; i<scaricanosp.size(); i++)
+            cout << scaricanosp[i].average << "   " << scaricanosp[i].standarddev << endl;
+        cout << endl;
+        }
     return 0;
 }
 
@@ -90,20 +99,20 @@ double stdev (vector<double> data){
     return sqrt(sum);
 };
 
-vector <double> finddata (int position, int primes, char charge, vector<datum> alldata){
+vector <double> finddata (int position, char charge, vector<datum> alldata){
     vector <double> newdata;
     for (unsigned i = 0; i < alldata.size(); ++i){
-        if (alldata[i].position == position && alldata[i].primes == primes && alldata[i].charge == charge)
+        if (alldata[i].position == position && alldata[i].charge == charge)
             newdata.push_back(alldata[i].value);
     }
     return newdata;
 };
 
-vector <singleposition> analyse (int primes, char charge){
+vector <singleposition> analyse (char charge){
     vector <singleposition> set;
-    for (int i = 50; i < 101; i+=10){
+    for (int i = 40; i < 91; i+=10){
         singleposition pos;
-        vector <double> temp = finddata(i, primes, charge, alldata);
+        vector <double> temp = finddata(i, charge, alldata);
         pos.average = av(temp);
         pos.standarddev = stdev(temp);
         set.push_back(pos);
