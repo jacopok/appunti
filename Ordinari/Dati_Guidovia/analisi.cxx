@@ -30,22 +30,23 @@ using namespace std;
 #include <string>
 #include <sstream>
 
-class datum {
-    public: double value;
+struct datum {
+    double value;
     int position;
     int primes;
     char charge;
 };
 
-class singleposition {
-    public: double average;
+struct singleposition {
+    double average;
     double standarddev;
 };
 
 double stdev (vector<double> data);
 double av (vector<double> data);
-vector <double> finddata (int position, int primes, char charge, vector<datum> alldata);
+vector <double> finddata (int position, int primes, char charge);
 vector <singleposition> analyse (int primes, char charge);
+void rejectwarning (int position, int primes, char charge);
 
 vector <datum> alldata;
 
@@ -71,6 +72,16 @@ int main()
     vector <singleposition> set30 = analyse(30, 's');
     vector <singleposition> set45 = analyse(45, 's');
     vector <singleposition> set45c = analyse(45, 'c');
+    for (auto k: set15)
+        cout << "Average: " << k.average << ", Stdev: " << k.standarddev << endl;
+    for (int pos = 50; pos <= 100; pos += 10){
+        rejectwarning(pos, 15, 's');
+        rejectwarning(pos, 30, 's');
+        rejectwarning(pos, 45, 's');
+        rejectwarning(pos, 45, 'c');
+    }
+    vector <double> stuff = {1, 2, 3, 4, 5};
+    cout << "Stuff: " << stdev(stuff);
     return 0;
 }
 
@@ -87,10 +98,10 @@ double stdev (vector<double> data){
     for (double x : data){
         sum += (x - average) * (x - average);
     };
-    return sqrt(sum);
+    return sqrt(sum / (data.size() -1));
 };
 
-vector <double> finddata (int position, int primes, char charge, vector<datum> alldata){
+vector <double> finddata (int position, int primes, char charge){
     vector <double> newdata;
     for (unsigned i = 0; i < alldata.size(); ++i){
         if (alldata[i].position == position && alldata[i].primes == primes && alldata[i].charge == charge)
@@ -103,10 +114,20 @@ vector <singleposition> analyse (int primes, char charge){
     vector <singleposition> set;
     for (int i = 50; i < 101; i+=10){
         singleposition pos;
-        vector <double> temp = finddata(i, primes, charge, alldata);
+        vector <double> temp = finddata(i, primes, charge);
         pos.average = av(temp);
         pos.standarddev = stdev(temp);
         set.push_back(pos);
     }
     return set;
+};
+
+void rejectwarning (int position, int primes, char charge){
+    vector <double> newdata = finddata (position, primes, charge);
+    double dev = stdev(newdata);
+    double aver = av(newdata);
+    for (double x : newdata){
+        if (x > (3 * dev + aver) || x < (aver - 3 * dev))
+            cout << "The value " << x << " is over the 3 sigma boundary." << endl; 
+    }
 };

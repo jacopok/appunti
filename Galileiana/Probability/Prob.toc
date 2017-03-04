@@ -1,3 +1,7 @@
 \select@language {italian}
 \select@language {italian}
 \contentsline {section}{\numberline {1}Basi}{1}{section.1}
+\contentsline {paragraph}{Esempi di spazi discreti}{2}{section*.1}
+\contentsline {paragraph}{Richiami di combinatoria}{2}{section*.2}
+\contentsline {subparagraph}{Coefficienti multinomiali}{2}{section*.3}
+\contentsline {section}{\numberline {2}Modello di Ising}{2}{section.2}

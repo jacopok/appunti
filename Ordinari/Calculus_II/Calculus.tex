@@ -1,0 +1,206 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{nicefrac}
+\usepackage[margin=3.3cm]{geometry}
+\usepackage{amssymb}
+\usepackage{accents}
+\usepackage{amsthm}
+\usepackage[pdftex, pdfborderstyle={/S/U/W 0}]{hyperref}
+\numberwithin{equation}{section}
+\usepackage{commath}
+\usepackage{graphicx}
+%\usepackage[extreme]{savetrees}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{nicefrac}
+\setcounter{tocdepth}{4}
+\usepackage{fnpct}
+\usepackage{centernot}
+\usepackage[italian]{babel}
+
+\usepackage{cool}
+\Style{DSymb={\mathrm d},DShorten=true,IntegrateDifferentialDSymb=\mathrm{d}}
+
+\DeclareMathOperator{\sgn}{sgn}
+\usepackage{microtype}
+\usepackage{cleveref}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+ 
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corollario}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\usepackage{url}
+\newcommand*{\defeq}{\stackrel{\text{def}}{=}}
+\author{Jacopo Tissino}
+\title{Appunti di Analisi II}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Serie}
+
+Definite in $\mathbb{C}$. Se omettiamo gli estremi della somma, s'intende da un qualche naturale, generalmente 1, a $+\infty$.
+
+\section{Definizioni}
+
+Se la successione delle somme parziali ha limite finito o infinito, allora scriviamo:
+
+\begin{equation}
+\sum_{n=1}^\infty a_n = \lim_{n \rightarrow \infty} \sum_{k=1}^\infty a_k
+\end{equation}
+
+Data una serie $\sum_{n=1}^\infty a_n$, $(a_n)$ è la sua successione dei termini generali.
+
+\begin{theorem}
+Se la serie $\sum_{n=1}^\infty a_n$ converge, allora $\lim_{n \rightarrow \infty} a_n = 0$
+\end{theorem}
+
+\section{Serie notevoli}
+
+\paragraph{Geometrica} Se $z \in \mathbb{C}$, $\abs{z} < 1$, allora
+
+\begin{equation}
+\sum_{n=1}^\infty z^n = \frac{1}{1-z}
+\end{equation}
+
+\paragraph{Telescopica} Data $(a_n)_{n \in \mathbb{N}}$ convergente a $\ell$, se $(b_n)_{n \in \mathbb{N}}$ è tale che $b_n = a_{n+1} - a_n$, allora
+
+\begin{equation}
+\sum_{n=0}^\infty b_n = \ell - a_0
+\end{equation}
+
+\paragraph{Armonica generalizzata}
+
+Per $ p \leq 1$, la serie
+
+\begin{equation}
+\sum_{n=1}^\infty \frac{1}{n^p}
+\end{equation}
+
+diverge, converge invece per $p>1$.
+
+\section{Criteri}
+
+\paragraph{Confronto} Date le serie $\sum a_n$ e $\sum b_n$, entrambe a termini positivi, se $a_n \leq b_n$ definitivamente
+
+\begin{enumerate}
+\item se $\sum a_n$ diverge allora $\sum b_n$ diverge;
+\item se $\sum b_n$ converge allora $\sum a_n$ converge;
+\end{enumerate}
+
+\paragraph{Confronto asintotico} Date le serie $\sum a_n$ e $\sum b_n$, entrambe a termini positivi, se
+
+\begin{equation}
+\lim_{n \rightarrow \infty} \frac{a_n}{b_n} = \ell \in \bar{\mathbb{R}}^+
+\end{equation}
+
+allora
+
+\begin{enumerate}
+\item se $\ell \in (0, +\infty )$, le serie hanno lo stesso carattere;
+\item se $\ell = 0$, $a_n$ diverge $\implies b_n$ diverge e $b_n$ converge $\implies a_n$ converge;
+\item se $\ell = +\infty$, $b_n$ diverge $\implies a_n$ diverge e $a_n$ converge $\implies b_n$ converge.
+\end{enumerate}
+
+\paragraph{Rapporto}
+
+Data $\sum a_n$ a termini positivi, se $\exists h \in (0, 1)$ tale che 
+
+\begin{equation}
+\frac{a_{n+1}}{a_n} \leq h
+\end{equation}
+
+definitivamente, allora $\sum a_n$ converge. Se $\exists h > 1$ tale che per infiniti valori di $n$
+
+\begin{equation}
+\frac{a_{n+1}}{a_n} > h
+\end{equation}
+
+allora $\sum a_n$ diverge.
+
+\paragraph{Rapporto asintotico}
+
+Data $\sum a_n$ a termini positivi, e $\ell = \limsup_{n \rightarrow \infty} a_{n+1}/a_n.$ Allora $\ell \in [0, +\infty]$. Se $\ell < 1$, $\sum a_n$ converge. Se $\ell > 1$, $\sum a_n$ diverge.
+
+\paragraph{Radice ($n$-esima)}
+
+Data $\sum a_n$ a termini positivi, se $\exists h \in (0, 1)$ tale che 
+
+\begin{equation}
+\sqrt[n]{a_n} \leq h
+\end{equation}
+
+definitivamente, allora $\sum a_n$ converge. Se $\exists h > 1$ tale che per infiniti valori di $n$
+
+\begin{equation}
+\sqrt[n]{a_n} > h
+\end{equation}
+
+allora $\sum a_n$ diverge.
+
+\paragraph{Radice asintotica}
+
+Data $\sum a_n$ a termini positivi, e $\ell = \limsup_{n \rightarrow \infty} \sqrt[n]{a_n}.$ Allora $\ell \in [0, +\infty]$. Se $\ell < 1$, $\sum a_n$ converge. Se $\ell > 1$, $\sum a_n$ diverge.
+
+\begin{theorem}
+(Indimostrato) Data una successione $(a_n)_{n \in \mathbb{N}}$ a termini positivi:
+
+\begin{equation}
+\liminf_{n \rightarrow \infty} \frac{a_{n+1}}{a_n} \leq \liminf_{n \rightarrow \infty} \sqrt[n]{a_n}
+\leq \limsup_{n \rightarrow \infty} \sqrt[n]{a_n} \leq \limsup_{n \rightarrow \infty} \frac{a_{n+1}}{a_n}
+\end{equation}
+\end{theorem}
+
+\paragraph{Condensazione di Cauchy}
+
+Data $\sum a_n$ a termini positivi, con termine generale decrescente, le serie $\sum a_n$ e $\sum 2^n a_{2^n}$ hanno lo stesso carattere.
+
+\paragraph{Leibniz}
+
+Data la successione $a_n$ a termini positivi infinitesima con $a_{n+1} \leq a_n$, la serie 
+
+\begin{equation}
+\sum b_n = \sum (-1)^n a_n
+\end{equation}
+
+converge, e
+
+\begin{equation}
+\abs{\sum_{n=k}^\infty b_n} \leq a_{k+1}
+\end{equation}
+
+\paragraph{Convergenza assoluta}
+
+Una serie $\sum z_n$ si dice assolutamente convergente se converge la serie $\sum \abs{z_n}$. Se una serie è assolutamente convergente, allora è convergente, e vale $\abs{\sum z_n} \leq \sum \abs{z_n}$.
+
+\chapter{Integrali generalizzati}
+
+\chapter{Spazi metrici}
+
+\chapter{Serie di funzioni}
+
+\chapter{Calcolo differenziale multivariato}
+
+\chapter{Curve e 1-forme differenziali in $\mathbb{R}^n$}
+
+\chapter{Invertibilità locale e funzione implicita}
+
+\tableofcontents
+
+\end{document}

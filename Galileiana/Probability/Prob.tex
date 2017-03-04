@@ -76,11 +76,82 @@ Le operazioni logiche fra eventi sono equivalenti a quelle insiemistiche fra sot
 
 Eventi ``disgiunti'' hanno intersezione nulla. Dalla $\sigma$-additività deriva l'additività finita.
 
-Proprietà immediate: $\forall A, B \in \mathcal{P}
+Proprietà immediate: $\forall A, B \in \mathcal{P} (\Omega)$:
 
 \begin{enumerate}
-\item 
+\item $\mathbb{P}(B \smallsetminus A) = \mathbb{P}(B) - \mathbb{P}(B \cap A)$;
+\item $\mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B) \leq \mathbb{P}(A) + \mathbb{P}(B)$.
 \end{enumerate}
+
+\begin{definition}
+La funzione $p: \Omega \rightarrow [0, 1]$ è una \emph{densità di probabilità} se:
+
+\begin{enumerate}
+\item $\forall \omega \in \Omega: p(\omega) \geq 0$;
+\item $\sum_{\omega \in \Omega} p(\omega) = 1$. 
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+Data la funzione $p: \Omega \rightarrow [0, 1]$, la funzione $\mathbb{P}: \mathcal{P}(\Omega) \rightarrow [0, 1]$ tale che $\forall A \subseteq \Omega: \mathbb{P}(A) = \sum_{\omega \in A} p(\omega)$ è una probabilità.
+
+Vale anche il viceversa: data $\mathbb{P}: \mathcal{P}(\Omega) \rightarrow [0, 1]$ la funzione $p: \Omega \rightarrow [0, 1]$ tale che $p(\omega) = \mathbb{P} (\lbrace \omega \rbrace )$ è una densità di probabilità.
+\end{theorem}
+
+\paragraph{Esempi di spazi discreti}
+
+Per uno spazio uniforme, per il quale $\abs{\Omega} \in \mathbb{N}$, $\forall \omega \in \Omega: p(\omega) = 1/\abs{\Omega}$.
+
+\paragraph{Richiami di combinatoria}
+
+Scegliamo $k$ elementi da $n$:
+
+\begin{enumerate}
+\item Disposizioni con ripetizione: $n^k$;
+\item Disposizioni semplici: $\prod_{i=n-k+1}^n i = n! / (n-k+1)!$;
+\item Combinazioni semplici: $C_{n, k} = { n \choose k } = n! / (k! (n-k)!)$.
+\end{enumerate}
+
+\subparagraph{Coefficienti multinomiali}
+
+Vogliamo dividere $n$ elementi in $k$ gruppi, di cardinalità $(n_i)$, con $\sum_i n_i = n$. Si può fare in un numero di modi pari a:
+
+\begin{equation}
+{n \choose n_1, n_2, \dots, n_k } = \frac{n!}{\prod_{i=1}^k n_i !}
+\end{equation}
+
+\section{Modello di Ising}
+
+Dato lo spazio finito $\Omega$ e data la funzione Hamiltoniana $H: \Omega \rightarrow \mathbb{R}$ (~energia) con parametro $\beta \geq 0$. Definiamo $\forall \omega \in \Omega$ la \emph{Misura di Gibbs}:
+
+\begin{equation}
+p_\beta = \frac{e^{-\beta H(\omega)}}{z_\beta} = \frac{e^{-\beta H(\omega)}}{\displaystyle\sum_{\omega \in \Omega} e^{-\beta H(\omega)}}
+\end{equation}
+
+è una ddp. Interpretazione fisica: $\beta^{-1} = k_B T$. La misura dà la probabilità di osservare un certo stato all'equilibrio.
+
+Casi limite: $\beta \approx 0$ densità uniforme, $\beta \rightarrow \infty$ densità zero ovunque, uniforme nel minimo.
+
+Un grafo è un insieme di vertici e spigoli: $G = (V, E), E \subseteq V\times V$. Definiamo quindi lo spazio:
+
+\begin{equation}
+\mathbb{Z} ^n = \left(\mathbb{Z} ^n, (x, y) \in \mathbb{Z} ^n:\text{d}(x, y) = 1 \right)
+\end{equation}
+
+Un sottografo finito $\Lambda \subset \mathbb{Z}^n$ è considerato con tutti i suoi spigoli: $E(\Lambda) = \lbrace (x, y) : x, y \in \Lambda, (x, y) \in E (\mathbb{Z}^n ) \rbrace$.
+
+Ogni vertice assume valore $\pm 1$. Lo spazio è dunque $\Omega = \lbrace \pm 1 \rbrace ^{\abs{\Lambda}}$; $\sigma$ è uno stato, ovvero $\sigma \in \Omega \implies \sigma = (\sigma_k)_{k \in \Lambda}$.
+
+Per comodità, $\text{d} (x, y) = 1 \iff x \sim y$.
+
+Definiamo $\partial \Lambda = \lbrace x \in \Lambda : \exists y \in \Lambda^C : x\sim y \rbrace$.
+Sia quindi $\tau = \lbrace \pm 1 \rbrace ^{\abs{\Lambda^C}}$ l'esterno del reticolo. Definiamo l'Hamiltoniana
+
+\begin{equation}
+H_\Lambda^\tau (\sigma ) = - \frac 12 \sum_{\substack{x, y \in \Lambda \\ x \sim y}} \sigma_x \sigma_y - \sum_{\substack{x \in \partial \Lambda \\ y \in \Lambda^C \\ x \sim y}} \sigma_x \tau_y
+\end{equation}
+
+Consideriamo solo reticoli ``quadrati'': $\Lambda_n = \lbrace -n, \dots, n \rbrace ^d \subset \mathbb{Z}^d$. Poniamo $\tau = +1$.
 
 \tableofcontents
 
