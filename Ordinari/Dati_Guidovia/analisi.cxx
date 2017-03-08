@@ -57,6 +57,7 @@ couple regression (vector <couple> data); // Calculates the pair (a, b) for the 
 vector <singleposition> getspeed (vector <singleposition> times); // Calculates the speed between two points
 void printout (vector <singleposition> times, vector <singleposition> speeds);
 couple regress_singledataset (vector <singleposition> times_set);
+couple regression_error (vector <couple> variables, couple parameters);
 
 vector <datum> alldata;
 
@@ -88,30 +89,65 @@ int main()
         rejectwarning(pos, 45, 's');
         rejectwarning(pos, 45, 'c');
     }
-//    vector <singleposition> speed15 = getspeed(set15);
-//    vector <singleposition> speed30 = getspeed(set30);
-//    vector <singleposition> speed45 = getspeed(set45);
-//    vector <singleposition> speed45c = getspeed(set45c);
-//    printout(set15, speed15);
-//    printout(set30, speed30);
-//    printout(set45, speed45);
-//    printout(set45c, speed45c);
+    vector <singleposition> speed15 = getspeed(set15);
+    vector <singleposition> speed30 = getspeed(set30);
+    vector <singleposition> speed45 = getspeed(set45);
+    vector <singleposition> speed45c = getspeed(set45c);
+    printout(set15, speed15);
+    printout(set30, speed30);
+    printout(set45, speed45);
+    printout(set45c, speed45c);
     couple coeff15 = regress_singledataset(set15);
-    cout << coeff15.x << " " << coeff15.y << endl;
     couple coeff30 = regress_singledataset(set30);
-    cout << coeff30.x << " " << coeff30.y << endl;
     couple coeff45 = regress_singledataset(set45);
-    cout << coeff45.x << " " << coeff45.y << endl;
     couple coeff45c = regress_singledataset(set45c);
-    cout << coeff45c.x << " " << coeff45c.y << endl;
     double g15 = coeff15.y / sin((15.0 * M_PI / 10800.0));
     double g30 = coeff30.y / sin((30.0 * M_PI / 10800.0));
     double g45 = coeff45.y / sin((45.0 * M_PI / 10800.0));
     double g45c = coeff45c.y / sin((45.0 * M_PI / 10800.0));
-    cout << g15 << endl;
-    cout << g30 << endl;
-    cout << g45 << endl;
-    cout << g45c << endl;
+    cout << coeff15.x << " & " << coeff15.y << " & " << g15 << " \\\\" << endl;
+    cout << coeff30.x << " & " << coeff30.y << " & " << g30 << " \\\\" << endl;
+    cout << coeff45.x << " & " << coeff45.y << " & " << g45 << " \\\\" << endl;
+    cout << coeff45c.x << " & " << coeff45c.y << " & " << g45c << " \\\\" << endl;
+    vector <couple> var15;
+    for (unsigned int k = 0; k < set15.size(); k++){
+        couple temp;
+        temp.x = set15[k].average;
+        temp.y = speed15[k].average;
+        var15.push_back(temp);
+    }
+    couple error15 = regression_error(var15, coeff15);
+    cout << error15.x << " " << error15.y << endl;
+
+    vector <couple> var30;
+    for (unsigned int k = 0; k < set30.size(); k++){
+        couple temp;
+        temp.x = set30[k].average;
+        temp.y = speed30[k].average;
+        var30.push_back(temp);
+    }
+    couple error30 = regression_error(var30, coeff30);
+    cout << error30.x << " " << error30.y << endl;
+
+    vector <couple> var45;
+    for (unsigned int k = 0; k < set45.size(); k++){
+        couple temp;
+        temp.x = set45[k].average;
+        temp.y = speed45[k].average;
+        var45.push_back(temp);
+    }
+    couple error45 = regression_error(var45, coeff45);
+    cout << error45.x << " " << error45.y << endl;
+
+    vector <couple> var45c;
+    for (unsigned int k = 0; k < set45c.size(); k++){
+        couple temp;
+        temp.x = set45c[k].average;
+        temp.y = speed45c[k].average;
+        var45c.push_back(temp);
+    }
+    couple error45c = regression_error(var45c, coeff45c);
+    cout << error45c.x << " " << error45c.y << endl;
     return 0;
 }
 
@@ -200,7 +236,10 @@ vector <singleposition> getspeed (vector <singleposition> times){
         if (i>0)
             sumt = times[i-1].average;
         temp.average = 10 / (times[i].average - sumt);
-        temp.standarddev = 0; // To fix
+        if (i>0)
+            temp.standarddev =  sqrt(0.2 / ((times[i].average - sumt)*(times[i].average - sumt)) + 100 * (times[i].standarddev * times[i].standarddev + times[i-1].standarddev * times[i-1].standarddev) / pow((times[i].average - sumt), 4) );
+        else
+            temp.standarddev =  sqrt(0.2 / ((times[i].average - sumt)*(times[i].average - sumt)) + 100 * (times[i].standarddev * times[i].standarddev) / pow((times[i].average - sumt), 4) );
         res.push_back(temp);
     }
     return res;
@@ -211,7 +250,7 @@ void printout (vector <singleposition> times, vector <singleposition> speeds){
         cout << "Different size vectors!" <<endl;
     else {
         for (unsigned int i = 0; i<times.size(); i++){
-            cout << times[i].average << " " << speeds[i].average << " " << times[i].standarddev << endl;
+            cout << times[i].average << " " << speeds[i].average << " " << speeds[i].standarddev << endl;
         }
     }
 };
@@ -226,4 +265,41 @@ couple regress_singledataset (vector <singleposition> times_set){
         line.push_back(temporary_couple);
     }
     return regression(line);
+};
+
+couple regression_error (vector <couple> variables, couple parameters){ //Parameters: a, b in that order
+    vector <double> x;
+    vector <double> y;
+    for (auto k : variables) // Generate vectors for both categories of data 
+        x.push_back(k.x); 
+    for (auto k : variables)
+        y.push_back(k.y);
+    vector <double> distance_from_line;
+    for (unsigned int i = 0; i < x.size(); i++){
+        double k = ((parameters.x + parameters.y * x[i]) -y[i]) * ((parameters.x + parameters.y * x[i]) -y[i]);
+        distance_from_line.push_back(k);
+    }
+    double sum = 0;
+    for (double k : distance_from_line)
+        sum += k;
+    double sigmay = sqrt(sum / (x.size() -2));
+        double sumx2 = 0;
+    double sumx = 0;
+    double sumy = 0;
+    double sumxy = 0;
+    for (double k : x){
+        sumx2 += (k * k);
+        sumx += k;
+    }
+    for (double k : y)
+        sumy += k;
+    for (unsigned int i = 0; i < x.size(); i++)
+        sumxy += (x[i] * y[i]);
+    double delta = x.size() * sumx2 - (sumx * sumx);
+    double sigmaa = sigmay * sqrt(sumx2 / delta);
+    double sigmab = sigmay * sqrt(x.size() / delta);
+    couple res;
+    res.x = sigmaa;
+    res.y = sigmab;
+    return res;
 };
