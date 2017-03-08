@@ -35,6 +35,7 @@ using namespace std;
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <iomanip>
 
 struct datum {
     double value;
@@ -97,10 +98,11 @@ int main() {
             h.x = (10 *i) + 50;
             h.y = t[i].average;
             to_regress.push_back(h);
-            cout << " & " << (10*i)+40 << " & " << (10*i)+60  << " & " << t[i].average << " & " << speeds[i].average << " & " << t[i].standarddev << " & " << speeds[i].standarddev << endl; 
+            //cout << " & " << (10*i)+40 << " & " << (10*i)+60  << " & " << fixed << setprecision(4) << t[i].average << " & " << setprecision(1) << speeds[i].average << " & " << setprecision(4) << t[i].standarddev << " & " << setprecision(1) << speeds[i].standarddev << " \\\\" << endl; 
+            cout << (10 * i) + 50 << " " << speeds[i].average << " " << speeds[i].standarddev << endl;
         }
         couple s = regression(to_regress);
-        // cout << "Intercept: " << s.x << ", angular coefficient: " << s.y << endl << "Error: " << regression_error(to_regress, s).x << " " << regression_error(to_regress, s).y << endl;
+        cout <<  s.x << " + x * " << s.y << endl << "Error: " << regression_error(to_regress, s).x << " " << regression_error(to_regress, s).y << endl;
         cout << endl;
     }
     int positions[] = {40, 50, 60, 70, 80, 90};

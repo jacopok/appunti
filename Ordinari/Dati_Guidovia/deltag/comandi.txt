@@ -1,0 +1,22 @@
+set xlabel "Posizione intermedia [cm]"
+set ylabel "Velocità [cm/s]"
+f(x) = 1.12289 + x * 0.000762898
+set terminal png
+set output 'scaricanosp.png'
+plot "scaricanosp.txt" with errorbars title "dati", f(x) title "fit lineare"
+
+g(x) = 1.63852 + x * 0.000436735
+set terminal png
+set output 'caricanosp.png'
+plot "caricanosp.txt" with errorbars title "dati", g(x) title "fit lineare"
+
+h(x) = 1.29117 + x * 0.00377163
+set terminal png
+set output 'scaricasps.png'
+plot "scaricasps.txt" with errorbars title "dati", h(x) title "fit lineare"
+
+k(x) = 1.54325 + x * 0.00559903
+set terminal png
+set output 'scaricaspg.png'
+plot "scaricaspg.txt" with errorbars title "dati", k(x) title "fit lineare"
+
