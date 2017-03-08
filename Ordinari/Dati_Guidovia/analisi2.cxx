@@ -1,5 +1,5 @@
 /*
- * analisi.cxx
+ * analisi2.cxx
  * 
  * Copyright 2017 jacopo <jacopo@vikingmetal>
  * 
@@ -99,6 +99,8 @@ int main() {
     for (auto i : potentials)
         for (auto k : positions)
             rejectwarning(k, i);
+    vector <double> testing {1, 2, 3, 5.4};
+    cout << av(testing);
     return 0;
 }
 
@@ -139,12 +141,7 @@ vector <singleposition> analyse (char charge){
     return set;
 };
 
-couple regression (vector <couple> data){
-    vector <double> x;
-    vector <double> y;
-    for (auto k : data) // Generate vectors for both categories of data 
-        x.push_back(k.x); 
-    for (auto k : data)
+/* (auto k : data)
         y.push_back(k.y);
     vector <double> xnorm;
     vector <double> ynorm;
@@ -166,6 +163,36 @@ couple regression (vector <couple> data){
     res.x = av_y - (res.y * av_x); // Intercept
     return res;
 };
+*/
+
+
+couple regression (vector <couple> data){ //Sada's formula
+    vector <double> x;
+    vector <double> y;
+    for (auto k : data) // Generate vectors for both categories of data 
+        x.push_back(k.x); 
+    for (auto k : data)
+        y.push_back(k.y);
+    double sumx2 = 0;
+    double sumx = 0;
+    double sumy = 0;
+    double sumxy = 0;
+    for (double k : x){
+        sumx2 += (k * k);
+        sumx += k;
+    }
+    for (double k : y)
+        sumy += k;
+    for (unsigned int i = 0; i < x.size(); i++)
+        sumxy += (x[i] * y[i]);
+    double delta = x.size() * sumx2 - (sumx * sumx);
+    
+    couple res;
+    res.y = (x.size() * sumxy - sumx * sumy) / delta; // Coefficient of the least-sqares line
+    res.x = (sumx2 * sumy - sumx * sumxy) / delta; // Intercept
+    return res;
+};
+
 
 void rejectwarning (int position, char charge){
     vector <double> newdata = finddata (position, charge);

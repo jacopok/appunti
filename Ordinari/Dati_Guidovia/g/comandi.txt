@@ -1,0 +1,22 @@
+set xlabel "Tempo [s]"
+set ylabel "Velocità [cm/s]"
+f(x) = 12.3073 + 4.70117 * x
+set terminal png
+set output '15.png'
+plot "15.txt" with errorbars title "dati", f(x) title "fit lineare"
+
+g(x) = 17.6083 + 9.15436 * x
+set terminal png
+set output '30.png'
+plot "30.txt" with errorbars title "dati", g(x) title "fit lineare"
+
+h(x) = 22.0218 + 13.0971 * x
+set terminal png
+set output '45.png'
+plot "45.txt" with errorbars title "dati", h(x) title "fit lineare"
+
+k(x) = 22.6017 + 13.2895 * x
+set terminal png
+set output '45c.png'
+plot "45c.txt" with errorbars title "dati", k(x) title "fit lineare"
+
