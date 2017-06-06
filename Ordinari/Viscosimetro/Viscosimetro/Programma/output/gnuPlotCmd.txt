@@ -1,0 +1,6 @@
+set terminal png
+set output "./graph/DsvsDt/graph.png"
+set xlabel "Lunghezza percorsa [m]"
+set ylabel "Tempo trascorso [s]"
+set key at 0.175, 290
+plot "./graph/DsvsDt/ball1.txt" title "pallina 1","./graph/DsvsDt/ball2.txt" title "pallina 2","./graph/DsvsDt/ball3.txt" title "pallina 3","./graph/DsvsDt/ball4.txt" title "pallina 4","./graph/DsvsDt/ball5.txt" title "pallina 5","./graph/DsvsDt/ball6.txt" title "pallina 6","./graph/DsvsDt/ball7.txt" title "pallina 7","./graph/DsvsDt/ball8.txt" title "pallina 8",

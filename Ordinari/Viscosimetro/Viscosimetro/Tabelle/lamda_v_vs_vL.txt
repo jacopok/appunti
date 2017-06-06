@@ -1,0 +1,9 @@
+%in ordine crescente di diametro
+1&	0.00&	ottima  \\
+2&	0.00& 	ottima  \\
+3&	0.00&	ottima  \\
+4&	0.00& 	ottima	\\
+5&	0.71&	ottima \\
+6&	0.71&	ottima \\
+7&	2.12&	pessima \\
+8&	4.95&	incompatibilità \\

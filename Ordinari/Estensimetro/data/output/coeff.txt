@@ -1,0 +1,221 @@
+set terminal png
+set output "allung/graf/est1.png"
+set termopt enhanced
+a=0.0530516
+b=0.185741
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est1.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont1.png"
+a=-0.619847
+b=0.187403
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est1.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est2.png"
+set termopt enhanced
+a=-0.173123
+b=0.300592
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est2.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont2.png"
+a=0.021882
+b=0.300087
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est2.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est3.png"
+set termopt enhanced
+a=-0.132979
+b=0.193947
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est3.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont3.png"
+a=0.0250091
+b=0.192855
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est3.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est4.png"
+set termopt enhanced
+a=0.114271
+b=0.0904471
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est4.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont4.png"
+a=-0.464914
+b=0.0899994
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est4.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est5.png"
+set termopt enhanced
+a=-0.0535337
+b=0.134336
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est5.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont5.png"
+a=-0.116242
+b=0.134608
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est5.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est6.png"
+set termopt enhanced
+a=0.0285612
+b=0.155959
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est6.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont6.png"
+a=0.0364098
+b=0.155614
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est6.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est7.png"
+set termopt enhanced
+a=-0.00524034
+b=0.178536
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est7.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont7.png"
+a=-0.0574392
+b=0.178342
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est7.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est8.png"
+set termopt enhanced
+a=-0.12262
+b=0.223439
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est8.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont8.png"
+a=-0.136896
+b=0.223478
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est8.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est9.png"
+set termopt enhanced
+a=-0.0373147
+b=0.237759
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est9.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont9.png"
+a=-0.0164002
+b=0.238118
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est9.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est10.png"
+set termopt enhanced
+a=-0.223226
+b=0.320344
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est10.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont10.png"
+a=-0.165528
+b=0.319024
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est10.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est11.png"
+set termopt enhanced
+a=-0.156322
+b=0.180979
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est11.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont11.png"
+a=0.046402
+b=0.18057
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est11.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est12.png"
+set termopt enhanced
+a=-0.230906
+b=0.210387
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est12.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont12.png"
+a=-0.0246639
+b=0.210186
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est12.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "allung/graf/est13.png"
+set termopt enhanced
+a=0.202026
+b=0.25493
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'allung/est13.txt' title "punti sperimentali" with yerrorbars
+set terminal png
+set output "cont/graf/estcont13.png"
+a=0.473757
+b=0.254492
+f(x)=b*x+a
+set ylabel "Forza elastica [N]"
+set xlabel "Allungamento [10^{-5} m]"
+plot f(x) title "retta interpolante" , 'cont/est13.txt' title "punti sperimentali" with yerrorbars

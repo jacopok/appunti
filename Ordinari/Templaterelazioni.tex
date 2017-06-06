@@ -1,0 +1,186 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{textcomp}
+%% Language and font encodings
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage[caption = false]{subfig}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{comment}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+\lstset{%
+  basicstyle=\ttfamily,
+  breaklines=true,
+  columns=fullflexible
+}
+
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{siunitx}
+\sisetup{separate-uncertainty=true}
+
+\title{***}
+\author{Alberto Facheris, Tommaso Michelutti, Jacopo Tissino}
+
+\begin{document}
+\maketitle
+
+\section{Scopo dell'esperimento} %check
+
+\section{Apparato sperimentale} % Alberto
+
+\section{Metodo}
+
+\section{Analisi dati}
+
+
+
+\section{Discussione} % Jacopo
+
+\section{Conclusione} % Jacopo
+
+\appendix
+
+\clearpage
+
+
+\section{Formule utilizzate} % Jacopo
+
+Per un campione $x = \lbrace x_i \rbrace _{i = 1 \dots N}$, utilizziamo le seguenti formule:
+
+\begin{equation}
+\bar{x} = \frac{1}{N} \sum_{i=1}^N x_i
+\end{equation}
+
+\begin{equation}
+\sigma_x = \sqrt{\frac{\displaystyle \sum_{i=1}^N (x_i - \bar{x})^2}{N-1}}
+\end{equation}
+
+\begin{equation}
+\sigma_{\bar{x}} = \frac{\sigma_x}{\sqrt{N}}
+\end{equation}
+
+Per un campione di coppie $\lbrace (x_i, y_i) \rbrace _{i = 1 \dots N}$ possiamo trovare la retta di regressione $y = a + b x$ con le seguenti formule:
+
+\begin{equation}
+\Delta = 
+N \sum_{i=1}^N x_i^2
+-
+\left(
+\sum_{i=1}^N x_i
+\right) ^2
+\end{equation}
+
+\begin{equation}
+a = \Delta ^{-1} \left(
+\sum_{i=1}^N x_i^2
+\right)
+\left(
+\sum_{i=1}^N y_i
+\right)
+- \Delta ^{-1}
+\left(
+\sum_{i=1}^N x_i
+\right)
+\left(
+\sum_{i=1}^N x_i y_i
+\right)
+\end{equation}
+
+\begin{equation}
+b = N\Delta ^{-1}
+\left(
+\sum_{i=1}^N x_i y_i
+\right)
+- \Delta^{-1}
+\left(
+\sum_{i=1}^N x_i
+\right)
+\left(
+\sum_{i=1}^N y_i
+\right)
+\end{equation}
+
+L'errore a posteriori su $y$ $\sigma _y$ può essere calcolato come segue:
+
+\begin{equation}
+\sigma_y =
+\sqrt{\frac{ \displaystyle
+\sum_{i=1}^N \left( 
+a + b x_i - y_i
+\right)^2
+}{N-2}}
+\end{equation}
+
+Gli errori su $a$ e $b$ possono essere calcolati come segue, utilizzando come $\sigma_y$ l'errore misurato invece di quello a posteriori se possibile:
+
+\begin{equation}
+\sigma_a = \sigma_y \sqrt{\Delta ^{-1} \displaystyle \sum_{i=1}^N x_i^2 }
+\end{equation}
+
+\begin{equation}
+\sigma_b = \sigma_y \sqrt{N\Delta^{-1}}
+\end{equation}
+
+Per calcolare la propagazione dell'errore in una misura indiretta esprimibile come $f(x_1, x_2, \dots, x_n)$, con le $x_i$ indipendenti, utilizziamo la formula
+
+\begin{equation}
+\sigma_f = \sqrt{\sum_{i=1}^N \left( \sigma_{x_i} \frac{\partial f}{\partial x_i} \right)^2 }
+\end{equation}
+
+Per calcolare la media pesata $\langle x \rangle$ di una quantità $x$ di cui abbiamo diverse stime $\lbrace x_i \rbrace _{i=1 \dots N}$ con i relativi errori $\sigma_i$ utilizziamo la seguente formula:
+
+\begin{equation}
+\langle x \rangle = \frac{
+\displaystyle \sum_{i=1}^N \frac{x_i}{\sigma_i^2}
+}{ \displaystyle
+\sum_{i=1}^N \sigma_i ^{-2}
+}
+\end{equation}
+
+con il relativo errore della media
+
+\begin{equation}
+\sigma_{\langle x \rangle} = \left(
+\sum_{i=1}^N \sigma_i ^{-2}
+\right) ^{-\frac 12}
+\end{equation}
+
+Per calcolare il coefficiente di correlazione $r$ fra due set $(x_i)$ e $(y_i)$ utilizziamo la seguente formula:
+
+\begin{equation}
+r = \frac{\text{cov} (x, y)}{\sigma_x \sigma_y}
+\end{equation}
+
+e definiamo
+
+\begin{equation}
+T_n = \frac{r \sqrt{n-2}}{\sqrt{1-r^2}}
+\end{equation}
+
+\newpage
+
+\section{Grafici e tabelle complete dei dati} % Tommaso
+
+\section{Dati rilevati}
+
+\clearpage
+
+\section{Programma utilizzato per l'analisi dati} % Tommaso
+
+%\begin{lstlisting}[breaklines]
+%\end{lstlisting}
+
+\end{document}

@@ -83,27 +83,26 @@ int main() {
         file >> singlet.charge;
         alldata.push_back(singlet);
         }
-//   for (unsigned int i = 0; i<alldata.size(); ++i)
-//        cout << alldata[i].value << " " <<  alldata[i].position << " " <<  alldata[i].charge << endl;
-//   Check whether all the data is read properly
+    for (unsigned int i = 0; i<alldata.size(); ++i)
+        cout << alldata[i].position << ".0 & " << alldata[i].position + 20 << ".0 &  " << alldata[i].value << " \\\\" << endl;
+    //Check whether all the data is read properly
     char potentials[4] = {'s', 'n',  'c', 'g'};
     for (auto i : potentials){
         vector <singleposition> t = analyse(i);
-        //for (unsigned int i = 0; i<t.size(); i++)
-        //    cout << t[i].average << "   " << t[i].standarddev << endl;
+        for (unsigned int i = 0; i<t.size(); i++)
+            cout << t[i].average << "   " << t[i].standarddev << endl;
         vector <couple> to_regress;
         vector <singleposition> speeds = getspeed(t);
         for (unsigned int i = 0; i < 6; i++){
             couple h;
             h.x = (10 *i) + 50;
-            h.y = t[i].average;
+            h.y = speeds[i].average;
             to_regress.push_back(h);
-            //cout << " & " << (10*i)+40 << " & " << (10*i)+60  << " & " << fixed << setprecision(4) << t[i].average << " & " << setprecision(1) << speeds[i].average << " & " << setprecision(4) << t[i].standarddev << " & " << setprecision(1) << speeds[i].standarddev << " \\\\" << endl; 
+            cout << " & " << (10*i)+40 << " & " << (10*i)+60  << " & " << fixed << setprecision(4) << t[i].average << " & " << setprecision(1) << speeds[i].average << " & " << setprecision(4) << t[i].standarddev << " & " << setprecision(1) << speeds[i].standarddev << " \\\\" << endl; 
             cout << (10 * i) + 50 << " " << speeds[i].average << " " << speeds[i].standarddev << endl;
         }
         couple s = regression(to_regress);
-        cout <<  s.x << " + x * " << s.y << endl << "Error: " << regression_error(to_regress, s).x << " " << regression_error(to_regress, s).y << endl;
-        cout << endl;
+        cout << i << " & " << fixed << setprecision(3) << s.x << " & " << regression_error(to_regress, s).x << " & " << s.y << " & " << regression_error(to_regress, s).y << " \\\\" << endl;
     }
     int positions[] = {40, 50, 60, 70, 80, 90};
 

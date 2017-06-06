@@ -1,0 +1,2 @@
+s --> set di dati, tempi tratto delta s_i, [s], err 0.001 s
+d --> diametro pallina, [mm], err 0,010 mm

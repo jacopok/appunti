@@ -189,11 +189,78 @@ converge, e
 
 Una serie $\sum z_n$ si dice assolutamente convergente se converge la serie $\sum \abs{z_n}$. Se una serie è assolutamente convergente, allora è convergente, e vale $\abs{\sum z_n} \leq \sum \abs{z_n}$.
 
+\section{Riordinamenti}
+
+Data $\sum a_n$ a termini reali, e una biiezione $\sigma: \mathbb{N} \rightarrow \mathbb{N}$, definifiamo \emph{riordinamento} la serie $\sum a_{\sigma (n)}$.
+
+\begin{itemize}
+\item Se $\sum a_n$ è assolutamente convergente, $\sum a_n = \sum a_{\sigma (n)}$;
+\item se $\sum a_n$ è convergente ma assolutamente divergente, $\forall L \in \bar{\mathbb{R}}: \exists \sigma : \mathbb{N} \rightarrow \mathbb{N}: \sum a_{\sigma (n)} = L$.
+\end{itemize}
+
 \chapter{Integrali generalizzati}
 
-\chapter{Spazi metrici}
+Una funzione $f: [a, b) \rightarrow \mathbb{R}$, $\mathbb{R}$-integrabile in $[a, c]$ $\forall c \in [a, b)$, è integrabile in senso generalizzato se:
 
-\chapter{Serie di funzioni}
+\begin{equation}
+\lim_{c \rightarrow b^-} \int^{c}_{a} f(x) \, \text{d} x \in \mathbb{R}
+\end{equation}
+
+$f$ è integrabile in senso generalizzato in $(a, b)$ se lo è in $(a, k]$ e in $[k, b)$ per ogni $k \in (a, b)$. 
+
+\section{Criteri di convergenza}
+
+\paragraph{Esistenza del limite}
+
+Se $f: [a, b) \rightarrow \mathbb{R}$, $b \in \bar{\mathbb{R}}$, $f \geq 0$,
+
+\begin{equation}
+\exists \lim_{c \rightarrow b^-} \int^{c}_{a} f(x) \, \text{d} x
+\end{equation}
+
+\paragraph{Confronto}
+
+Se $f$ e $g$ sono $\mathbb{R}$-integrabili in $(a, c] \cup [c, b)$ $\forall c \in (a, b)$, allora se $0\leq f \leq g$, se $g$ è integrabile in senso generalizzato lo è anche $f$, e se $f$ non lo è non lo è neanche $g$.
+
+\paragraph{Confronto asintotico}
+
+Date $f, g: [a, b) \rightarrow \mathbb{R}$, $b \in \bar{\mathbb{R}}$, $\mathbb{R}$-integrabili in $(a, c] \cup [c, b)$ $\forall c \in (a, b)$, allora se $\exists \lim_{x\rightarrow b^{-}} f/g = \ell \in [0, +\infty]$:
+
+\begin{enumerate}
+\item se $\ell \in (0, +\infty)$ i due integrali hanno lo stesso carattere;
+\item se $\ell = 0$, $g$ converge $\implies f$ converge, $f$ diverge $\implies g$ diverge;
+\item se $\ell = +\infty$, $f$ converge $\implies g$ converge, $g$ diverge $\implies f$ diverge;
+\end{enumerate}
+
+\paragraph{Convergenza assoluta}
+
+Data $f: [a, +\infty) \rightarrow \mathbb{R}$, se $\abs{f}$ è integrabile in senso generalizzato allora lo è anche $f$, e 
+
+\begin{equation}
+\abs{\int^{+\infty}_{a} f (x) \, \text{d} x} \leq \int^{+\infty}_{a} \abs{f(x)} \, \text{d}x
+\end{equation}
+
+\paragraph{Serie e integrali}
+
+Se $f: [0, +\infty ) \rightarrow \mathbb{R}$ positiva e decrescente, allora
+
+\begin{equation}
+\int^{+\infty}_{0} f (x) \, \text{d} x \,\,\text{ e }\, \sum_{n=0}^\infty f(n) \text{ hanno lo stesso carattere.}
+\end{equation}
+
+Chiaramente, basta che la funzione sia definitivamente decrescente.
+
+\section{Integrali notevoli}
+
+Se $P(x) = x^2 -2px +q $ ha una o due radici reali, $\int_\mathbb{R} (P(x))^{-1} \, \text{d} x$ diverge. Altrimenti, ovvero se $q-p^2 > 0$, 
+
+\begin{equation}
+\int_{\mathbb{R}} \frac{1}{x^2 - 2px +q} \, \text{d}x = \frac{\pi}{\sqrt{q-p^2}}
+\end{equation}
+ 
+\chapter{Successioni e serie di funzioni}
+
+
 
 \chapter{Calcolo differenziale multivariato}
 

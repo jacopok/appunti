@@ -16,9 +16,17 @@
 \contentsline {paragraph}{Condensazione di Cauchy}{3}{section*.10}
 \contentsline {paragraph}{Leibniz}{3}{section*.11}
 \contentsline {paragraph}{Convergenza assoluta}{3}{section*.12}
+\contentsline {section}{\numberline {1.4}Riordinamenti}{3}{section.1.4}
 \contentsline {chapter}{\numberline {2}Integrali generalizzati}{4}{chapter.2}
-\contentsline {chapter}{\numberline {3}Spazi metrici}{5}{chapter.3}
-\contentsline {chapter}{\numberline {4}Serie di funzioni}{6}{chapter.4}
-\contentsline {chapter}{\numberline {5}Calcolo differenziale multivariato}{7}{chapter.5}
-\contentsline {chapter}{\numberline {6}Curve e 1-forme differenziali in $\mathbb {R}^n$}{8}{chapter.6}
-\contentsline {chapter}{\numberline {7}Invertibilit\IeC {\`a} locale e funzione implicita}{9}{chapter.7}
+\contentsline {section}{\numberline {2.1}Criteri di convergenza}{4}{section.2.1}
+\contentsline {paragraph}{Esistenza del limite}{4}{section*.13}
+\contentsline {paragraph}{Confronto}{4}{section*.14}
+\contentsline {paragraph}{Confronto asintotico}{4}{section*.15}
+\contentsline {paragraph}{Convergenza assoluta}{4}{section*.16}
+\contentsline {paragraph}{Serie e integrali}{5}{section*.17}
+\contentsline {section}{\numberline {2.2}Integrali notevoli}{5}{section.2.2}
+\contentsline {chapter}{\numberline {3}Spazi metrici}{6}{chapter.3}
+\contentsline {chapter}{\numberline {4}Serie di funzioni}{7}{chapter.4}
+\contentsline {chapter}{\numberline {5}Calcolo differenziale multivariato}{8}{chapter.5}
+\contentsline {chapter}{\numberline {6}Curve e 1-forme differenziali in $\mathbb {R}^n$}{9}{chapter.6}
+\contentsline {chapter}{\numberline {7}Invertibilit\IeC {\`a} locale e funzione implicita}{10}{chapter.7}

@@ -1,0 +1,3 @@
+set yzeroaxis linetype 3
+set xzeroaxis
+plot "input/rettaOP.txt" 

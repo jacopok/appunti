@@ -153,6 +153,103 @@ H_\Lambda^\tau (\sigma ) = - \frac 12 \sum_{\substack{x, y \in \Lambda \\ x \sim
 
 Consideriamo solo reticoli ``quadrati'': $\Lambda_n = \lbrace -n, \dots, n \rbrace ^d \subset \mathbb{Z}^d$. Poniamo $\tau = +1$.
 
+\section{Passeggiata aleatoria semplice unidimensionale}
+
+Dato $n \in \mathbb{N}$,  $S_n \in \mathbb{Z}$ è la posizione assunta al passo $n$. Le regole sono:
+
+\begin{enumerate}
+\item $S_0 = 0$;
+\item $S_n = k \implies S{n+1} \in \lbrace k+1, k-1 \rbrace$.
+\end{enumerate}
+
+$\mathbb{P} (S_{n+1} = k+1 | S_n = k) := p$. La passeggiata aleatoria, quindi, è la successione $(S_n)_{n\in \mathbb{N}}$. Se $p=1/2$, la passeggiata è simmetrica.
+
+Possiamo trovare una biiezione fra le $(S_n)_{n \in \mathbb{N}}$ e le successioni $(X_n)_{n \in \mathbb{N}}$, con $X_i$ iid e tali che $\mathbb{P}(X_k = 1) = p$, $\mathbb{P}(X_k = -1) = 1-p$:
+
+\begin{equation}
+S_n = \sum_{i=1}^n X_i
+\end{equation}
+
+Sia $\Omega = \lbrace -1, +1 \rbrace ^\mathbb{N}$ l'insieme delle possibili successioni $( X_n )_{n\in \mathbb{N}}$. La nostra probabilità $\mathbb{P}$ tiene conto di tutte queste. Possiamo, chiaramente, calcolarla anche per un certo evento $A_n$ dipendente dalle $(X_i)_{i=1\dots n}$.
+
+Troviamo quindi alcuni valori:
+
+\begin{equation}
+\mathbb{E}(S_n) = n (2p -1)
+\end{equation}
+
+\begin{equation}
+\text{var} S_n = 4pn (1-p) = \sigma^2
+\end{equation}
+
+\subsection{Legge di $S_n$}
+
+Vogliamo trovare $\mathbb{P}(S_n = j)$. Chiamiamo $n_+$ il numero di $k$ per cui $X_k=1$, e $n_- = n - n_+$. Quindi $\lbrace S_n = j \rbrace = \lbrace n_+ = (j+n)/2 \rbrace $.
+
+Dunque $(j+n)/2 \notin \mathbb{N} \implies \mathbb{P}(S_n = j) = 0$.
+
+\begin{equation}
+\mathbb{P} (S_n = j) = {n \choose \frac{n+j}{2} } p^{\frac{n+j}{2}} (1-p) ^{\frac{n-j}{2}}
+\end{equation}
+
+\subsection{Transienza}
+
+\begin{equation}
+R = \lim_{n \rightarrow \infty} \mathbb{P} (\exists k \in \mathbb{N} \smallsetminus \lbrace 0 \rbrace, k \leq n : S_k = 0 )
+\end{equation}
+
+Il limite esiste ed è $\leq 1$. Dimostriamo che $p = 1/2 \iff R=1$.
+
+$u_{2n} = \mathbb{P} (S_{2n} = 0)$ e $f_{2n} = \mathbb{P}(S_{2n} = 0, \forall k < 2n : S_k \neq 0 )$.
+
+Dimostriamo che
+
+\begin{equation}
+R_{2n} = \sum_{k=0}^{n} f_{2k}
+\end{equation}
+
+\subsubsection{Lemma 1}
+
+\begin{equation}
+\sum_{r=1}^\infty f_{2r} = 1 \iff \sum_{n=0}^\infty u_{2n} = + \infty
+\end{equation}
+
+Primo passo:
+
+\begin{equation}
+u_{2n} = \sum_{k=1}^n f_{2k} u_{2(n-k)}
+\end{equation}
+
+\begin{equation}
+\sum_{n=0}^\infty u_{2n} = 1 + \sum_{n=1}^\infty \sum_{k=1}^n f_{2k} u_{2(n-k)} = 1 + \sum_{k=1}^\infty f_{2k} \sum_{m=0}^\infty u_{2m}
+\end{equation}
+
+\begin{equation}
+\sum_{n=0}^\infty u_{2n} = \frac{1}{1-\sum_{n=1}^\infty f_{2n}}
+\end{equation}
+
+Ovvero
+
+\begin{equation}
+\sum_{n=0}^\infty u_{2n} = + \infty \iff \sum_{k=1}^\infty f_{2k} = 1
+\end{equation}
+
+Quindi ci basta studiare la somma degli $u_{2n}$. Se $p=1/2$:
+
+\begin{equation}
+u_{2n} = {2n \choose n} \frac{1}{2^{2n}} = \frac{1+ o(1)}{\sqrt{\pi n}}
+\end{equation}
+
+Quindi la passeggiata è ricorrente. Se invece $p \neq 1/2$:
+
+\begin{equation}
+u_{2n} = {2n \choose n} p^{n} (1-p)^{n} = \frac{(4p (1-p))^n (1+o(1))}{\sqrt{\pi n}}
+\end{equation}
+
+Che converge, in quanto $4p (1-p)<1$.
+
+La probabilità che $S_{2n} = 0$ per infiniti $n$ è 1 sse $\sum_{i=1}^\infty f_{2i} =1$
+
 \tableofcontents
 
 \end{document}

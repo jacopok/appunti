@@ -1,0 +1,6 @@
+f(x)=a*x+b
+g(x)=c*x+d
+fit f(x) "input/rettaO.txt" via a,b
+fit g(x) "input/rettaP.txt" via c,d
+plot f(x),g(x)
+

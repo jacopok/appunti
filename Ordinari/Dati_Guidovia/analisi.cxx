@@ -29,6 +29,7 @@ using namespace std;
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <iomanip>
 
 struct datum {
     double value;
@@ -76,8 +77,8 @@ int main()
         file >> singlet.charge;
         alldata.push_back(singlet);
         }
-//   for (unsigned int i = 0; i<alldata.size(); ++i)
-//        cout << alldata[i].value << " " <<  alldata[i].position << " " <<  alldata[i].primes << " " <<  alldata[i].charge << endl;
+   for (unsigned int i = 0; i<alldata.size(); ++i)
+        cout << "40.0" << " & " << fixed << setprecision(1) << double(alldata[i].position)  << " &  " << setprecision(4) << alldata[i].value << " \\\\" << endl;
 //   Check whether all the data is read properly
     vector <singleposition> set15 = analyse(15, 's');
     vector <singleposition> set30 = analyse(30, 's');
